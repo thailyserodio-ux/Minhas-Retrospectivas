@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Retrospectiva ROPRE — MaidPad — Q2/2026</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;color:#1a1a1a;line-height:1.45;max-width:960px;margin:24px auto;padding:0 16px;}
+  h1{font-size:22px;margin:0 0 2px;}
+  h2{background:#e30613;color:#fff;padding:6px 10px;font-size:15px;margin:26px 0 10px;}
+  h3{font-size:13px;margin:16px 0 6px;color:#e30613;text-transform:uppercase;letter-spacing:.3px;}
+  table{border-collapse:collapse;width:100%;font-size:12px;margin:8px 0;}
+  th,td{border:1px solid #ccc;padding:5px 7px;text-align:left;}
+  th{background:#f2f2f2;} td.n,th.n{text-align:right;}
+  th.q,td.q{background:#fafafa;font-weight:bold;}
+  .meta{font-size:11px;color:#666;border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:6px 0;margin:6px 0 4px;}
+  .ok{color:#127a2e;font-weight:bold;} .bad{color:#c0140c;font-weight:bold;}
+  .warn{color:#b26000;font-weight:bold;}
+  .slot{background:#fff7d6;border:1px dashed #d9a800;padding:8px 10px;font-size:12px;margin:6px 0;}
+  .prov{color:#888;font-size:10px;}
+  .note{background:#eef3fb;border-left:4px solid #2f6fd1;padding:8px 10px;font-size:12px;margin:10px 0;}
+  .alert{background:#fff0f0;border-left:4px solid #e30613;padding:8px 10px;font-size:12px;margin:10px 0;}
+  ul{margin:4px 0 8px 18px;padding:0;} li{margin:2px 0;}
+  .type-header{background:#222;color:#fff;font-weight:bold;font-size:11px;padding:4px 7px;}
+</style>
+</head>
+<body>
+
+<h1>Retrospectiva ROPRE — MaidPad</h1>
+<div class="meta">
+  Fontes: <b>Growth Pack (aba mensal, gid=617612824) + Backup de Leads + Ekyte + Cockpit + BigQuery Calls</b> · projectDocumentId=<b>gy16eb0cq4nhs5rz8xa199r8</b> (ticker MAID) · plataformas=Meta Ads + Google Ads (a partir de mai/26) · período=<b>Q2/2026 (abr–jun, fechado, mensal + total)</b> · provider=local-csv + cockpit
+</div>
+
+<div class="alert">
+  ⚠ <b>Modelo de negócio diferente dos demais clientes do squad: B2B SaaS</b> (não Inside Sales tradicional). MaidPad é uma plataforma de gestão para empresas de limpeza nos EUA. Funil real: <b>Lead (form) → Cadastro/Trial 30 dias (= MQL no Cockpit) → Conversão para plano pago (Basic $30/mês ou Premium $50/mês)</b>. O Growth Pack está estruturado para o funil clássico Lead→MQL→SQL→Venda e por isso mostra MQL/SQL/Vendas zerados o tempo todo — não é falha de captação, é desalinhamento de modelo de dados.<br>
+  ⚠ <b>Sem aba de Breakeven tradicional</b> nesta planilha (só controle de budget diário) — não há comparação Projetado × Realizado nesta retrospectiva.
+</div>
+
+<!-- ===== SEÇÃO 1 ===== -->
+<h2>1. Visão Geral do Projeto</h2>
+<table>
+  <tr><th>Cliente</th><td>MaidPad</td><th>Squad / Coord</th><td>Invictus · Thaily Serodio</td></tr>
+  <tr><th>Modelo de negócio</th><td>B2B SaaS · EUA <span class="prov">[Cockpit + Backup de Leads]</span></td><th>Segmento</th><td>Software de gestão para empresas de limpeza residencial (clientes, agenda, orçamento, fatura)</td></tr>
+  <tr><th>Fee mensal</th><td>R$6.990,00 <span class="prov">[Cockpit]</span></td><th>Planos</th><td>Basic $30/mês · Premium $50/mês <span class="prov">[material do cliente]</span></td></tr>
+  <tr><th>Flag / HS</th><td class="bad">🔴 Critical · HS 12.7 <span class="prov">[Cockpit 28/06]</span></td><th>LT</th><td>22 meses <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Critério MQL</th><td colspan="3">Cadastro grátis de 30 dias (trial) <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Stakeholder principal</th><td colspan="3">Cyro Muniz — founder (cyro@maidpad.com) <span class="prov">[BigQuery Calls]</span></td></tr>
+  <tr><th>Equipe</th><td colspan="3">PM: Rafael Clarindo Reis · Coord: Ueliton Pereira · AM: Thaily Serodio · Paid Media: Matheus Alencar · Designer: Yuri Araujo · Copy: Felipe Pinheiro · Social Media: Maiara Trevizan <span class="prov">[Cockpit]</span></td></tr>
+</table>
+
+<!-- ===== SEÇÃO 2 ===== -->
+<h2>2. Resultado do Quarter — Funil Q2/2026</h2>
+
+<h3>Funil mensal — Realizado <span class="prov">[Growth Pack mensal]</span></h3>
+<table>
+  <tr><th>Métrica</th><th class="n">Abr/26</th><th class="n">Mai/26</th><th class="n">Jun/26</th><th class="n q">Total Q2</th></tr>
+  <tr><td>Investimento</td><td class="n">R$1.225,31</td><td class="n">R$1.265,83</td><td class="n">R$1.345,92</td><td class="n q">R$3.837,06</td></tr>
+  <tr><td>Impressões</td><td class="n">39.089</td><td class="n">46.972</td><td class="n">40.982</td><td class="n q">127.043</td></tr>
+  <tr><td>Cliques</td><td class="n">628</td><td class="n">832</td><td class="n">464</td><td class="n q">1.924</td></tr>
+  <tr><td>Leads (form de anúncio)</td><td class="n ok">33</td><td class="n">21</td><td class="n bad">16</td><td class="n q">70</td></tr>
+  <tr><td>CPL</td><td class="n ok">R$37,13</td><td class="n warn">R$60,28</td><td class="n bad">R$84,12</td><td class="n q bad">~R$54,81</td></tr>
+  <tr><td>CPC</td><td class="n ok">R$1,95</td><td class="n">R$1,52</td><td class="n bad">R$2,90</td><td class="n q">—</td></tr>
+</table>
+
+<h3>Funil real (cadastro → plano pago) <span class="prov">[Backup de Leads]</span></h3>
+<table>
+  <tr><th>Etapa</th><th class="n">Abr/26</th><th class="n">Mai/26</th><th class="n">Jun/26</th><th class="n q">Total Q2</th></tr>
+  <tr><td>Cadastros completos (MQL = trial 30d)</td><td class="n">20</td><td class="n">13</td><td class="n">11</td><td class="n q">44</td></tr>
+  <tr><td>Conversão para plano pago (Venda)</td><td class="n">0</td><td class="n">0</td><td class="n ok">6</td><td class="n q">6</td></tr>
+  <tr><td>· Basic ($30/mês)</td><td class="n">—</td><td class="n">—</td><td class="n">3</td><td class="n q">3</td></tr>
+  <tr><td>· Premium ($50/mês)</td><td class="n">—</td><td class="n">—</td><td class="n">3</td><td class="n q">3</td></tr>
+  <tr><td>MRR novo gerado</td><td class="n">$0</td><td class="n">$0</td><td class="n ok">$240</td><td class="n q ok">$240/mês</td></tr>
+</table>
+
+<div class="alert">
+  ⚠ <b>Divergência de leads entre fontes:</b> Growth Pack registra 70 leads no Q2 (a partir do form do anúncio); o Backup de Leads (CRM/planilha de cadastro) mostra 44 cadastros completos no mesmo período — 37% a menos. Diferença esperada para SaaS (nem todo clique no anúncio completa o cadastro/onboarding na plataforma), mas vale validar se não há perda de tracking entre o formulário e o registro do trial.
+</div>
+
+<div class="note">
+  <b>Leitura do quarter:</b> Volume de leads caiu seguido mês a mês (33→21→16, -52% de abril a junho) com CPL subindo de forma constante (R$37→R$60→R$84, +127%). Cadastros completos também caíram (20→13→11). As <b>6 primeiras conversões para plano pago do quarter aconteceram todas em junho</b> — apesar do pior mês em volume de topo de funil, foi o único mês com receita nova. Isso sugere que as conversões de junho vieram de cadastros acumulados de meses anteriores (ciclo de trial de 30 dias), não do volume gerado no próprio mês — herança de abril/maio amadurecendo. MRR novo gerado no quarter: <b>$240/mês</b> (3 Basic + 3 Premium).
+</div>
+
+<h3>Histórico anterior ao quarter (contexto) <span class="prov">[Cliente — 3 conversões confirmadas, fora do Q2]</span></h3>
+<table>
+  <tr><th>Empresa</th><th>Data conversão</th><th>Canal</th><th>Plano</th></tr>
+  <tr><td>Home Glow Cleaning</td><td>01/03/2026 (Q1)</td><td>Meta Instagram Reels</td><td class="slot">não registrado</td></tr>
+  <tr><td>Armani Cleaning</td><td>19/03/2026 (Q1)</td><td>Meta Instagram Stories</td><td class="slot">não registrado</td></tr>
+  <tr><td>Mendes Home Services LLC</td><td>31/03/2026 (Q1)</td><td>Meta</td><td class="slot">não registrado</td></tr>
+</table>
+<p style="font-size:11px;color:#888;">As 3 conversões acima foram confirmadas pelo cliente recentemente e batem com o Backup de Leads, mas a data de entrada (lead) é de março — fora do Q2. Mantidas aqui só como contexto histórico do produto, não contam no funil do trimestre.</p>
+
+<!-- ===== SEÇÃO 3 ===== -->
+<h2>3. Investimentos e Resultados por Canal — Q2/2026</h2>
+
+<div class="note">Até maio, 100% do investimento era Meta Ads. Google Ads foi aprovado e lançado em maio (decisão da call de 07/05: alocar 30% do orçamento para teste de 3 meses), mas o Growth Pack mensal ainda não tem o breakdown por canal granular para Q2 — só o agregado da Seção 2. <span class="prov">[BigQuery Call 07/05 + Ekyte]</span></div>
+
+<div class="slot">⚠ SLOT: breakdown Meta vs Google por mês — fonte NEKT não testada para este projeto nesta sessão; Growth Pack mensal consultado não tem as linhas de canal preenchidas para abr-jun (diferente do padrão de outros clientes). Recomenda-se puxar direto do Meta Ads Manager e Google Ads para a reunião.</div>
+
+<!-- ===== SEÇÃO 4 ===== -->
+<h2>4. O que deu certo / O que não deu certo — Q2/2026</h2>
+
+<h3>✅ O que deu certo no Q2</h3>
+<ul>
+  <li><b>Primeiras 6 conversões para plano pago do quarter</b>, gerando $240 de MRR novo — prova de que o funil cadastro→pagamento funciona <span class="prov">[Backup de Leads]</span></li>
+  <li><b>Problema de duplicação de leads no Meta Ads resolvido</b> via implementação de Web Hook — confirmado em duas calls (07/05 e 20/05) <span class="prov">[BigQuery Calls]</span></li>
+  <li><b>Google Ads aprovado e lançado</b> como novo canal, com teste estruturado de 3 meses e 30% do orçamento alocado <span class="prov">[BigQuery Call 07/05 + Ekyte]</span></li>
+  <li><b>Vídeos de checklist identificados como melhor formato</b> de criativo — direção clara para produção de conteúdo <span class="prov">[BigQuery Call 07/05]</span></li>
+  <li><b>Novo site em desenvolvimento</b>: Design System, Header/Footer, páginas Home/Pricing/Sign Up/Partners/Features entregues no quarter <span class="prov">[Ekyte]</span></li>
+  <li><b>Nova gestora de redes sociais apresentada ao cliente</b> em maio — reforço de equipe <span class="prov">[BigQuery Call 20/05]</span></li>
+  <li><b>Cliente engajado e colaborativo</b> nas calls — sugeriu palavras-chave para Google Ads, reportou leads ativamente <span class="prov">[BigQuery Call 07/05]</span></li>
+</ul>
+
+<h3>❌ O que não deu certo no Q2</h3>
+<ul>
+  <li><b>Volume de leads caiu 52% de abril para junho</b> (33→16) com CPL subindo 127% (R$37→R$84) — maior problema do trimestre <span class="prov">[Growth Pack mensal]</span></li>
+  <li><b>Zero conversões pagas em abril e maio</b> — só converteu em junho, e olhando o ciclo de trial (30 dias), isso é resultado tardio de cadastros antigos, não geração nova <span class="prov">[Backup de Leads]</span></li>
+  <li><b>Taxa de conversão cadastro→pago extremamente baixa</b>: 6 de 44 cadastros do quarter (13,6%), mas mesmo essa taxa é otimista porque as 6 conversões provavelmente não vieram dos 44 cadastros do próprio quarter <span class="prov">[Backup de Leads]</span></li>
+  <li><b>Problema de tracking recorrente o quarter inteiro</b>: 7 tasks de TRK distintas (resolver trackeamento, criar novo pixel, verificar conversões Google, investigar automação, resolver com Robson) — sinal de instabilidade técnica persistente <span class="prov">[Ekyte]</span></li>
+  <li><b>Health Score Critical (12.7)</b> — o mais baixo entre os clientes do squad nesta leitura <span class="prov">[Cockpit]</span></li>
+  <li><b>Sem visibilidade de canal (Meta vs Google) no Growth Pack mensal</b> — dificulta avaliar se a aposta em Google Ads está performando <span class="prov">[Growth Pack]</span></li>
+  <li><b>Lead do dia 18/05 não marcou conversão corretamente</b> — task aberta para investigar, sinal de que o problema de mensuração não foi 100% resolvido mesmo após o webhook <span class="prov">[Ekyte]</span></li>
+</ul>
+
+<!-- ===== SEÇÃO 5 ===== -->
+<h2>5. Criativo / Comunicação — Q2/2026</h2>
+<div class="slot">⚠ SLOT: ranking de criativos por performance — requer NEKT por anúncio, não consultado nesta sessão.</div>
+
+<h3>Criativos e conteúdo produzidos no Q2 <span class="prov">[Ekyte]</span></h3>
+<table>
+  <tr><th>Entrega</th><th>Formato</th><th>Mês</th></tr>
+  <tr><td>Novos Ads</td><td>Criativo Ads</td><td>Abr</td></tr>
+  <tr><td>Criativo Ads com base nos melhores</td><td>Criativo Ads</td><td>Abr</td></tr>
+  <tr><td>Motion Meme POV</td><td>Motion</td><td>Mai</td></tr>
+  <tr><td>Vídeo Social Media (x2)</td><td>Edição de Vídeo</td><td>Mai/Jun</td></tr>
+  <tr><td>Vídeo para anúncio</td><td>Edição de Vídeo</td><td>Mai</td></tr>
+  <tr><td>Criativo Ads</td><td>Criativo Ads</td><td>Mai</td></tr>
+  <tr><td>Vídeo 01/06, Vídeo 08/06</td><td>Edição de Vídeo</td><td>Jun</td></tr>
+  <tr><td>Isolar Criativos Campeões — "tomar conta do negócio" e depoimentos [IA]</td><td>Análise de Criativo</td><td>Jun</td></tr>
+  <tr><td>Vídeos/motions para anúncios</td><td>Edição de Vídeo / Criativo Ads</td><td>Jun</td></tr>
+  <tr><td>Solicitar Vídeos de Navegação Interna do App [IA]</td><td>Vídeo (produto)</td><td>Jun</td></tr>
+</table>
+<p>Direção validada por dados: <b>vídeos de checklist</b> são o formato de melhor desempenho identificado na call de 07/05.</p>
+<div class="slot">⚠ SLOT: copy vencedora e preview de criativo — não disponível via MCP nesta sessão.</div>
+
+<!-- ===== SEÇÃO 6 ===== -->
+<h2>6. Gestão de Projetos / Entregas — Q2/2026</h2>
+
+<h3>Resumo por tipo <span class="prov">[Ekyte · workspace 78417 · concluídas Q2/2026]</span></h3>
+<table>
+  <tr><th>Tipo</th><th class="n">Qtd</th><th class="n">% do total</th><th>Exemplo representativo</th></tr>
+  <tr><td>Dev UX/UI (novo site)</td><td class="n">9</td><td class="n">13,0%</td><td>Design System, páginas Home/Pricing/Sign Up/Partners/Features</td></tr>
+  <tr><td>OTM — Otimização de Campanhas</td><td class="n">9</td><td class="n">13,0%</td><td>Otimização de seguidores, subir campanhas Google, criar novo pixel</td></tr>
+  <tr><td>TRK — Traqueamento</td><td class="n">7</td><td class="n">10,1%</td><td>Resolver trackeamento (x4), verificar conversões Google, automação leads</td></tr>
+  <tr><td>EV — Edição de Vídeo</td><td class="n">6</td><td class="n">8,7%</td><td>Vídeo Social Media, vídeos semanais de junho</td></tr>
+  <tr><td>Sprint Planning (sem tag de tipo)</td><td class="n">5</td><td class="n">7,2%</td><td>Campanhas de App, auditoria deduplicação, análise de regiões EUA</td></tr>
+  <tr><td>PA — Pauta Social Media</td><td class="n">4</td><td class="n">5,8%</td><td>Pauta Abril, Maio, Junho, Julho</td></tr>
+  <tr><td>CA — Criativo Ads</td><td class="n">4</td><td class="n">5,8%</td><td>Novos Ads, criativo ads com base nos melhores</td></tr>
+  <tr><td>PC — Planejamento de Campanhas</td><td class="n">3</td><td class="n">4,3%</td><td>Publicar campanha nova, campanha no Google</td></tr>
+  <tr><td>AN — Análise</td><td class="n">3</td><td class="n">4,3%</td><td>Nova estrutura Google, otimização diária, viabilidade campanhas App</td></tr>
+  <tr><td>Homologação/Outros (site)</td><td class="n">4</td><td class="n">5,8%</td><td>Teste de usabilidade, aprovação cliente, ajustes, tradução</td></tr>
+  <tr><td>PPT / REL / GP / SM / MT / WPP / EKT</td><td class="n">10</td><td class="n">14,5%</td><td>ROPRE Abril, Growthpack, Posts, Motion, Régua WPP</td></tr>
+  <tr><td><b>TOTAL</b></td><td class="n"><b>69</b></td><td class="n"><b>100%</b></td><td></td></tr>
+</table>
+
+<div class="alert">
+  ⚠ <b>TRK (Traqueamento) é o terceiro maior bloco de entregas do quarter (10%)</b> — 7 tasks distintas tentando resolver o mesmo problema de fundo (duplicação/perda de conversões). Mesmo com o webhook implementado em maio, ainda apareceu um caso de lead não rastreado em 20/05 e uma nova task de "resolver traqueamento com o Robson" em junho. Vale entender na reunião se esse é um problema estrutural (integração da plataforma do cliente) ou de configuração V4.
+</div>
+
+<!-- ===== SEÇÃO 7 ===== -->
+<h2>7. Cliente — Q2/2026</h2>
+
+<h3>7a. Síntese de sentimento no quarter <span class="prov">[IA · BigQuery Calls]</span></h3>
+<p>3 calls com transcrição no quarter, todas concentradas em maio (07/05, 15/05, 20/05) — sem registro de call em abril ou junho no BigQuery. Tom geral <b>colaborativo e técnico</b>: as pautas giram em torno de resolver tracking, aprovar Google Ads e desenvolver o novo site, sem sinais de tensão nos resumos. O founder (Cyro) participa ativamente, propõe ações (sugerir keywords) e recebe tarefas de acompanhamento — perfil de cliente engajado, não passivo.</p>
+<p class="note" style="font-size:11px">Neutro — baseado em resumo automático de IA das calls (Gemini Notes), não em transcrição literal com speaker isolado por linha.</p>
+
+<h3>7b. O que o CLIENTE disse <span class="prov">[resumo de call — speaker não isolado]</span></h3>
+<div class="slot">⚠ SLOT: resumos automáticos não isolam speaker por linha — não é possível confirmar com segurança o que foi dito pelo cliente vs pelo time V4. Próximas etapas da call de 07/05 indicam que Cyro (cliente) se comprometeu a "reportar leads ou problemas de mensuração" e "sugerir termos e palavras-chave adicionais" — ação dele, mas não é citação direta.</div>
+
+<h3>7c. Conquistas do quarter (time V4) <span class="prov">[dados objetivos]</span></h3>
+<ul>
+  <li>Resolução do problema de duplicação de leads via implementação de Web Hook (Meta Ads) <span class="prov">[BigQuery Calls 07/05, 20/05]</span></li>
+  <li>Aprovação e lançamento de Google Ads como novo canal, com 30% do orçamento e teste estruturado de 3 meses <span class="prov">[BigQuery Call 07/05 + Ekyte]</span></li>
+  <li>6 primeiras conversões para plano pago do produto registradas no quarter, gerando $240 MRR novo <span class="prov">[Backup de Leads]</span></li>
+  <li>Identificação de vídeos de checklist como formato de criativo de melhor desempenho <span class="prov">[BigQuery Call 07/05]</span></li>
+  <li>Avanço relevante no desenvolvimento do novo site (Design System, 5 páginas principais) <span class="prov">[Ekyte]</span></li>
+  <li>69 entregas realizadas no quarter <span class="prov">[Ekyte]</span></li>
+</ul>
+<p><b>Na call (time V4)</b></p>
+<div class="slot">⚠ SLOT: resumo automático não isola falas por speaker.</div>
+
+<h3>7d. Apoio quantitativo <span class="prov">[Cockpit]</span></h3>
+<div class="slot">⚠ SLOT: CSAT/NPS não preenchido no Cockpit para este projeto.</div>
+
+<!-- ===== SEÇÃO 8 ===== -->
+<h2>8. Aprendizados &amp; Ações — por integrante</h2>
+<p style="font-size:12px;color:#555;">Problemas pré-preenchidos pelos dados do quarter. <b>Soluções/Ações = preencher na reunião.</b></p>
+
+<table>
+  <tr><th style="width:50%;">Problemas (auto)</th><th>Soluções / Ações (time)</th></tr>
+
+  <!-- PAID MEDIA -->
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Paid Media Specialist</b></td></tr>
+  <tr>
+    <td>Volume de leads caiu 52% no quarter (33→16) com CPL subindo 127% (R$37→R$84) — Meta Ads parece estar saturando. <span class="prov">[Growth Pack mensal]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Sem visibilidade de performance por canal (Meta vs Google) no Growth Pack mensal — difícil avaliar se a aposta em Google Ads (30% do budget desde maio) está compensando. <span class="prov">[Growth Pack]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Lead do dia 18/05 não marcou conversão corretamente mesmo após implementação do webhook — possível falha residual de tracking. <span class="prov">[Ekyte]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+
+  <!-- CRM / PRODUTO -->
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>AM / Growth (funil produto)</b></td></tr>
+  <tr>
+    <td>Taxa de conversão cadastro→plano pago muito baixa no quarter (6 de 44 cadastros, e mesmo essas 6 provavelmente vieram de cadastros de meses anteriores via ciclo de trial de 30 dias). <span class="prov">[Backup de Leads]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Problema de tracking persistente o quarter inteiro — 7 tasks distintas de TRK, incluindo uma nova aberta em junho ("resolver traqueamento com o Robson"). Pode estar mascarando o volume real de conversões. <span class="prov">[Ekyte]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Divergência de 37% entre leads do Growth Pack (70) e cadastros completos no Backup (44) — vale mapear onde esse volume se perde no funil de onboarding. <span class="prov">[divergência identificada]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+
+  <!-- COORDENADOR -->
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Coordenadora — Thaily Serodio</b></td></tr>
+  <tr>
+    <td>Health Score Critical (12.7) — o mais baixo do squad nesta leitura. Apesar disso, as calls não mostram sinais de insatisfação do cliente — vale entender se o HS reflete resultado de negócio (MRR baixo) e não relação com o cliente. <span class="prov">[Cockpit + BigQuery Calls]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Sem aba de Breakeven tradicional para este cliente — falta uma meta clara de Projetado × Realizado para o funil SaaS (cadastros, conversões, MRR). Vale propor um modelo de breakeven adaptado ao modelo de negócio. <span class="prov">[planilha consultada]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Sem call registrada em abril e junho no BigQuery — confirmar se houve reuniões nesses meses e por que não foram transcritas/integradas. <span class="prov">[BigQuery Calls — gap]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+</table>
+
+<hr style="margin-top:32px;">
+<p style="font-size:10px;color:#aaa;">Gerado em: 2026-06-30 · skill: cs-retrospectiva-ropre-quarter v1.1.3 · fontes: Growth Pack (planilha oficial, abas semanal + mensal), Backup de Leads CSV, Ekyte MCP (workspace 78417), Cockpit (documentId gy16eb0cq4nhs5rz8xa199r8), BigQuery Calls · NEKT: não consultado nesta sessão · Breakeven: não existe para este cliente (modelo SaaS)</p>
+
+</body>
+</html>
