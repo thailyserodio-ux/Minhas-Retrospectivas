@@ -349,11 +349,12 @@
 <!-- ===== SEÇÃO 7 ===== -->
 <h2>7. Cliente — Q2/2026</h2>
 
-<h3>7a. Síntese de sentimento no quarter <span class="prov">[IA · BigQuery Calls + WhatsApp]</span></h3>
-<div class="slot">⚠ SLOT: BigQuery Calls não conectado — síntese de sentimento indisponível. Preencher manualmente com percepção das calls de acompanhamento quinzenal de Abril, Maio e Junho.</div>
+<h3>7a. Síntese de sentimento no quarter <span class="prov">[IA · BigQuery Calls]</span></h3>
+<p>Apenas 2 calls com transcrição disponível no BigQuery para o quarter, ambas "Acompanhamento Comercial" (29/04 e 24/06) — abaixo do volume esperado de reuniões do trimestre (Ekyte registra 4 Acompanhamentos Comerciais + 3 Check-ins Quinzenais; só 2 têm transcrição no BigQuery). Tom geral nas duas calls é <b>operacional e colaborativo</b>, sem sinais de insatisfação na transcrição — pauta concentrada em revisão de leads/funil e ajuste de estratégia, não em reclamação. Entre abril e junho houve uma mudança de foco perceptível: a call de abril tratava de otimização de tracking e qualidade de fornecedor de mídia; a de junho já trata de mudança estratégica de Insulation para Painting por queda de demanda — sinal de que o cliente está engajado e participando ativamente do redirecionamento estratégico, não apenas recebendo relatório.</p>
+<p class="note" style="font-size:11px">Neutro — baseado em resumo automático de IA das calls (Gemini Notes), não em transcrição literal com speaker isolado por linha.</p>
 
-<h3>7b. O que o CLIENTE disse <span class="prov">[só speaker cliente · BigQuery]</span></h3>
-<div class="slot">⚠ SLOT: transcrições de calls não disponíveis via BigQuery. Preencher com anotações das reuniões de acompanhamento comercial (04 reuniões no quarter: 02/04, 16/04, 14/05, 11/06) e check-ins quinzenais (14/04, 07/05, 18/06).</div>
+<h3>7b. O que o CLIENTE disse <span class="prov">[resumo de call — speaker não isolado]</span></h3>
+<div class="slot">⚠ SLOT: as 2 calls disponíveis no BigQuery só trazem resumo automático (IA), sem transcrição literal com speaker marcado por linha — não é possível isolar com segurança o que foi dito pelo cliente vs pelo time V4. Por regra da skill, não fabricar verbatim sem confirmar o speaker. Preencher na reunião com observação direta de quem participou das calls de 29/04 e 24/06.</div>
 <p><b>Elogios / satisfação</b></p>
 <ul><li class="slot">⚠ Preencher na reunião</li></ul>
 <p><b>Pontos de atenção / pedidos</b></p>
@@ -372,12 +373,19 @@
   <li>Campanha Lista de Espera Insulation (Pre-Listing) criada com IA — estratégia nova de aquecimento <span class="prov">[Ekyte]</span></li>
   <li>Microsoft Clarity instalado — rastreamento comportamental da LP <span class="prov">[Ekyte]</span></li>
   <li>63 entregas realizadas no quarter (criativos, vídeos, pautas, otimizações, análises) <span class="prov">[Ekyte]</span></li>
+  <li>Migração de orçamento de fornecedor de mídia de baixa qualidade para gestão V4, após validação de performance superior em abril <span class="prov">[Call 29/04]</span></li>
+  <li>Implementação de reCAPTCHA nas campanhas para eliminar bots e corrigir falhas de rastreamento de leads <span class="prov">[Call 29/04]</span></li>
+  <li>Fechamento de contratos com Stephen Kif e Team Hogan confirmado na call de junho; Crystal Santoso em fase final, aguardando ajuste de cronograma <span class="prov">[Call 24/06]</span></li>
 </ul>
 <p><b>Na call (time V4)</b></p>
-<div class="slot">⚠ SLOT: verbatim da equipe V4 nas calls — BigQuery indisponível. Preencher na reunião.</div>
+<div class="slot">⚠ SLOT: resumo automático não isola falas por speaker — não é possível citar verbatim com confiança de autoria. Os fatos objetivos das calls já estão listados acima como conquistas.</div>
 
 <h3>7d. Apoio quantitativo <span class="prov">[Cockpit]</span></h3>
 <div class="slot">⚠ SLOT: CSAT/NPS, sentiment score por vertical, WhatsApp status — Cockpit indisponível (401). Preencher com dados do Cockpit quando reconectado.</div>
+
+<div class="alert">
+  ⚠ <b>Volume de calls registradas abaixo do esperado:</b> Ekyte mostra 7 reuniões previstas no Q2 (4 Acompanhamento Comercial + 3 Check-in Quinzenal), mas só 2 têm transcrição no BigQuery. Verificar se as demais não foram gravadas/transcritas ou se há lacuna de integração.
+</div>
 
 <!-- ===== SEÇÃO 8 ===== -->
 <h2>8. Aprendizados &amp; Ações — por integrante</h2>
