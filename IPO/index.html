@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Retrospectiva ROPRE — Instituto Pan-Americano de Oftalmologia — Q2/2026</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;color:#1a1a1a;line-height:1.45;max-width:960px;margin:24px auto;padding:0 16px;}
+  h1{font-size:22px;margin:0 0 2px;}
+  h2{background:#e30613;color:#fff;padding:6px 10px;font-size:15px;margin:26px 0 10px;}
+  h3{font-size:13px;margin:16px 0 6px;color:#e30613;text-transform:uppercase;letter-spacing:.3px;}
+  table{border-collapse:collapse;width:100%;font-size:12px;margin:8px 0;}
+  th,td{border:1px solid #ccc;padding:5px 7px;text-align:left;}
+  th{background:#f2f2f2;} td.n,th.n{text-align:right;}
+  th.q,td.q{background:#fafafa;font-weight:bold;}
+  .meta{font-size:11px;color:#666;border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:6px 0;margin:6px 0 4px;}
+  .ok{color:#127a2e;font-weight:bold;} .bad{color:#c0140c;font-weight:bold;}
+  .warn{color:#b26000;font-weight:bold;}
+  .slot{background:#fff7d6;border:1px dashed #d9a800;padding:8px 10px;font-size:12px;margin:6px 0;}
+  .prov{color:#888;font-size:10px;}
+  .note{background:#eef3fb;border-left:4px solid #2f6fd1;padding:8px 10px;font-size:12px;margin:10px 0;}
+  .alert{background:#fff0f0;border-left:4px solid #e30613;padding:8px 10px;font-size:12px;margin:10px 0;}
+  ul{margin:4px 0 8px 18px;padding:0;} li{margin:2px 0;}
+  .type-header{background:#222;color:#fff;font-weight:bold;font-size:11px;padding:4px 7px;}
+</style>
+</head>
+<body>
+
+<h1>Retrospectiva ROPRE — Instituto Pan-Americano de Oftalmologia (IPO)</h1>
+<div class="meta">
+  Fontes: <b>Growth Pack CSV (realizado) + Breakeven CSV (projeção) + Planilha de Leads + Ekyte</b> · projectDocumentId=<b>xha52s6xeud3ir8p6fgvd1jb</b> (ticker INST1) · plataformas=Meta Ads + Google Ads · período=<b>Q2/2026 (abr–jun, fechado, mensal + total)</b> · tools=Growth Pack CSV, Breakeven CSV, Planilha de Leads, Ekyte MCP, BigQuery localize_project · provider=local-csv
+</div>
+
+<div class="alert">
+  ⚠ <b>Cockpit indisponível (HTTP 401)</b> — equipe, flag, health score, CSAT/NPS constam como slot. Token foi corrigido no <code>settings.json</code> nesta data, mas exige nova sessão para ativar — repetir este run quando confirmado.<br>
+  ⚠ <b>Breakeven é só projeção</b> (sem coluna "Realizado" mensal) — Realizado vem do Growth Pack + Planilha de Leads.<br>
+  ⚠ <b>Projeto iniciado em 15/03/2026</b> — Q2/2026 é o primeiro trimestre completo do projeto.
+</div>
+
+<!-- ===== SEÇÃO 1 ===== -->
+<h2>1. Visão Geral do Projeto</h2>
+<table>
+  <tr><th>Cliente</th><td>Instituto Pan-Americano de Oftalmologia (IPO)</td><th>Squad / Coord</th><td>Invictus · Thaily Serodio</td></tr>
+  <tr><th>Modelo de negócio</th><td>Saúde · B2C — Clínica Oftalmológica <span class="prov">[context/business.md]</span></td><th>Segmento</th><td>Especialidade em Ceratocone; catarata, cirurgia refrativa <span class="prov">[Planilha de Leads]</span></td></tr>
+  <tr><th>Fee mensal (Q2)</th><td>R$5.700,00 <span class="prov">[Breakeven CSV]</span></td><th>Plano de mídia Q2 (projetado)</th><td>R$1.595–3.000/mês <span class="prov">[Breakeven CSV]</span></td></tr>
+  <tr><th>Flag / HS</th><td class="warn">🟡 Care · HS 15.2 <span class="prov">[Cockpit 28/06]</span></td><th>LT</th><td>3 meses (início 15/03/2026) <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>CRM</th><td>Em estruturação — comparativo de CRMs feito em abril, implementação/documentação (POP) em maio <span class="prov">[Ekyte]</span></td><th>Critério MQL</th><td>Desejo de fazer a cirurgia + capital disponível <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Stakeholder principal</th><td colspan="3">Dr. Cláudio (médico responsável) <span class="prov">[CLAUDE.md]</span></td></tr>
+  <tr><th>Equipe</th><td colspan="3">PM: Rafael Clarindo Reis · Coord: Ueliton Pereira · AM: Thaily Serodio · Paid Media: Matheus Alencar · Designer: Ana Beatriz · Copy: Felipe Pinheiro · Social Media: Christian Lopes <span class="prov">[Cockpit]</span></td></tr>
+</table>
+
+<!-- ===== SEÇÃO 2 ===== -->
+<h2>2. Resultado do Quarter — Funil Q2/2026</h2>
+
+<div class="alert">
+  ⚠ <b>Erro de atribuição mensal de receita identificado:</b> o Growth Pack lança R$23.494,00 inteiramente em Maio. Cruzando com a Planilha de Leads (aba "Cirurgia realizada"), na verdade são <b>3 cirurgias distintas</b>: Daniela Vitorino (R$5.500,00, realizada 21/05) e Elisa Guimarães (R$5.848,10, realizada 21/05) em <b>Maio</b>; e Pedro (R$12.146,40, 1º olho realizado 03/06, 2º olho agendado) em <b>Junho</b>. O valor total bate (R$23.494,50 ≈ R$23.494,00), mas o mês está errado. Corrigido na tabela abaixo.
+</div>
+
+<h3>Funil do Quarter — Projetado (Breakeven) vs Realizado (Growth Pack + Planilha de Leads) <span class="prov">[fontes mistas, ver rodapé de cada linha]</span></h3>
+<table>
+  <tr>
+    <th>Etapa</th>
+    <th class="n">Proj. Abr/26</th><th class="n">Real. Abr/26</th>
+    <th class="n">Proj. Mai/26</th><th class="n">Real. Mai/26</th>
+    <th class="n">Proj. Jun/26</th><th class="n">Real. Jun/26</th>
+    <th class="n q">Total Proj.</th><th class="n q">Total Real.</th><th class="n q">Pacing</th>
+  </tr>
+  <tr>
+    <td>Investimento (verba)</td>
+    <td class="n">R$1.595</td><td class="n bad">R$2.078,97</td>
+    <td class="n">R$3.000</td><td class="n">R$2.979,41</td>
+    <td class="n">R$3.000</td><td class="n">R$2.396,71</td>
+    <td class="n q">R$7.595</td><td class="n q ok">R$7.455,09</td><td class="n q ok">98%</td>
+  </tr>
+  <tr>
+    <td>Leads</td>
+    <td class="n">319</td><td class="n ok">424</td>
+    <td class="n">200</td><td class="n ok">380</td>
+    <td class="n">100</td><td class="n ok">305</td>
+    <td class="n q">619</td><td class="n q ok">1.109</td><td class="n q ok">179%</td>
+  </tr>
+  <tr>
+    <td>MQL</td>
+    <td class="n">232</td><td class="n warn">220</td>
+    <td class="n">120</td><td class="n ok">243</td>
+    <td class="n">40</td><td class="n ok">151</td>
+    <td class="n q">392</td><td class="n q ok">614</td><td class="n q ok">157%</td>
+  </tr>
+  <tr>
+    <td>SQL (consultas)</td>
+    <td class="n">8</td><td class="n ok">8</td>
+    <td class="n">24</td><td class="n bad">5</td>
+    <td class="n">16</td><td class="n bad">6</td>
+    <td class="n q">48</td><td class="n q bad">19</td><td class="n q bad">40%</td>
+  </tr>
+  <tr>
+    <td>Vendas (cirurgias)</td>
+    <td class="n">1</td><td class="n bad">0</td>
+    <td class="n">4</td><td class="n warn">2 <span class="prov">[corrigido]</span></td>
+    <td class="n">3</td><td class="n warn">1 <span class="prov">[corrigido]</span></td>
+    <td class="n q">8</td><td class="n q bad">3</td><td class="n q bad">38%</td>
+  </tr>
+  <tr>
+    <td>Receita</td>
+    <td class="n">R$6.000</td><td class="n bad">R$0,00</td>
+    <td class="n">R$24.000</td><td class="n warn">R$11.348,10 <span class="prov">[corrigido]</span></td>
+    <td class="n">R$18.000</td><td class="n bad">R$12.146,40 <span class="prov">[corrigido]</span></td>
+    <td class="n q">R$48.000</td><td class="n q bad">R$23.494,50</td><td class="n q bad">49%</td>
+  </tr>
+  <tr>
+    <td>CPL</td>
+    <td class="n">R$5,00</td><td class="n bad">R$4,90</td>
+    <td class="n">R$15,00</td><td class="n bad">R$7,84</td>
+    <td class="n">R$30,00</td><td class="n ok">R$7,86</td>
+    <td class="n q">—</td><td class="n q">—</td><td class="n q">—</td>
+  </tr>
+</table>
+
+<div class="note">
+  <b>Leitura do quarter:</b> Volume de topo de funil <b>muito acima da meta</b> — leads em 179% do projetado, MQL em 157%. CPL também ficou abaixo do teto orçado em todos os meses. Mas isso não se traduziu em resultado: SQL (consultas efetivamente realizadas) ficou em apenas <b>40% da meta</b>, e vendas (cirurgias) em <b>38%</b>. Receita em <b>49% do projetado</b>. O <b>gargalo claro está entre MQL e SQL</b> — muitos leads qualificados não viram consulta agendada/realizada. A planilha de leads confirma: de 860 leads do quarter, <b>657 (76,4%) estão marcados como "Perdido"</b>.
+</div>
+
+<h3>Taxas de conversão por etapa — Q2/2026 <span class="prov">[Growth Pack CSV]</span></h3>
+<table>
+  <tr><th>Conversão</th><th class="n">Abr/26</th><th class="n">Mai/26</th><th class="n">Jun/26</th><th class="n">Meta (Breakeven)</th></tr>
+  <tr><td>Lead → MQL</td><td class="n ok">51,89%</td><td class="n ok">63,95%</td><td class="n ok">49,51%</td><td class="n">~40-73%</td></tr>
+  <tr><td>MQL → SQL</td><td class="n bad">3,64%</td><td class="n bad">2,06%</td><td class="n bad">3,97%</td><td class="n">3-30%</td></tr>
+  <tr><td>SQL → Venda</td><td class="n bad">0,00%</td><td class="n">60,00%</td><td class="n">—</td><td class="n">10-25%</td></tr>
+</table>
+<div class="alert">
+  ⚠ <b>Taxa MQL→SQL na faixa de 2-4% é crítica</b> para um funil de saúde — de cada ~25-50 MQLs, só 1 vira consulta agendada/realizada. Esse é o ponto central a investigar na reunião: é qualificação de lead ruim (MQL não deveria ser considerado MQL) ou falha no processo de agendamento/follow-up comercial?
+</div>
+
+<h3>Status do funil — Planilha de Leads (Q2, leads com Data Lead abr–jun) <span class="prov">[Planilha de Leads]</span></h3>
+<table>
+  <tr><th>Status</th><th class="n">Qtd</th><th class="n">%</th></tr>
+  <tr><td>Perdido</td><td class="n bad">657</td><td class="n bad">76,4%</td></tr>
+  <tr><td>Terceira mensagem (em follow-up)</td><td class="n warn">128</td><td class="n">14,9%</td></tr>
+  <tr><td>Aguardando Resposta</td><td class="n warn">45</td><td class="n">5,2%</td></tr>
+  <tr><td>Segunda mensagem</td><td class="n">5</td><td class="n">0,6%</td></tr>
+  <tr><td>Consulta agendada</td><td class="n">4</td><td class="n">0,5%</td></tr>
+  <tr><td>Cirurgia realizada</td><td class="n ok">3</td><td class="n">0,3%</td></tr>
+  <tr><td>Cirurgia agendada</td><td class="n">3</td><td class="n">0,3%</td></tr>
+  <tr><td>Faltou / Primeira mensagem / Duplicado / Novo Lead / Cirurgia indicada / Consulta realizada</td><td class="n">15</td><td class="n">1,7%</td></tr>
+  <tr><td class="q"><b>Total</b></td><td class="n q"><b>860</b></td><td class="n q"><b>100%</b></td></tr>
+</table>
+<div class="note">100% dos leads do quarter vieram de <b>Meta Facebook</b> na planilha — sem registro de Google Ads na planilha de leads, apesar do Growth Pack mostrar investimento e leads do canal Google (ver Seção 3). Possível lacuna de integração entre os canais e a planilha de captação.</div>
+
+<!-- ===== SEÇÃO 3 ===== -->
+<h2>3. Investimentos e Resultados por Canal — Q2/2026</h2>
+
+<h3>Meta Ads <span class="prov">[Growth Pack CSV]</span></h3>
+<table>
+  <tr>
+    <th>Métrica</th>
+    <th class="n">Abr/26</th><th class="n">Mai/26</th><th class="n">Jun/26</th><th class="n q">Total Q2</th>
+  </tr>
+  <tr><td>Investimento</td><td class="n">R$1.676,69</td><td class="n">R$2.395,30</td><td class="n">R$2.143,99</td><td class="n q">R$6.215,98</td></tr>
+  <tr><td>Impressões</td><td class="n">78.827</td><td class="n">73.954</td><td class="n">38.219</td><td class="n q">191.000</td></tr>
+  <tr><td>Cliques</td><td class="n">1.093</td><td class="n">1.135</td><td class="n">907</td><td class="n q">3.135</td></tr>
+  <tr><td>CTR</td><td class="n ok">1,39%</td><td class="n ok">1,53%</td><td class="n ok">2,37%</td><td class="n q">—</td></tr>
+  <tr><td>Leads</td><td class="n ok">366</td><td class="n ok">321</td><td class="n ok">267</td><td class="n q">954</td></tr>
+  <tr><td>CPL</td><td class="n ok">R$4,58</td><td class="n ok">R$7,46</td><td class="n ok">R$8,03</td><td class="n q ok">~R$6,52</td></tr>
+</table>
+<div class="note">
+  <b>Síntese Meta Ads:</b> Canal dominante (83% da verba, 86% dos leads). CPL extremamente baixo (R$4,58-8,03) — taxa de conversão clique→lead acima de 28% nos 3 meses, excelente para captação. O problema do quarter não está aqui: o volume entregue é muito superior à meta. Houve task em junho de "desativar otimizações automáticas do Meta Ads" — sinal de ajuste reativo para controlar o volume/qualidade.
+</div>
+
+<h3>Google Ads <span class="prov">[Growth Pack CSV]</span></h3>
+<table>
+  <tr>
+    <th>Métrica</th>
+    <th class="n">Abr/26</th><th class="n">Mai/26</th><th class="n">Jun/26</th><th class="n q">Total Q2</th>
+  </tr>
+  <tr><td>Investimento</td><td class="n">R$402,28</td><td class="n">R$584,11</td><td class="n">R$252,72</td><td class="n q">R$1.239,11</td></tr>
+  <tr><td>Impressões</td><td class="n">11.482</td><td class="n">15.180</td><td class="n">7.004</td><td class="n q">33.666</td></tr>
+  <tr><td>Cliques</td><td class="n">609</td><td class="n">637</td><td class="n">590</td><td class="n q">1.836</td></tr>
+  <tr><td>CTR</td><td class="n ok">5,30%</td><td class="n ok">4,20%</td><td class="n ok">8,42%</td><td class="n q">—</td></tr>
+  <tr><td>Leads</td><td class="n">58</td><td class="n">59</td><td class="n">38</td><td class="n q">155</td></tr>
+  <tr><td>CPL</td><td class="n ok">R$6,94</td><td class="n ok">R$9,90</td><td class="n ok">R$6,65</td><td class="n q ok">~R$8,00</td></tr>
+</table>
+<div class="note">
+  <b>Síntese Google Ads:</b> 17% da verba, 14% dos leads — proporcional. CPL competitivo (R$6,65-9,90), CTR muito bom (4-8%). Investiu em separar campanhas por tipo de conversão em junho — sinal de maturidade crescente na estrutura. Nenhum lead da planilha está atribuído a "Google Ads" no campo Canal (100% marcado como "Meta Facebook"), o que é uma inconsistência a investigar — talvez perda de UTM/tracking entre o formulário e a planilha.
+</div>
+<div class="slot">⚠ SLOT: Hook Rate, Connect Rate, breakdown por campanha/anúncio — fonte NEKT não conectada (Cockpit 401, mesmo já tendo documentId via BigQuery).</div>
+
+<!-- ===== SEÇÃO 4 ===== -->
+<h2>4. O que deu certo / O que não deu certo — Q2/2026</h2>
+
+<h3>✅ O que deu certo no Q2</h3>
+<ul>
+  <li><b>Volume de leads muito acima da meta</b>: 1.109 leads vs 619 projetados (179%) <span class="prov">[Growth Pack CSV]</span></li>
+  <li><b>CPL extremamente eficiente</b> nos dois canais: Meta ~R$6,52, Google ~R$8,00 — bem abaixo dos tetos orçados <span class="prov">[Growth Pack CSV]</span></li>
+  <li><b>Taxa Lead→MQL consistente e saudável</b> (50-64%) — qualificação inicial funcionando <span class="prov">[Growth Pack CSV]</span></li>
+  <li><b>Investimento total no pacing quase perfeito</b>: 98% do projetado (R$7.455 vs R$7.595) <span class="prov">[Breakeven vs Growth Pack]</span></li>
+  <li><b>3 cirurgias realizadas no quarter</b>, com tickets relevantes: catarata R$12.146,40, refrativas R$5.500 e R$5.848,10 <span class="prov">[Planilha de Leads]</span></li>
+  <li><b>Estruturação de CRM em andamento</b>: comparativo de ferramentas (abril), análise e documentação de processo/POP (maio) <span class="prov">[Ekyte]</span></li>
+  <li><b>Conteúdo educativo de especialidade</b> (Ceratocone) em produção: roteiros de vídeo para Ceratocone, Vitrectomia, Pterígio <span class="prov">[Ekyte]</span></li>
+  <li><b>CTR excelente nos dois canais</b> (Meta até 2,37%, Google até 8,42%) — criativos e segmentação relevantes <span class="prov">[Growth Pack CSV]</span></li>
+</ul>
+
+<h3>❌ O que não deu certo no Q2</h3>
+<ul>
+  <li><b>76,4% dos leads do quarter (657 de 860) estão marcados como "Perdido"</b> — maior alerta do trimestre <span class="prov">[Planilha de Leads]</span></li>
+  <li><b>Taxa MQL→SQL crítica: 2-4% nos 3 meses</b>, muito abaixo da meta de 20-40% — gargalo claro entre qualificação e agendamento de consulta <span class="prov">[Growth Pack CSV]</span></li>
+  <li><b>Vendas (cirurgias) em apenas 38% da meta</b> (3 de 8 projetadas) <span class="prov">[Planilha de Leads]</span></li>
+  <li><b>Receita em 49% do projetado</b> (R$23.494,50 de R$48.000) <span class="prov">[Planilha de Leads — corrigido]</span></li>
+  <li><b>Erro de atribuição mensal de receita no Growth Pack</b>: R$23.494 lançado inteiramente em maio, quando na real R$12.146,40 (51,7%) é de uma cirurgia realizada em junho <span class="prov">[divergência identificada]</span></li>
+  <li><b>14,9% dos leads (128) parados em "Terceira mensagem"</b> sem avanço — follow-up comercial não está convertendo essa camada <span class="prov">[Planilha de Leads]</span></li>
+  <li><b>100% dos leads na planilha atribuídos a "Meta Facebook"</b>, mesmo havendo investimento e leads reais de Google Ads no Growth Pack — sinal de perda de tracking/UTM entre o anúncio e o registro na planilha <span class="prov">[divergência identificada]</span></li>
+  <li><b>Volume de leads tão acima da meta pode ter sobrecarregado o processo comercial</b> — mais leads do que a capacidade de atendimento/follow-up consegue processar, explicando parte do "Perdido" alto. Houve task em junho para "desativar otimizações automáticas do Meta Ads" e "travar orçamento diário", sugerindo ajuste reativo a esse problema <span class="prov">[Ekyte]</span></li>
+</ul>
+
+<!-- ===== SEÇÃO 5 ===== -->
+<h2>5. Criativo / Comunicação — Q2/2026</h2>
+<div class="slot">⚠ SLOT — Ranking de criativos por performance não disponível: requer NEKT por anúncio (Cockpit 401).</div>
+
+<h3>Criativos e conteúdo produzidos no Q2 <span class="prov">[Ekyte]</span></h3>
+<table>
+  <tr><th>Entrega</th><th>Formato</th><th>Tema/Especialidade</th><th>Mês</th></tr>
+  <tr><td>Criativos Ads (geral)</td><td>Criativo Ads</td><td>—</td><td>Abr</td></tr>
+  <tr><td>Criativo Ads Refrativa</td><td>Criativo Ads</td><td>Cirurgia refrativa</td><td>Abr</td></tr>
+  <tr><td>Landing Page Institucional (E.E)</td><td>Landing Page</td><td>Institucional</td><td>Abr</td></tr>
+  <tr><td>Criativo Ads Catarata</td><td>Criativo Ads</td><td>Catarata</td><td>Mai</td></tr>
+  <tr><td>Roteiro de vídeo para LP</td><td>Roteiro</td><td>—</td><td>Mai</td></tr>
+  <tr><td>Criativo Ads Prova Social</td><td>Criativo Ads</td><td>Prova social</td><td>Mai</td></tr>
+  <tr><td>Anúncios Laudo Oftalmológico</td><td>Criativo Ads</td><td>Laudo/diagnóstico</td><td>Mai</td></tr>
+  <tr><td>Criativo Ads Institucionais</td><td>Criativo Ads</td><td>Institucional</td><td>Mai</td></tr>
+  <tr><td>Vídeo Glaucoma</td><td>Edição de Vídeo</td><td>Glaucoma</td><td>Jun</td></tr>
+  <tr><td>Vídeo Catarata</td><td>Edição de Vídeo</td><td>Catarata</td><td>Jun</td></tr>
+  <tr><td>Vídeo Refrativa</td><td>Edição de Vídeo</td><td>Refrativa</td><td>Jun</td></tr>
+  <tr><td>Roteiro Vitrectomia, Pterígio, Ceratocone</td><td>Roteiro</td><td>Múltiplas especialidades</td><td>Jun</td></tr>
+  <tr><td>Vídeo Ceratocone</td><td>Edição de Vídeo</td><td>Ceratocone</td><td>Jun</td></tr>
+  <tr><td>Post Ceratocone / Prova Social Padre</td><td>Social Media</td><td>Ceratocone / Prova social</td><td>Jun</td></tr>
+</table>
+<div class="slot">⚠ SLOT: copy vencedora e preview de criativo — não disponível via MCP.</div>
+
+<!-- ===== SEÇÃO 6 ===== -->
+<h2>6. Gestão de Projetos / Entregas — Q2/2026</h2>
+
+<h3>Resumo por tipo <span class="prov">[Ekyte · workspace 121773 · concluídas Q2/2026]</span></h3>
+<table>
+  <tr><th>Tipo</th><th class="n">Qtd</th><th class="n">% do total</th><th>Exemplo representativo</th></tr>
+  <tr><td>ACRM — Acompanhamento de CRM</td><td class="n">17</td><td class="n">17,3%</td><td>Acompanhamento de CRM (rotina semanal)</td></tr>
+  <tr><td>GP — Planejamento/Growthpack</td><td class="n">9</td><td class="n">9,2%</td><td>Acompanhamento atualização coluna "valor", Cliente Oculto, Chatwoot</td></tr>
+  <tr><td>OTM — Otimização de Campanhas</td><td class="n">9</td><td class="n">9,2%</td><td>Testar LP no Google, Travar orçamento Meta Ads, Teste A/B</td></tr>
+  <tr><td>PA — Pauta Social Media</td><td class="n">9</td><td class="n">9,2%</td><td>Pauta Maio, Junho, Julho (múltiplas quinzenas)</td></tr>
+  <tr><td>CA — Criativo Ads</td><td class="n">7</td><td class="n">7,1%</td><td>Refrativa, Catarata, Prova Social, Laudo, Institucionais</td></tr>
+  <tr><td>RV — Roteiro de Vídeo</td><td class="n">5</td><td class="n">5,1%</td><td>Vitrectomia, Pterígio, Ceratocone, LP</td></tr>
+  <tr><td>EV — Edição de Vídeo</td><td class="n">5</td><td class="n">5,1%</td><td>Glaucoma, Catarata, Refrativa, Ceratocone</td></tr>
+  <tr><td>TRK — Traqueamento</td><td class="n">3</td><td class="n">3,1%</td><td>Planilha de leads, Separar campanhas por conversão</td></tr>
+  <tr><td>SM — Social Media (posts)</td><td class="n">4</td><td class="n">4,1%</td><td>Páscoa, Destaques IG, Vídeo Conferência, Post Ceratocone</td></tr>
+  <tr><td>CRM — Configuração</td><td class="n">2</td><td class="n">2,0%</td><td>Comparativo de CRMs, Análise de CRM</td></tr>
+  <tr><td>LP / AN / PPT / RE / EKT</td><td class="n">5</td><td class="n">5,1%</td><td>Landing Page, Análise LP, ROPRE Maio, Acompanhamento Ekyte</td></tr>
+  <tr><td>Sprint Planning (sem tag de tipo)</td><td class="n">23</td><td class="n">23,5%</td><td>CVBA, Clarity, Revisar GTM, Análise de criativos/campanhas</td></tr>
+  <tr><td><b>TOTAL</b></td><td class="n"><b>98</b></td><td class="n"><b>100%</b></td><td></td></tr>
+</table>
+
+<div class="note">
+  <b>Destaque operacional:</b> ACRM (Acompanhamento de CRM) é, de longe, o maior bloco de entregas do quarter (17%) — consistente com o gargalo identificado no funil (MQL→SQL). O time já estava monitorando o problema de perto, mas o resultado ainda não apareceu nos números. Junho também concentrou uma onda de tasks com tag [IA]/SPRINT GROWTH voltadas a automação: Chatwoot no WhatsApp, formulário Linear customizado, monitoramento de quebras de N8N, travamento de orçamento Meta Ads — sinal de que o time está endereçando a causa raiz (excesso de volume sem capacidade de atendimento) via automação de atendimento.
+</div>
+
+<div class="slot">⚠ SLOT: SLA por tipo, tarefas atrasadas, anomalias — requer cockpit deliveries_* (indisponível).</div>
+
+<!-- ===== SEÇÃO 7 ===== -->
+<h2>7. Cliente — Q2/2026</h2>
+
+<h3>7a. Síntese de sentimento no quarter <span class="prov">[IA · BigQuery Calls]</span></h3>
+<div class="slot">⚠ SLOT: busca no BigQuery Calls por "Panamericano" não retornou nenhuma call com transcrição para a IPO (diferente da Green Way, que tinha 2 calls). Pode ser integração não habilitada ou nome de busca diferente — vale confirmar com o GT o nome exato do projeto no BigQuery. Ekyte registra Acompanhamento Comercial quinzenal e Check-in/ROPRE mensal (20/05, 29/05, 05/06) que poderiam ter transcrição se a integração for corrigida.</div>
+
+<h3>7b. O que o CLIENTE disse <span class="prov">[BigQuery — indisponível para este projeto]</span></h3>
+<div class="slot">⚠ SLOT: sem integração de calls no BigQuery para a IPO. Stakeholder principal: Dr. Cláudio. Preencher na reunião com observação direta de quem participou dos acompanhamentos comerciais e do ROPRE Check-in Mensal de 29/05.</div>
+
+<h3>7c. Conquistas do quarter (time V4) <span class="prov">[dados objetivos]</span></h3>
+<p><b>Conquistas objetivas do quarter</b></p>
+<ul>
+  <li>Volume de leads 79% acima da meta com CPL muito abaixo do teto orçado nos dois canais <span class="prov">[Growth Pack CSV]</span></li>
+  <li>3 cirurgias realizadas no quarter, somando R$23.494,50 em receita confirmada <span class="prov">[Planilha de Leads]</span></li>
+  <li>Estruturação de CRM iniciada: comparativo de ferramentas, análise e documentação de processo (POP) <span class="prov">[Ekyte]</span></li>
+  <li>98 entregas realizadas no quarter, incluindo conteúdo educativo de especialidade (Ceratocone, Glaucoma, Catarata, Refrativa, Vitrectomia, Pterígio) <span class="prov">[Ekyte]</span></li>
+  <li>Resposta rápida ao problema de excesso de volume: travamento de orçamento Meta Ads, automação via Chatwoot e formulário customizado implementados em junho <span class="prov">[Ekyte]</span></li>
+</ul>
+<p><b>Na call (time V4)</b></p>
+<div class="slot">⚠ SLOT: sem integração de calls no BigQuery para a IPO.</div>
+
+<h3>7d. Apoio quantitativo <span class="prov">[Cockpit]</span></h3>
+<div class="slot">⚠ SLOT: CSAT/NPS, sentiment score — Cockpit indisponível (401).</div>
+
+<!-- ===== SEÇÃO 8 ===== -->
+<h2>8. Aprendizados &amp; Ações — por integrante</h2>
+<p style="font-size:12px;color:#555;">Problemas pré-preenchidos pelos dados do quarter. <b>Soluções/Ações = preencher na reunião.</b></p>
+
+<table>
+  <tr><th style="width:50%;">Problemas (auto)</th><th>Soluções / Ações (time)</th></tr>
+
+  <!-- PAID MEDIA -->
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Paid Media Specialist</b></td></tr>
+  <tr>
+    <td>Volume de leads em 179% da meta — pode estar gerando mais leads do que a operação comercial consegue atender, contribuindo para os 76,4% de "Perdido". Considerar reduzir volume e priorizar qualidade/segmentação. <span class="prov">[Growth Pack CSV + Planilha de Leads]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>100% dos leads na planilha estão atribuídos a "Meta Facebook", mesmo com investimento e leads reais de Google Ads no Growth Pack — tracking/UTM possivelmente quebrado entre canal e planilha. <span class="prov">[divergência identificada]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+
+  <!-- AM / CRM -->
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Account Manager / CRM</b></td></tr>
+  <tr>
+    <td>Taxa MQL→SQL de apenas 2-4% no quarter (meta de 20-40%) — gargalo crítico entre qualificação e agendamento de consulta. 128 leads (14,9%) parados em "Terceira mensagem" sem avanço. <span class="prov">[Growth Pack CSV + Planilha de Leads]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Vendas em apenas 38% da meta (3 de 8 cirurgias projetadas) e receita em 49% (R$23.494,50 de R$48.000). <span class="prov">[Planilha de Leads]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>CRM ainda em estruturação no fim do quarter (comparativo feito em abril, POP em maio) — processo de qualificação/follow-up pode não estar maduro o suficiente para o volume de leads recebido. <span class="prov">[Ekyte]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+
+  <!-- COORDENADOR -->
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Coordenadora — Thaily Serodio</b></td></tr>
+  <tr>
+    <td>Cockpit inacessível durante a coleta (HTTP 401) — sem health score, equipe, flag, CSAT/NPS. Token foi corrigido no settings.json nesta data; confirmar reconexão em nova sessão e refazer o pull dos campos pendentes. <span class="prov">[erro de ferramenta — resolvido]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Sem integração de BigQuery Calls para a IPO — Seção 7 (sentimento/verbatim do cliente) ficou inteiramente em slot. Confirmar com o GT se a integração existe com outro nome de projeto. <span class="prov">[gap de integração]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Erro de atribuição mensal de receita no Growth Pack (R$23.494 lançado todo em maio, sendo 52% na real de junho) — corrigir processo de preenchimento da planilha junto ao time/cliente. <span class="prov">[divergência identificada]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+</table>
+
+<hr style="margin-top:32px;">
+<p style="font-size:10px;color:#aaa;">Gerado em: 2026-06-30 · skill: cs-retrospectiva-ropre-quarter v1.1.3 · fontes: Growth Pack CSV, Breakeven CSV (projeção), Planilha de Leads, Ekyte MCP (workspace 121773), BigQuery localize_project (documentId xha52s6xeud3ir8p6fgvd1jb) · Cockpit: indisponível (HTTP 401, token corrigido — aguardando nova sessão) · NEKT: documentId disponível mas bloqueado pelo mesmo 401 do Cockpit · BigQuery Calls: sem integração para este projeto</p>
+
+</body>
+</html>
