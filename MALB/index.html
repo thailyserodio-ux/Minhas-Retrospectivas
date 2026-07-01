@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROPRE Q2 2026 — Malbork Corretora de Seguros</title>
+<style>
+  :root {
+    --red: #ef4444; --red-light: #fef2f2; --red-mid: #fca5a5;
+    --orange: #f97316; --orange-light: #fff7ed; --orange-mid: #fdba74;
+    --yellow: #eab308; --yellow-light: #fefce8;
+    --green: #22c55e; --green-light: #f0fdf4; --green-mid: #86efac;
+    --blue: #3b82f6; --blue-light: #eff6ff;
+    --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
+    --gray-700: #334155; --gray-800: #1e293b; --gray-900: #0f172a;
+    --brand: #111827;
+    --flag-color: #ef4444;
+    --flag-bg: #fef2f2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--gray-50); color: var(--gray-800); line-height: 1.5; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 1140px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  /* ── HEADER ── */
+  .header { background: var(--brand); border-radius: 16px; padding: 36px 40px; color: #fff; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+  .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .header-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 6px; }
+  .header-name { font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 4px; }
+  .header-sub { font-size: 13px; color: rgba(255,255,255,.55); }
+  .flag-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; background: var(--flag-color); color: #fff; white-space: nowrap; }
+  .hs-ring { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .hs-number { font-size: 42px; font-weight: 800; color: var(--flag-color); line-height: 1; }
+  .hs-label { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+  .header-meta { display: flex; gap: 24px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); flex-wrap: wrap; }
+  .header-meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .header-meta-item .lbl { font-size: 10px; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .07em; }
+  .header-meta-item .val { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.9); }
+
+  /* ── TEAM ── */
+  .team-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .team-chip { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: rgba(255,255,255,.75); }
+  .team-chip strong { color: #fff; }
+
+  /* ── SECTION ── */
+  .section { background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; padding: 28px 32px; margin-bottom: 20px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+
+  /* ── METRIC CARDS ── */
+  .cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin-bottom: 24px; }
+  .card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px 18px; }
+  .card .c-label { font-size: 11px; color: var(--gray-400); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+  .card .c-value { font-size: 22px; font-weight: 800; color: var(--gray-800); line-height: 1.1; }
+  .card .c-sub { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
+  .card.good { background: var(--green-light); border-color: var(--green-mid); }
+  .card.good .c-value { color: #15803d; }
+  .card.warn { background: var(--orange-light); border-color: var(--orange-mid); }
+  .card.warn .c-value { color: #c2410c; }
+  .card.bad { background: var(--red-light); border-color: var(--red-mid); }
+  .card.bad .c-value { color: #b91c1c; }
+  .card.blue { background: var(--blue-light); border-color: #93c5fd; }
+  .card.blue .c-value { color: #1d4ed8; }
+
+  /* ── TABLE ── */
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--gray-50); color: var(--gray-500); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--gray-200); white-space: nowrap; }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--gray-100); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--gray-50); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .total-row td { font-weight: 700; background: var(--gray-50); border-top: 2px solid var(--gray-200); }
+
+  /* ── TREND BADGES ── */
+  .up { color: var(--green); font-size: 12px; font-weight: 600; }
+  .dn { color: var(--red); font-size: 12px; font-weight: 600; }
+  .eq { color: var(--gray-400); font-size: 12px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .badge-green { background: var(--green-light); color: #15803d; }
+  .badge-red { background: var(--red-light); color: #b91c1c; }
+  .badge-orange { background: var(--orange-light); color: #c2410c; }
+  .badge-blue { background: var(--blue-light); color: #1d4ed8; }
+  .badge-gray { background: var(--gray-100); color: var(--gray-500); }
+
+  /* ── CANAL SPLIT ── */
+  .canal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:640px){ .canal-grid { grid-template-columns: 1fr; } }
+  .canal-card { border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden; }
+  .canal-header { padding: 12px 16px; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .canal-meta { background: #1877f2; color: #fff; }
+  .canal-google { background: #4285f4; color: #fff; }
+  .canal-card table { margin: 0; }
+  .canal-card th { background: rgba(0,0,0,.04); }
+
+  /* ── FUNNEL ── */
+  .funnel { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; }
+  .funnel-step { text-align: center; padding: 20px 12px; position: relative; }
+  .funnel-step:not(:last-child)::after { content: '›'; position: absolute; right: -4px; top: 50%; transform: translateY(-50%); font-size: 20px; color: var(--gray-300); }
+  .funnel-step .f-num { font-size: 26px; font-weight: 800; color: var(--gray-800); }
+  .funnel-step .f-label { font-size: 11px; color: var(--gray-400); font-weight: 600; text-transform: uppercase; margin-top: 4px; }
+  .funnel-step .f-rate { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+  /* ── BREAKEVEN ── */
+  .be-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  @media(max-width:640px){ .be-grid { grid-template-columns: 1fr; } }
+  .be-card { border-radius: 10px; padding: 18px 20px; }
+  .be-card .be-month { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray-500); margin-bottom: 12px; }
+  .be-card .be-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+  .be-card .be-row .lbl { font-size: 12px; color: var(--gray-500); }
+  .be-card .be-row .val { font-size: 13px; font-weight: 700; }
+  .be-card .be-row .proj { font-size: 11px; color: var(--gray-400); text-align: right; }
+  .be-status { display: flex; align-items: center; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.1); font-size: 12px; font-weight: 700; }
+  .be-april { background: var(--green-light); border: 1px solid var(--green-mid); }
+  .be-may { background: var(--orange-light); border: 1px solid var(--orange-mid); }
+  .be-june { background: var(--red-light); border: 1px solid var(--red-mid); }
+
+  /* ── INSIGHTS ── */
+  .insights { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:640px){ .insights { grid-template-columns: 1fr; } }
+  .insight-card { border-radius: 10px; padding: 16px 18px; }
+  .insight-card.positive { background: var(--green-light); border: 1px solid var(--green-mid); }
+  .insight-card.negative { background: var(--red-light); border: 1px solid var(--red-mid); }
+  .insight-card.neutral { background: var(--blue-light); border: 1px solid #93c5fd; }
+  .insight-card.action { background: var(--yellow-light); border: 1px solid #fde68a; }
+  .insight-card .i-icon { font-size: 18px; margin-bottom: 6px; }
+  .insight-card .i-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .insight-card.positive .i-title { color: #15803d; }
+  .insight-card.negative .i-title { color: #b91c1c; }
+  .insight-card.neutral .i-title { color: #1d4ed8; }
+  .insight-card.action .i-title { color: #92400e; }
+  .insight-card .i-text { font-size: 12px; color: var(--gray-600, #475569); line-height: 1.5; }
+
+  /* ── NEXT STEPS ── */
+  .next-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .next-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; }
+  .next-item .n-num { background: var(--brand); color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .next-item .n-title { font-size: 13px; font-weight: 700; color: var(--gray-800); margin-bottom: 2px; }
+  .next-item .n-desc { font-size: 12px; color: var(--gray-500); }
+  .next-item .n-owner { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
+
+  /* ── HISTORICAL TABLE ── */
+  .hist-note { font-size: 11px; color: var(--gray-400); margin-top: 8px; font-style: italic; }
+
+  /* ── ALERT BOX ── */
+  .alert { display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border-radius: 10px; margin-bottom: 20px; }
+  .alert.danger { background: var(--red-light); border: 1px solid var(--red-mid); }
+  .alert.warning { background: var(--orange-light); border: 1px solid var(--orange-mid); }
+  .alert .a-icon { font-size: 20px; flex-shrink: 0; }
+  .alert .a-body .a-title { font-size: 13px; font-weight: 700; color: #b91c1c; margin-bottom: 4px; }
+  .alert.warning .a-body .a-title { color: #c2410c; }
+  .alert .a-body .a-text { font-size: 12px; color: var(--gray-600, #475569); line-height: 1.5; }
+
+  /* ── FOOTER ── */
+  .footer { text-align: center; font-size: 11px; color: var(--gray-400); margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ CAPA ══ -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">ROPRE · Retrospectiva Q2 2026 · Abril – Junho</div>
+        <div class="header-name">Malbork Corretora de Seguros</div>
+        <div class="header-sub">Corretora de imóveis · Modelo comissionado (4% do VGV) · LT 31 meses</div>
+        <div class="team-row">
+          <div class="team-chip"><strong>PM</strong> Rafael Clarindo</div>
+          <div class="team-chip"><strong>Coord</strong> Ueliton Pereira</div>
+          <div class="team-chip"><strong>AM</strong> Thaily Serodio</div>
+          <div class="team-chip"><strong>Mídia</strong> Matheus Alencar</div>
+          <div class="team-chip"><strong>Copy</strong> Felipe Pinheiro</div>
+          <div class="team-chip"><strong>Design</strong> Ana Beatriz</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+        <div class="hs-ring">
+          <div class="hs-number">14</div>
+          <div class="hs-label">Health Score</div>
+        </div>
+        <div class="flag-badge">🔴 Critical</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="header-meta-item"><div class="lbl">Fee mensal</div><div class="val">R$ 4.700</div></div>
+      <div class="header-meta-item"><div class="lbl">Investido Q2</div><div class="val">R$ 15.164</div></div>
+      <div class="header-meta-item"><div class="lbl">Leads Q2</div><div class="val">1.196</div></div>
+      <div class="header-meta-item"><div class="lbl">Vendas Q2</div><div class="val">9</div></div>
+      <div class="header-meta-item"><div class="lbl">VGV Q2</div><div class="val">R$ 1,14 M</div></div>
+      <div class="header-meta-item"><div class="lbl">ROAS médio Q2</div><div class="val">74,9x</div></div>
+      <div class="header-meta-item"><div class="lbl">Fontes</div><div class="val">Growth Pack 3.0 · Breakeven · Ekyte · Cockpit</div></div>
+    </div>
+  </div>
+
+  <!-- ══ ALERT ══ -->
+  <div class="alert danger">
+    <div class="a-icon">⚠️</div>
+    <div class="a-body">
+      <div class="a-title">Colapso de SQL em junho: queda de 87,5% em 3 meses</div>
+      <div class="a-text">Abril encerrou com 7 vendas e ROAS 188,4x — desempenho acima da projeção. Mas de maio para junho o funil desmoronou: de 32 SQLs em abril caímos para <strong>apenas 4 SQLs em junho</strong>, 1 única venda e VGV R$107.500 (20% do projetado). O problema está na conversão MQL→SQL, que despencou de 68% para 17% — sinalizando falha no processo comercial da Malbork, não na geração de leads.</div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 2 — PERFORMANCE DE MÍDIA ══ -->
+  <div class="section">
+    <div class="section-title">Performance de Mídia — Q2 2026</div>
+
+    <div class="cards">
+      <div class="card good">
+        <div class="c-label">Investido Q2</div>
+        <div class="c-value">R$ 15.164</div>
+        <div class="c-sub">Abr + Mai + Jun</div>
+      </div>
+      <div class="card warn">
+        <div class="c-label">Leads Q2</div>
+        <div class="c-value">1.196</div>
+        <div class="c-sub">CPL médio R$ 12,68</div>
+      </div>
+      <div class="card bad">
+        <div class="c-label">SQL Q2</div>
+        <div class="c-value">57</div>
+        <div class="c-sub">Abr 32 · Mai 21 · Jun 4</div>
+      </div>
+      <div class="card warn">
+        <div class="c-label">Vendas Q2</div>
+        <div class="c-value">9</div>
+        <div class="c-sub">Meta 24 (8/mês × 3)</div>
+      </div>
+      <div class="card blue">
+        <div class="c-label">VGV Q2</div>
+        <div class="c-value">R$ 1,14 M</div>
+        <div class="c-sub">Faturamento R$ 45.460</div>
+      </div>
+      <div class="card good">
+        <div class="c-label">ROAS VGV</div>
+        <div class="c-value">74,9x</div>
+        <div class="c-sub">Abr 188,4x | Jun 21,8x</div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Mês</th>
+            <th class="num">Invest.</th>
+            <th class="num">Leads</th>
+            <th class="num">CPL</th>
+            <th class="num">MQL</th>
+            <th class="num">SQL</th>
+            <th class="num">Vendas</th>
+            <th class="num">VGV</th>
+            <th class="num">ROAS VGV</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Abril</strong></td>
+            <td class="num">R$ 4.506</td>
+            <td class="num">459</td>
+            <td class="num">R$ 9,82</td>
+            <td class="num">47</td>
+            <td class="num">32</td>
+            <td class="num"><strong>7</strong></td>
+            <td class="num">R$ 849.000</td>
+            <td class="num">188,4x</td>
+            <td><span class="badge badge-green">Acima meta</span></td>
+          </tr>
+          <tr>
+            <td><strong>Maio</strong></td>
+            <td class="num">R$ 5.735</td>
+            <td class="num">428 <span class="dn">▼6,8%</span></td>
+            <td class="num">R$ 13,40 <span class="dn">▲36%</span></td>
+            <td class="num">34</td>
+            <td class="num">21</td>
+            <td class="num"><strong>1</strong></td>
+            <td class="num">R$ 180.000</td>
+            <td class="num">31,4x</td>
+            <td><span class="badge badge-orange">Alerta</span></td>
+          </tr>
+          <tr>
+            <td><strong>Junho</strong></td>
+            <td class="num">R$ 4.922</td>
+            <td class="num">309 <span class="dn">▼27,8%</span></td>
+            <td class="num">R$ 15,93 <span class="dn">▲18,9%</span></td>
+            <td class="num">23</td>
+            <td class="num">4</td>
+            <td class="num"><strong>1</strong></td>
+            <td class="num">R$ 107.500</td>
+            <td class="num">21,8x</td>
+            <td><span class="badge badge-red">Crítico</span></td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Q2 Total</strong></td>
+            <td class="num">R$ 15.164</td>
+            <td class="num">1.196</td>
+            <td class="num">R$ 12,68</td>
+            <td class="num">104</td>
+            <td class="num">57</td>
+            <td class="num">9</td>
+            <td class="num">R$ 1.136.500</td>
+            <td class="num">74,9x</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 3 — CANAIS DE MÍDIA ══ -->
+  <div class="section">
+    <div class="section-title">Canais de Mídia — Meta Ads vs Google Ads</div>
+
+    <div class="canal-grid">
+      <!-- META -->
+      <div class="canal-card">
+        <div class="canal-header canal-meta">Meta Ads (principal — leads form)</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Mês</th>
+              <th class="num">Invest.</th>
+              <th class="num">Leads</th>
+              <th class="num">CPL</th>
+              <th class="num">CTR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Abril</strong></td>
+              <td class="num">R$ 3.699</td>
+              <td class="num">403</td>
+              <td class="num">R$ 9,18</td>
+              <td class="num">1,07%</td>
+            </tr>
+            <tr>
+              <td><strong>Maio</strong></td>
+              <td class="num">R$ 4.320</td>
+              <td class="num">359 <span class="dn">▼11%</span></td>
+              <td class="num">R$ 12,03 <span class="dn">▲31%</span></td>
+              <td class="num">1,44%</td>
+            </tr>
+            <tr>
+              <td><strong>Junho</strong></td>
+              <td class="num">R$ 4.173</td>
+              <td class="num">265 <span class="dn">▼26%</span></td>
+              <td class="num">R$ 15,75 <span class="dn">▲31%</span></td>
+              <td class="num">1,39%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding:10px 14px;font-size:11px;color:var(--gray-400);">Variação CPL Abr→Jun: <strong style="color:#b91c1c;">+71,6%</strong></div>
+      </div>
+
+      <!-- GOOGLE -->
+      <div class="canal-card">
+        <div class="canal-header canal-google">Google Ads (complementar — Search)</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Mês</th>
+              <th class="num">Invest.</th>
+              <th class="num">Leads</th>
+              <th class="num">CPL</th>
+              <th class="num">CTR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Abril</strong></td>
+              <td class="num">R$ 807</td>
+              <td class="num">56</td>
+              <td class="num">R$ 14,41</td>
+              <td class="num">2,30%</td>
+            </tr>
+            <tr>
+              <td><strong>Maio</strong></td>
+              <td class="num">R$ 1.416</td>
+              <td class="num">69 <span class="up">▲23%</span></td>
+              <td class="num">R$ 20,52 <span class="dn">▲42%</span></td>
+              <td class="num">2,27%</td>
+            </tr>
+            <tr>
+              <td><strong>Junho</strong></td>
+              <td class="num">R$ 749</td>
+              <td class="num">44 <span class="dn">▼36%</span></td>
+              <td class="num">R$ 17,03 <span class="dn">▼17%</span></td>
+              <td class="num">2,19%</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding:10px 14px;font-size:11px;color:var(--gray-400);">Google responde por ~14% dos leads totais do Q2</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding:14px 16px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;font-size:12px;color:var(--gray-600,#475569);">
+      <strong>Obs. de canal:</strong> Meta concentra 87% dos leads e 85% do investimento de mídia. O aumento de CPL de +71,6% em Meta ao longo do Q2 indica saturação de público ou perda de qualidade criativa. O CTR estável (~1,4%) sugere que impressões foram mantidas, mas houve deterioração na qualidade do lead ou na taxa de conversão do form.
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 4 — FUNIL COMPLETO ══ -->
+  <div class="section">
+    <div class="section-title">Funil de Conversão — Q2 2026</div>
+
+    <div class="funnel" style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;margin-bottom:20px;">
+      <div class="funnel-step">
+        <div class="f-num">1.196</div>
+        <div class="f-label">Leads</div>
+        <div class="f-rate">100%</div>
+      </div>
+      <div class="funnel-step">
+        <div class="f-num">104</div>
+        <div class="f-label">MQL</div>
+        <div class="f-rate">Taxa 8,7%</div>
+      </div>
+      <div class="funnel-step">
+        <div class="f-num">57</div>
+        <div class="f-label">SQL</div>
+        <div class="f-rate">Taxa 54,8% (de MQL)</div>
+      </div>
+      <div class="funnel-step">
+        <div class="f-num">9</div>
+        <div class="f-label">Vendas</div>
+        <div class="f-rate">Taxa 15,8% (de SQL)</div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Mês</th>
+            <th class="num">Leads</th>
+            <th class="num">MQL</th>
+            <th class="num">L→MQL</th>
+            <th class="num">SQL</th>
+            <th class="num">MQL→SQL</th>
+            <th class="num">Vendas</th>
+            <th class="num">SQL→Venda</th>
+            <th class="num">VGV/Venda</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Abril</strong></td>
+            <td class="num">459</td>
+            <td class="num">47</td>
+            <td class="num">10,2%</td>
+            <td class="num">32</td>
+            <td class="num"><span class="badge badge-green">68,1%</span></td>
+            <td class="num"><strong>7</strong></td>
+            <td class="num">21,9%</td>
+            <td class="num">R$ 121.286</td>
+          </tr>
+          <tr>
+            <td><strong>Maio</strong></td>
+            <td class="num">428</td>
+            <td class="num">34</td>
+            <td class="num">7,9%</td>
+            <td class="num">21</td>
+            <td class="num"><span class="badge badge-orange">61,8%</span></td>
+            <td class="num"><strong>1</strong></td>
+            <td class="num">4,8%</td>
+            <td class="num">R$ 180.000</td>
+          </tr>
+          <tr>
+            <td><strong>Junho</strong></td>
+            <td class="num">309</td>
+            <td class="num">23</td>
+            <td class="num">7,4%</td>
+            <td class="num">4</td>
+            <td class="num"><span class="badge badge-red">17,4%</span></td>
+            <td class="num"><strong>1</strong></td>
+            <td class="num">25,0%</td>
+            <td class="num">R$ 107.500</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert warning" style="margin-top:16px;margin-bottom:0;">
+      <div class="a-icon">🔍</div>
+      <div class="a-body">
+        <div class="a-title">Gargalo identificado: conversão MQL→SQL despencou de 68% para 17%</div>
+        <div class="a-text">A taxa Lead→MQL se manteve razoável (10,2% → 7,4%), mas a conversão MQL→SQL caiu 4x em 3 meses. Isso indica que o problema <strong>não é de geração de leads</strong>, e sim de <strong>qualificação comercial ou atendimento</strong>: ou os corretores da Malbork não estão conseguindo agendar reuniões com os MQLs entregues, ou o SDR está com baixa produtividade. A implementação do CRM Marketing (iniciada em abril) precisa acelerar para dar rastreabilidade a esse gap.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 5 — RESULTADOS DE NEGÓCIO ══ -->
+  <div class="section">
+    <div class="section-title">Resultados de Negócio — VGV &amp; Breakeven</div>
+
+    <div class="be-grid">
+      <div class="be-card be-april">
+        <div class="be-month">Abril 2026</div>
+        <div class="be-row"><span class="lbl">VGV realizado</span><span class="val">R$ 849.000</span></div>
+        <div class="be-row"><span class="lbl">VGV projetado</span><span class="val" style="color:var(--gray-400)">R$ 747.500</span></div>
+        <div class="be-row"><span class="lbl">Faturamento (4%)</span><span class="val">R$ 33.960</span></div>
+        <div class="be-row"><span class="lbl">Vendas</span><span class="val">7</span></div>
+        <div class="be-row"><span class="lbl">Ticket médio</span><span class="val">R$ 121.286</span></div>
+        <div class="be-status" style="color:#15803d;">✅ +13,6% acima da meta</div>
+      </div>
+      <div class="be-card be-may">
+        <div class="be-month">Maio 2026</div>
+        <div class="be-row"><span class="lbl">VGV realizado</span><span class="val">R$ 180.000</span></div>
+        <div class="be-row"><span class="lbl">VGV projetado</span><span class="val" style="color:var(--gray-400)">R$ 172.500</span></div>
+        <div class="be-row"><span class="lbl">Faturamento (4%)</span><span class="val">R$ 7.200</span></div>
+        <div class="be-row"><span class="lbl">Vendas</span><span class="val">1 <span style="color:#c2410c;font-size:11px">(meta: 8)</span></span></div>
+        <div class="be-row"><span class="lbl">Ticket médio</span><span class="val">R$ 180.000</span></div>
+        <div class="be-status" style="color:#c2410c;">⚠️ VGV OK, porém apenas 1 venda (12,5% da meta)</div>
+      </div>
+      <div class="be-card be-june">
+        <div class="be-month">Junho 2026</div>
+        <div class="be-row"><span class="lbl">VGV realizado</span><span class="val">R$ 107.500</span></div>
+        <div class="be-row"><span class="lbl">VGV projetado</span><span class="val" style="color:var(--gray-400)">R$ 529.000</span></div>
+        <div class="be-row"><span class="lbl">Faturamento (4%)</span><span class="val">R$ 4.300</span></div>
+        <div class="be-row"><span class="lbl">Vendas</span><span class="val">1 <span style="color:#b91c1c;font-size:11px">(meta: 8)</span></span></div>
+        <div class="be-row"><span class="lbl">Ticket médio</span><span class="val">R$ 107.500</span></div>
+        <div class="be-status" style="color:#b91c1c;">🔴 Apenas 20% do VGV projetado</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding:14px 16px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;">
+      <div style="font-size:12px;font-weight:700;color:var(--gray-700);margin-bottom:8px;">Resumo financeiro Q2 (modelo corretora)</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;font-size:12px;">
+        <div><span style="color:var(--gray-400)">VGV total Q2:</span> <strong>R$ 1.136.500</strong></div>
+        <div><span style="color:var(--gray-400)">Faturamento (4% VGV):</span> <strong>R$ 45.460</strong></div>
+        <div><span style="color:var(--gray-400)">Comissão vendedor (1%):</span> <strong>R$ 11.365</strong></div>
+        <div><span style="color:var(--gray-400)">Investimento mídia Q2:</span> <strong>R$ 15.164</strong></div>
+        <div><span style="color:var(--gray-400)">Fee V4 Q2 (3 meses):</span> <strong>R$ 14.100</strong></div>
+        <div><span style="color:var(--gray-400)">ROAS sobre VGV:</span> <strong>74,9x</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 6 — HISTÓRICO ══ -->
+  <div class="section">
+    <div class="section-title">Histórico &amp; Tendência</div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Período</th>
+            <th class="num">Invest.</th>
+            <th class="num">Leads</th>
+            <th class="num">CPL</th>
+            <th class="num">Vendas</th>
+            <th class="num">VGV</th>
+            <th class="num">ROAS VGV</th>
+            <th>Tendência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ago/2024</strong> (pico)</td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num"><strong>34</strong></td>
+            <td class="num">R$ 3.773.000</td>
+            <td class="num">—</td>
+            <td><span class="badge badge-green">Pico histórico</span></td>
+          </tr>
+          <tr>
+            <td><strong>Jan/2026</strong></td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num">~6</td>
+            <td class="num">R$ 596.060</td>
+            <td class="num">—</td>
+            <td><span class="badge badge-blue">Q1 início</span></td>
+          </tr>
+          <tr>
+            <td><strong>Fev/2026</strong></td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num">~3</td>
+            <td class="num">R$ 325.000</td>
+            <td class="num">—</td>
+            <td><span class="badge badge-blue">Q1</span></td>
+          </tr>
+          <tr>
+            <td><strong>Mar/2026</strong></td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num">—</td>
+            <td class="num">~3</td>
+            <td class="num">R$ 177.000</td>
+            <td class="num">—</td>
+            <td><span class="badge badge-orange">Q1 queda</span></td>
+          </tr>
+          <tr style="background:#fef9ec;">
+            <td><strong>Abr/2026</strong></td>
+            <td class="num">R$ 4.506</td>
+            <td class="num">459</td>
+            <td class="num">R$ 9,82</td>
+            <td class="num"><strong>7</strong></td>
+            <td class="num">R$ 849.000</td>
+            <td class="num">188,4x</td>
+            <td><span class="badge badge-green">Recuperação</span></td>
+          </tr>
+          <tr style="background:#fff7ed;">
+            <td><strong>Mai/2026</strong></td>
+            <td class="num">R$ 5.735</td>
+            <td class="num">428</td>
+            <td class="num">R$ 13,40</td>
+            <td class="num"><strong>1</strong></td>
+            <td class="num">R$ 180.000</td>
+            <td class="num">31,4x</td>
+            <td><span class="badge badge-orange">Queda severa</span></td>
+          </tr>
+          <tr style="background:#fef2f2;">
+            <td><strong>Jun/2026</strong></td>
+            <td class="num">R$ 4.922</td>
+            <td class="num">309</td>
+            <td class="num">R$ 15,93</td>
+            <td class="num"><strong>1</strong></td>
+            <td class="num">R$ 107.500</td>
+            <td class="num">21,8x</td>
+            <td><span class="badge badge-red">Crítico</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hist-note">* Dados de Ago/2024 e Q1/2026 extraídos da planilha Breakeven (estimativas). Dados de Q2/2026 extraídos do Growth Pack 3.0.</div>
+
+    <div style="margin-top:16px;padding:14px 16px;background:var(--red-light);border:1px solid var(--red-mid);border-radius:8px;font-size:12px;color:#7f1d1d;">
+      <strong>Distância do pico:</strong> Em agosto/2024 a Malbork fechou 34 vendas com VGV de R$3,77M. Em junho/2026 — 22 meses depois — fechou apenas 1 venda com VGV de R$107.500, equivalente a <strong>2,9% do pico</strong>. Mesmo desconsiderando sazonalidade, a trajetória mostra deterioração estrutural do comercial.
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 7 — DESTAQUES & APRENDIZADOS ══ -->
+  <div class="section">
+    <div class="section-title">Destaques &amp; Aprendizados Q2</div>
+
+    <div class="insights">
+      <div class="insight-card positive">
+        <div class="i-icon">✅</div>
+        <div class="i-title">Abril foi o melhor mês do Q1/Q2 combinado</div>
+        <div class="i-text">7 vendas e VGV R$849k superaram a projeção em 13,6%. Demonstra que a estrutura de mídia tem capacidade de entregar resultado quando o comercial funciona. CPL de R$9,82 foi o menor do período, com 459 leads e 32 SQLs.</div>
+      </div>
+
+      <div class="insight-card negative">
+        <div class="i-icon">🔴</div>
+        <div class="i-title">Colapso de SQL em junho: de 32 para 4 em 3 meses</div>
+        <div class="i-text">A taxa MQL→SQL despencou de 68% (abril) para 17% (junho). Com 23 MQLs entregues em junho, esperávamos ~15 SQLs — chegamos a 4. Isso é um sinal claro de falha no atendimento comercial da Malbork, não de qualidade de mídia.</div>
+      </div>
+
+      <div class="insight-card negative">
+        <div class="i-icon">📉</div>
+        <div class="i-title">CPL em tendência de alta: +62% em 3 meses</div>
+        <div class="i-text">O CPL médio subiu de R$9,82 em abril para R$15,93 em junho (+62,2%), e a base de leads caiu de 459 para 309 (-33%). Possíveis causas: fadiga de criativos, saturação de público em Meta Ads, ou sazonalidade de interesse por imóveis no período.</div>
+      </div>
+
+      <div class="insight-card neutral">
+        <div class="i-icon">🏗️</div>
+        <div class="i-title">CRM Marketing em implementação desde abril</div>
+        <div class="i-text">Projeto [Malbork] Implementação CRM Marketing criado em 21/04 no Ekyte. A implementação de rastreabilidade comercial é urgente para diagnosticar onde os SQLs estão sendo perdidos e quantificar o impacto de follow-up.</div>
+      </div>
+
+      <div class="insight-card action">
+        <div class="i-icon">💡</div>
+        <div class="i-title">Google Ads tem CTR superior ao Meta (2,2% vs 1,4%)</div>
+        <div class="i-text">Apesar de menor volume, o Google Ads manteve CTR consistente de 2,2% ao longo do Q2 enquanto o Meta sofreu com leads de qualidade questionável. Pode ser estratégico reequilibrar o orçamento para aumentar presença em Search.</div>
+      </div>
+
+      <div class="insight-card action">
+        <div class="i-icon">🎯</div>
+        <div class="i-title">Diagnóstico: problema é comercial, não de mídia</div>
+        <div class="i-text">A mídia gerou 1.196 leads e 104 MQLs no Q2. O gargalo está na etapa MQL→SQL (comercial Malbork). Recomendação: alinhar com o cliente um protocolo de SDR com SLA de contato ≤2h e registrar objeções no CRM para ajuste de qualificação.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 8 — PRÓXIMOS PASSOS Q3 ══ -->
+  <div class="section">
+    <div class="section-title">Próximos Passos — Q3 2026</div>
+
+    <ul class="next-list">
+      <li class="next-item">
+        <div class="n-num">1</div>
+        <div>
+          <div class="n-title">Reunião de alinhamento comercial (URGENTE)</div>
+          <div class="n-desc">Apresentar o colapso de MQL→SQL (68% → 17%) e exigir protocolo de atendimento da equipe de vendas. SLA de contato ≤2h, registro de objeções e status de cada SQL no CRM.</div>
+          <div class="n-owner">Resp: Rafael Clarindo (PM) + Malbork · Prazo: 1ª semana de julho</div>
+        </div>
+      </li>
+      <li class="next-item">
+        <div class="n-num">2</div>
+        <div>
+          <div class="n-title">Finalizar implementação do CRM Marketing</div>
+          <div class="n-desc">Concluir o projeto Ekyte #291859 e garantir que todos os MQLs entregues pela mídia sejam rastreados até o fechamento. Sem esse dado, não conseguimos separar falha comercial de falha de qualificação.</div>
+          <div class="n-owner">Resp: Thaily (AM) + Ueliton (Coord) · Prazo: até 15/07</div>
+        </div>
+      </li>
+      <li class="next-item">
+        <div class="n-num">3</div>
+        <div>
+          <div class="n-title">Auditoria criativa em Meta Ads — combater fadiga</div>
+          <div class="n-desc">CPL subiu +72% em Meta durante Q2. Realizar rotação de criativos com novos ângulos (urgência de preço, depoimentos de compradores recentes, novos empreendimentos). Testar 3 novos conceitos em julho.</div>
+          <div class="n-owner">Resp: Matheus (Mídia) + Felipe (Copy) + Ana Beatriz (Design)</div>
+        </div>
+      </li>
+      <li class="next-item">
+        <div class="n-num">4</div>
+        <div>
+          <div class="n-title">Revisão de segmentação e qualificação de MQL</div>
+          <div class="n-desc">Taxa Lead→MQL caiu de 10,2% para 7,4%. Revisar critérios de qualificação e formulários para elevar qualidade dos MQLs entregues ao comercial. Considerar perguntas de qualificação adicionais no formulário Meta.</div>
+          <div class="n-owner">Resp: Matheus (Mídia) + Ueliton (Coord)</div>
+        </div>
+      </li>
+      <li class="next-item">
+        <div class="n-num">5</div>
+        <div>
+          <div class="n-title">Avaliar rebalanceamento de verba Meta ↔ Google</div>
+          <div class="n-desc">Google manteve CTR 2,2% com leads mais qualificados (menor volume mas melhor intenção). Testar aumento de verba Google em 20-30% e redução proporcional em Meta para avaliar impacto na qualidade de MQL.</div>
+          <div class="n-owner">Resp: Matheus (Mídia) · Prazo: agosto</div>
+        </div>
+      </li>
+      <li class="next-item">
+        <div class="n-num">6</div>
+        <div>
+          <div class="n-title">Meta de recuperação Q3: 5 vendas/mês mínimo</div>
+          <div class="n-desc">Definir com a Malbork meta mínima de 5 vendas/mês em Q3 para começar recuperação do HS. Monitorar semanalmente o painel de MQL→SQL e escalar com o PM caso não atinja 50% da meta na 2ª semana do mês.</div>
+          <div class="n-owner">Resp: Rafael (PM) + Thaily (AM) · Revisão semanal</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    ROPRE Q2 2026 — Malbork Corretora de Seguros · Gerado em 01/07/2026 · V4 Colli &amp; Co — Squad Invictus<br>
+    Fontes: Growth Pack 3.0 · Breakeven Malbork · Ekyte (Workspace 55664) · Cockpit (HS 14 · Flag Critical)
+  </div>
+
+</div>
+</body>
+</html>
