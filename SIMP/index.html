@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Retrospectiva ROPRE — Simple Education — Q2/2026</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;color:#1a1a1a;line-height:1.45;max-width:960px;margin:24px auto;padding:0 16px;}
+  h1{font-size:22px;margin:0 0 2px;}
+  h2{background:#e30613;color:#fff;padding:6px 10px;font-size:15px;margin:26px 0 10px;}
+  h3{font-size:13px;margin:16px 0 6px;color:#e30613;text-transform:uppercase;letter-spacing:.3px;}
+  table{border-collapse:collapse;width:100%;font-size:12px;margin:8px 0;}
+  th,td{border:1px solid #ccc;padding:5px 7px;text-align:left;}
+  th{background:#f2f2f2;} td.n,th.n{text-align:right;}
+  th.q,td.q{background:#fafafa;font-weight:bold;}
+  .meta{font-size:11px;color:#666;border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:6px 0;margin:6px 0 4px;}
+  .ok{color:#127a2e;font-weight:bold;} .bad{color:#c0140c;font-weight:bold;}
+  .warn{color:#b26000;font-weight:bold;}
+  .slot{background:#fff7d6;border:1px dashed #d9a800;padding:8px 10px;font-size:12px;margin:6px 0;}
+  .prov{color:#888;font-size:10px;}
+  .note{background:#eef3fb;border-left:4px solid #2f6fd1;padding:8px 10px;font-size:12px;margin:10px 0;}
+  .alert{background:#fff0f0;border-left:4px solid #e30613;padding:8px 10px;font-size:12px;margin:10px 0;}
+  ul{margin:4px 0 8px 18px;padding:0;} li{margin:2px 0;}
+  .type-header{background:#222;color:#fff;font-weight:bold;font-size:11px;padding:4px 7px;}
+</style>
+</head>
+<body>
+
+<h1>Retrospectiva ROPRE — Simple Education (SIMP) — Q2/2026</h1>
+<div class="meta">
+  Fontes: <b>Growth Pack 4.0 + Breakeven Inside Sales + Planilha de Leads 2.0 (3 abas) + Ekyte + Cockpit + BigQuery Calls</b> · projectDocumentId=<b>vmtchurt82y2u0ekgi1ie8yx</b> · plataformas=Meta Ads + Google Ads (LinkedIn Ads configurado, não ativo) · período=<b>Q2/2026 (abr–jun, fechado, mensal + total)</b>
+</div>
+
+<div class="alert">
+  ⚠ <b>Q2 com zero vendas confirmadas</b> — projetado: 3 contratos (≈R$240k–600k). Realizado: R$0 em receita atribuída à V4. Dois leads em pipeline avançado (propostas enviadas) mas sem fechamento no período.<br>
+  ⚠ <b>Queda severa de leads Meta:</b> 40 → 14 → 5 (-87,5% de abril a junho), com CPL disparando de R$225 → R$687. Inversão de canal em andamento (Google crescendo), mas volume total ainda muito abaixo da meta.
+</div>
+
+<!-- ===== SEÇÃO 1 ===== -->
+<h2>1. Visão Geral do Projeto</h2>
+<table>
+  <tr><th>Cliente</th><td>Simple Education (SIMPLE EDUCATION EDITORA LTDA)</td><th>Squad / Coord</th><td>Invictus · Thaily Serodio</td></tr>
+  <tr><th>Modelo de negócio</th><td>B2B · EdTech — Programa Bilíngue de Alta Performance para escolas privadas <span class="prov">[Ekyte/Cockpit]</span></td><th>Segmento</th><td>Educação privada — Diretores, Mantenedores, Coordenadores Pedagógicos</td></tr>
+  <tr><th>Fee mensal</th><td>R$5.500 (foi R$7.500 em 2025 — fee reduzido) <span class="prov">[Breakeven]</span></td><th>LT</th><td>18+ meses (cliente desde 2024) <span class="prov">[Ekyte]</span></td></tr>
+  <tr><th>Flag / HS</th><td class="bad">🔴 Danger · HS 18.6 <span class="prov">[Cockpit 28/06]</span></td><th>Produto V4</th><td>assessoria_byline (conteúdo + mídia paga) <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Critério MQL</th><td colspan="3">Gestor escolar (Diretor / Mantenedor / Coordenador) de escola privada com interesse real no programa bilíngue · ICP confirmado no CRM <span class="prov">[Planilha de Leads]</span></td></tr>
+  <tr><th>Ticket médio</th><td>R$80.000 (escola padrão) → R$200.000 (escola grande, projeção a partir de jun/26) <span class="prov">[Breakeven]</span></td><th>Margem</th><td>60% MC <span class="prov">[Breakeven]</span></td></tr>
+  <tr><th>Diferenciais do produto</th><td colspan="3">Parceria Cambridge (Prep Centres, 98% aprovação) + Harvard (bolsas 40h para alunos destaque) + Simple Lab (IA pedagógica) + nivelamento no contraturno sem custo extra <span class="prov">[Ekyte/Briefings]</span></td></tr>
+  <tr><th>Equipe</th><td colspan="3">PM: Rafael Clarindo Reis · Coord: Ueliton Pereira · AM: Thaily Serodio · Paid Media: Matheus Alencar · Copy: Felipe Pinheiro · Designer: Yuri <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Stakeholders cliente</th><td colspan="3">Natânia Tavares · Daniel Mota · Emanoel · Beatriz Martins <span class="prov">[BigQuery Calls]</span></td></tr>
+</table>
+
+<!-- ===== SEÇÃO 2 ===== -->
+<h2>2. Resultado do Quarter — Funil Q2/2026</h2>
+
+<div class="note">
+  <b>Dois funneis paralelos:</b> (1) <b>Meta Ads</b> → formulário nativo → leads no CRM da Simple; (2) <b>Google Ads</b> → "inscrição" como conversão na LP (tracking implementado em maio pela V4 — task TRK 07/05). Os números de leads abaixo referem-se ao Meta; as conversões do Google são registradas separadamente na Seção 3. A Planilha de Leads 2.0 tem 3 abas: Leads 2026 (Meta), LP MQL (orgânico qualificado), LP NQL (orgânico desqualificado).
+</div>
+
+<h3>Funil Q2 — Projetado (Breakeven) vs Realizado (Growth Pack + Leads)</h3>
+<table>
+  <tr>
+    <th>Etapa</th>
+    <th class="n">Proj. Abr/26</th><th class="n">Real. Abr/26</th>
+    <th class="n">Proj. Mai/26</th><th class="n">Real. Mai/26</th>
+    <th class="n">Proj. Jun/26</th><th class="n">Real. Jun/26</th>
+    <th class="n q">Total Real. Q2</th>
+  </tr>
+  <tr>
+    <td>Investimento total (mídia + fee)</td>
+    <td class="n">R$19.500</td><td class="n">R$18.354,19 <span class="prov">[GP]</span></td>
+    <td class="n">R$19.500</td><td class="n">R$14.953,03 <span class="prov">[GP]</span></td>
+    <td class="n">R$20.500</td><td class="n">R$16.386,47 <span class="prov">[GP]</span></td>
+    <td class="n q">R$49.693,69</td>
+  </tr>
+  <tr>
+    <td>Verba de mídia</td>
+    <td class="n">R$14.000</td><td class="n ok">R$12.854,19 <span class="prov">[GP]</span></td>
+    <td class="n">R$14.000</td><td class="n ok">R$9.453,03 <span class="prov">[GP]</span></td>
+    <td class="n">R$15.000</td><td class="n ok">R$10.886,47 <span class="prov">[GP]</span></td>
+    <td class="n q">R$33.193,69</td>
+  </tr>
+  <tr>
+    <td>Leads (Meta — formulários)</td>
+    <td class="n">127</td><td class="n bad">40 (31%)</td>
+    <td class="n">127</td><td class="n bad">14 (11%)</td>
+    <td class="n">136</td><td class="n bad">5 (4%)</td>
+    <td class="n q bad">59 (15% da meta)</td>
+  </tr>
+  <tr>
+    <td>Conversões Google ("inscrição")</td>
+    <td class="n">—</td><td class="n bad">0 (sem tracking)</td>
+    <td class="n">—</td><td class="n warn">5</td>
+    <td class="n">—</td><td class="n ok">20</td>
+    <td class="n q">25</td>
+  </tr>
+  <tr>
+    <td>OPQ (Oportunidades Qualificadas)</td>
+    <td class="n">15</td><td class="n bad">0</td>
+    <td class="n">15</td><td class="n bad">0</td>
+    <td class="n">16</td><td class="n warn">1 (Ibituruna — perdido)</td>
+    <td class="n q bad">0 convertidos</td>
+  </tr>
+  <tr>
+    <td>Reuniões Realizadas</td>
+    <td class="n">3</td><td class="n bad">0</td>
+    <td class="n">3</td><td class="n bad">0</td>
+    <td class="n">3</td><td class="n warn">2 (Aprendiz + Dom Bosco)*</td>
+    <td class="n q warn">2*</td>
+  </tr>
+  <tr>
+    <td>Vendas (Contratos fechados)</td>
+    <td class="n">1</td><td class="n bad">0</td>
+    <td class="n">1</td><td class="n bad">0</td>
+    <td class="n">1</td><td class="n bad">0</td>
+    <td class="n q bad">0</td>
+  </tr>
+  <tr>
+    <td>Receita</td>
+    <td class="n">R$80.000</td><td class="n bad">R$0</td>
+    <td class="n">R$80.000</td><td class="n bad">R$0</td>
+    <td class="n">R$200.000</td><td class="n bad">R$0</td>
+    <td class="n q bad">R$0</td>
+  </tr>
+</table>
+<p style="font-size:11px;color:#888;">*Reuniões de junho: Colégio Aprendiz (proposta enviada, 12/06, NQL com reunião realizada) e Dom Bosco/Anchieta (reunião por Juliana, 25/06) — ambos entraram via LP Parceiros, não via Meta Ads. Pipeline aberto mas sem fechamento no Q2. | Breakeven Q2 entrou com ticket R$80k (Abr/Mai) e R$200k (Jun) — projetava receita de R$360k no quarter. Realizado: R$0.</p>
+
+<div class="alert">
+  ⚠ <b>Leitura do quarter:</b> Simple Education teve o pior quarter em volume de leads desde o início da conta. Meta Ads colapsou de 40 leads (abril) para apenas 5 (junho), queda de 87,5% em 3 meses, enquanto o CPL foi de R$225 para R$687 — 3x de deterioração. O investimento em mídia também caiu (R$12.854 → R$9.453 → R$10.886), sugerindo pausas ou reduções de verba. Google Ads, por outro lado, está evoluindo: zero conversões em abril, 5 em maio, 20 em junho (CPA R$373) — tendência positiva. O problema não é o Google; é que o Meta, que historicamente gerou mais volume, quebrou. ZERO contratos fechados no quarter, com projeção de 3 vendas e R$360k de receita. O único OPQ qualificado (Colégio Ibituruna) foi perdido para a International School.
+</div>
+
+<!-- ===== SEÇÃO 3 ===== -->
+<h2>3. Investimentos e Resultados por Canal — Q2/2026</h2>
+
+<h3>Meta Ads — Q2/2026 <span class="prov">[Growth Pack]</span></h3>
+<table>
+  <tr>
+    <th>Métrica</th>
+    <th class="n">Abr/26</th>
+    <th class="n">Mai/26</th>
+    <th class="n">Jun/26</th>
+    <th class="n q">Total Q2</th>
+  </tr>
+  <tr><td>Investimento</td><td class="n">R$9.011,16</td><td class="n">R$4.596,77</td><td class="n">R$3.432,61</td><td class="n q">R$17.040,54</td></tr>
+  <tr><td>Impressões</td><td class="n">426.835</td><td class="n">413.420</td><td class="n">50.157</td><td class="n q">890.412</td></tr>
+  <tr><td>Cliques</td><td class="n">1.226</td><td class="n">3.075</td><td class="n">1.868</td><td class="n q">6.169</td></tr>
+  <tr><td>Leads (formulário nativo)</td><td class="n ok">40</td><td class="n warn">14</td><td class="n bad">5</td><td class="n q">59</td></tr>
+  <tr><td>CPL Meta</td><td class="n ok">R$225,28</td><td class="n warn">R$328,34</td><td class="n bad">R$686,52</td><td class="n q bad">R$288,82 (média)</td></tr>
+  <tr><td>CTR</td><td class="n">0,29%</td><td class="n ok">0,74%</td><td class="n ok">3,72%</td><td class="n q">—</td></tr>
+</table>
+<div class="alert">
+  ⚠ <b>Meta em colapso de volume:</b> Impressões caíram 88% de abril (426k) para junho (50k) — indício claro de redução de orçamento e/ou problemas de aprendizado de campanha. CTR foi de 0,29% (abril) para 3,72% (junho) — os criativos de junho são melhores, mas o alcance despencou. O budget reduzido em maio-junho (de R$9k para R$3.4k) explica grande parte do colapso. <b>A queda de leads no Meta não é necessariamente problema de criativo — é, em parte, redução intencional ou forçada de verba.</b>
+</div>
+
+<h3>Google Ads — Q2/2026 <span class="prov">[Growth Pack]</span></h3>
+<table>
+  <tr>
+    <th>Métrica</th>
+    <th class="n">Abr/26</th>
+    <th class="n">Mai/26</th>
+    <th class="n">Jun/26</th>
+    <th class="n q">Total Q2</th>
+  </tr>
+  <tr><td>Investimento</td><td class="n">R$3.843,03</td><td class="n">R$4.856,26</td><td class="n">R$7.453,86</td><td class="n q">R$16.153,15</td></tr>
+  <tr><td>Impressões</td><td class="n">138.732</td><td class="n">320.388</td><td class="n">94.593</td><td class="n q">553.713</td></tr>
+  <tr><td>Cliques</td><td class="n">7.674</td><td class="n">7.360</td><td class="n">3.333</td><td class="n q">18.367</td></tr>
+  <tr><td>Conversões ("inscrição")</td><td class="n bad">0</td><td class="n warn">5</td><td class="n ok">20</td><td class="n q">25</td></tr>
+  <tr><td>CPA Google</td><td class="n bad">— (sem tracking)</td><td class="n warn">R$971,25</td><td class="n ok">R$372,69</td><td class="n q ok">R$646,13 (média)</td></tr>
+</table>
+<div class="note">
+  <b>Google com tendência positiva:</b> Conversões cresceram 0 → 5 → 20 no trimestre, com CPA melhorando de R$971 para R$373. O tracking de "inscrição" foi implementado pela V4 em maio (TRK 07/05) — antes disso, o Google estava gastando R$3.843 sem nenhuma conversão rastreável. Junho foi o melhor mês Google do Q2. Inversão de budget aconteceu em junho (Google passou a ser o canal maior: R$7.454 vs Meta R$3.433).
+</div>
+
+<h3>LinkedIn Ads</h3>
+<table>
+  <tr><th>Status</th><td class="warn">Configurado em abril (task 13/04) — R$0 de investimento em todo o Q2. Canal pronto mas não ativado.</td></tr>
+</table>
+
+<h3>Consolidado Total — Q2/2026</h3>
+<table>
+  <tr>
+    <th>Canal</th>
+    <th class="n">Invest. Q2</th>
+    <th class="n">% Invest.</th>
+    <th class="n">Leads/Conv. Q2</th>
+    <th class="n">CPL/CPA médio</th>
+    <th>Tendência Q2</th>
+  </tr>
+  <tr><td>Meta Ads</td><td class="n">R$17.040,54</td><td class="n">51,3%</td><td class="n bad">59 leads</td><td class="n bad">R$288,82</td><td class="bad">↓ Colapso de volume</td></tr>
+  <tr><td>Google Ads</td><td class="n">R$16.153,15</td><td class="n">48,7%</td><td class="n ok">25 conversões</td><td class="n warn">R$646,13</td><td class="ok">↑ Crescendo</td></tr>
+  <tr><td>LinkedIn Ads</td><td class="n">R$0</td><td class="n">0%</td><td class="n">—</td><td class="n">—</td><td class="warn">Não ativado</td></tr>
+  <tr class="type-header"><td>Total Q2</td><td class="n">R$33.193,69</td><td class="n">100%</td><td class="n">84 (59 Meta + 25 Google)</td><td class="n">—</td><td>—</td></tr>
+</table>
+
+<!-- ===== SEÇÃO 4 ===== -->
+<h2>4. O que deu certo / O que não deu certo — Q2/2026</h2>
+
+<h3>✅ O que deu certo no Q2</h3>
+<ul>
+  <li><b>Google Ads consolidando:</b> 0 → 5 → 20 conversões no trimestre, CPA melhorando (R$971 → R$373 em junho) — tendência positiva que aponta para virada no Q3 <span class="prov">[Growth Pack]</span></li>
+  <li><b>Tracking de "inscrição" implementado em maio:</b> task TRK concluída em 07/05, habilitando mensuração real das conversões do Google — sem isso, o Q2 todo seria cego para o canal <span class="prov">[Ekyte]</span></li>
+  <li><b>Bett Brasil 2026:</b> participação no principal evento de educação, campanhas específicas criadas e publicadas em abril — ação de awareness e geração de leads qualificados para o setor <span class="prov">[Ekyte]</span></li>
+  <li><b>2 reuniões com propostas avançadas em pipeline:</b> Colégio Aprendiz (proposta enviada, 12/06) e Dom Bosco/Anchieta (reunião 25/06) — ambos via LP Parceiros, aguardando fechamento no Q3 <span class="prov">[Planilha de Leads LP NQL]</span></li>
+  <li><b>2 roteiros de vídeo para YouTube entregues:</b> institutional videos posicionando a Simple como "Programa Bilíngue de Alta Performance" com Cambridge + Harvard — material de topo para funil de conteúdo <span class="prov">[Ekyte]</span></li>
+  <li><b>LinkedIn Ads configurado:</b> canal pronto para ativação, target direto em gestores e diretores escolares — alavancagem disponível para Q3 <span class="prov">[Ekyte]</span></li>
+  <li><b>Ajuste CRM automação em maio:</b> task ACRM corrigiu roteamento de leads — todos passando a entrar para Natânia (pré-venda), evitando perda por distribuição errada <span class="prov">[Ekyte]</span></li>
+  <li><b>Auditoria de campanhas concluída:</b> task OTM em maio identificou oportunidades de melhoria nas palavras-chave, correspondências, listas e novos tipos de campanha (demand, display) <span class="prov">[Ekyte]</span></li>
+</ul>
+
+<h3>❌ O que não deu certo no Q2</h3>
+<ul>
+  <li><b>Meta Ads com queda catastrófica de volume:</b> 40 → 14 → 5 leads (-87,5%), CPL de R$225 → R$687 (+205%). Budget reduziu de R$9k → R$3.4k em paralelo — parte do colapso é budget, parte é deterioração de performance <span class="prov">[Growth Pack]</span></li>
+  <li><b>Zero contratos fechados no Q2:</b> meta de 3 vendas e ~R$360k de receita. Realizado: R$0. O pipeline tem 2 leads avançados mas nenhum fechou dentro do período <span class="prov">[Breakeven + Leads]</span></li>
+  <li><b>Google Ads sem tracking em abril:</b> R$3.843 investidos sem nenhuma conversão rastreável — investimento "cego" por um mês inteiro; tracking só foi implementado em maio <span class="prov">[Growth Pack + Ekyte]</span></li>
+  <li><b>OPQ Colégio Ibituruna perdido para concorrente:</b> único lead qualificado pelo SDR no Q2 (12/05), que chegou a ter reuniões agendadas — perdeu para a International School <span class="prov">[Planilha Leads LP MQL]</span></li>
+  <li><b>Taxa de leads Meta muito abaixo da meta:</b> projetado 127-136/mês, realizado 5-40/mês — 15% do volume projetado no quarter. O funil não tem volume suficiente para gerar vendas no ritmo necessário <span class="prov">[Breakeven vs Growth Pack]</span></li>
+  <li><b>LinkedIn Ads nunca ativado:</b> canal configurado em abril, R$0 gasto em todo o Q2 — perdemos 3 meses sem explorar o canal B2B com maior precisão de segmentação para gestores escolares <span class="prov">[Growth Pack + Ekyte]</span></li>
+  <li><b>Alta taxa de leads fakes/desqualificados no Meta:</b> análise qualitativa da planilha mostra grande volume de entradas com e-mails genéricos, alunos se passando por gestores, nomes inválidos — qualidade dos leads Meta é baixa <span class="prov">[Planilha Leads 2026]</span></li>
+</ul>
+
+<!-- ===== SEÇÃO 5 ===== -->
+<h2>5. Criativos em Destaque — Q2/2026</h2>
+<div class="slot">⚠ SLOT: ranking de criativos por performance — requer NEKT, não consultado nesta sessão. Criativos identificados via Ekyte: AD02 "Fluência comprovada" (Meta — recorrente no Q1 e início Q2), AD11 "Uma solução bilíngue", AD12 "Você tem interesse em", AD08 "O que faz a escola", AD09 "Nosso programa bilíngue". Roteiros de vídeo para YouTube produzidos em maio (2 roteiros: Alta Performance + Sem Caos Operacional). Desdobramentos para Display produzidos em abril (partes 1, 2 e 3).</div>
+
+<!-- ===== SEÇÃO 6 ===== -->
+<h2>6. Síntese de Sentimento — Calls Q2/2026</h2>
+
+<h3>Calls no período (BigQuery)</h3>
+<table>
+  <tr><th>Data</th><th>Tipo</th><th>Participantes cliente</th><th>Síntese</th></tr>
+  <tr>
+    <td>14/05</td><td>Check-in</td><td>Natânia, Daniel, Emanoel, Fernando, Roberto</td>
+    <td>Revisão de performance de campanhas. Qualificação de padrões para Google Ads e leads recebidos. Estratégias de marketing Google finalizadas e aprovadas pelo cliente. <span class="prov">[BigQuery]</span></td>
+  </tr>
+  <tr>
+    <td>28/05</td><td>Check-in</td><td>Natânia, Daniel, Emanoel, Fernando, Roberto</td>
+    <td>Análise de estratégias de integração e configuração de campanhas. Discussão sobre uso do Google Max para escolas internacionais. Revisão de métricas de investimento — feedback do projeto usado para otimizar alocação de recursos. <span class="prov">[BigQuery]</span></td>
+  </tr>
+  <tr>
+    <td>03/06</td><td>Acompanhamento Comercial</td><td>Natânia, Daniel, Emanoel, Beatriz</td>
+    <td>Resumo não gerado (Gemini sem transcrição suficiente). <span class="prov">[BigQuery]</span></td>
+  </tr>
+  <tr>
+    <td>11/06</td><td>Check-in</td><td>Natânia, Daniel, Emanoel, Fernando, Roberto</td>
+    <td>Resumo não gerado. <span class="prov">[BigQuery]</span></td>
+  </tr>
+  <tr>
+    <td>17/06</td><td>Acompanhamento Comercial</td><td>Natânia, Daniel, Emanoel, Beatriz</td>
+    <td>Necessidade crítica de solução para <b>operações de campo</b> identificada. Diretriz estabelecida de que todos os componentes da solução devem se comunicar — analogia com estrutura de redação para elementos subsequentes do processo. <span class="prov">[BigQuery]</span></td>
+  </tr>
+</table>
+
+<div class="note">
+  <b>Leitura de sentiment:</b> Calls bem distribuídas no Q2 (2 check-ins mensais + acompanhamentos comerciais mensais). Call de 17/06 trouxe tema novo: "implementação de solução operacional" e "integração de sistemas" — pode indicar que o cliente está tratando de alguma integração interna (ERP, CRM da escola, Simple Lab) além das campanhas de marketing. Esse contexto é importante para o Q3: se há uma ação operacional nova, pode impactar timing de fechamento de contratos.
+</div>
+
+<!-- ===== SEÇÃO 7 ===== -->
+<h2>7. Tasks e Execução Q2/2026 <span class="prov">[Ekyte]</span></h2>
+
+<h3>Destaques de execução por tipo</h3>
+<table>
+  <tr><th>Tipo</th><th class="n">Qtd</th><th>Ações relevantes</th></tr>
+  <tr><td>PC — Planejamento de Campanhas</td><td class="n">3</td><td>Planejamento Abril, Publicação campanhas Bett Brasil, Publicação vídeo Bett</td></tr>
+  <tr><td>OTM — Otimização</td><td class="n">25+</td><td>Otimizações diárias (Meta + Google), auditoria de campanhas (maio), LinkedIn Ads config, testes de lista de LAL, exploração de novos tipos de campanha (demand/display/Google Max)</td></tr>
+  <tr><td>CA / RV — Criativos</td><td class="n">8+</td><td>Anúncios Bett Brasil, Criativo Simple Lab e IA, Desdobramento Display (partes 1/2/3), Prova Social e Lógica, 2 Roteiros YouTube (Cambridge+Harvard theme), Edição de vídeo (junho)</td></tr>
+  <tr><td>TRK — Tracking</td><td class="n">1</td><td>Implementar "inscrição" como conversão no Google (07/05) — habilitou mensuração real</td></tr>
+  <tr><td>ACRM — CRM</td><td class="n">3</td><td>Ajuste no CRM (16/04), Acompanhamento comercial (20/04, 20/04+), Ajuste automação (leads → Natânia, 28/05)</td></tr>
+  <tr><td>LP — Landing Page</td><td class="n">1</td><td>Otimização Landing Page (tarefa aberta em março, em andamento)</td></tr>
+  <tr><td>PPT / ROPRE</td><td class="n">1</td><td>ROPRE Mensal 16/04</td></tr>
+</table>
+
+<!-- ===== SEÇÃO 8 ===== -->
+<h2>8. Diagnóstico de Saúde — Q2/2026</h2>
+
+<h3>Principais riscos identificados</h3>
+<table>
+  <tr><th>Risco</th><th>Evidência</th><th>Impacto</th></tr>
+  <tr>
+    <td class="bad"><b>Volume de leads crítico</b></td>
+    <td>Meta colapsou (40→5 leads); Google ainda em ramp-up. Total Q2: 59 leads Meta + 25 conv Google vs meta de 390 leads no BP</td>
+    <td class="bad">Sem volume de topo de funil, impossível atingir meta de vendas</td>
+  </tr>
+  <tr>
+    <td class="bad"><b>Zero receita no Q2</b></td>
+    <td>Projetado R$360k (3 contratos a R$80k-200k); realizado R$0. ROI do projeto deteriora sem receita.</td>
+    <td class="bad">Justifica flag Danger — cliente sem resultado tangível no quarter</td>
+  </tr>
+  <tr>
+    <td class="warn"><b>Meta Ads com queda de qualidade e volume</b></td>
+    <td>CPL de R$225 → R$687; alta taxa de fakes/alunos se passando por gestores; budget reduzido</td>
+    <td class="warn">Requer revisão de segmentação + criativos + verba para Meta funcionar</td>
+  </tr>
+  <tr>
+    <td class="warn"><b>Pipeline dependente de LP Parceiros</b></td>
+    <td>Única reunião com proposta (Aprendiz) e única reunião avançada (Dom Bosco) vieram via LP orgânica, não via Meta</td>
+    <td class="warn">Meta não está convertendo para reuniões; LP Parceiros é o canal mais quente mas de menor volume</td>
+  </tr>
+  <tr>
+    <td><b>LinkedIn Ads não ativado</b></td>
+    <td>Canal configurado em abril, R$0 gastos no Q2 inteiro</td>
+    <td class="warn">Oportunidade perdida: LinkedIn é o canal B2B ideal para gestores escolares</td>
+  </tr>
+</table>
+
+<h3>Oportunidades para Q3/2026</h3>
+<table>
+  <tr><th>Oportunidade</th><th>Ação recomendada</th></tr>
+  <tr><td class="ok"><b>Google Ads acelerando</b></td><td>Aumentar budget Google (estava R$7.5k em junho com CPA R$373) — canal com melhor custo-benefício atual; escalar para R$10-15k/mês</td></tr>
+  <tr><td class="ok"><b>2 leads em pipeline avançado</b></td><td>Follow-up ativo em Aprendiz e Dom Bosco para fechamento no Q3 — CRM acompanhamento semanal</td></tr>
+  <tr><td class="ok"><b>LinkedIn Ads disponível</b></td><td>Ativar LinkedIn com segmentação por cargo (diretores, mantenedores) + empresa (escolas privadas) — custo maior mas altíssima precisão B2B</td></tr>
+  <tr><td class="ok"><b>Vídeos YT prontos</b></td><td>Distribuir os 2 roteiros produzidos (Cambridge + Harvard theme) em campanha YouTube/Display — novo formato para capturar topo de funil</td></tr>
+  <tr><td class="warn"><b>Meta: reformulação necessária</b></td><td>Revisitar segmentação (muitos fakes/alunos), criativos e budget — se não reverter, considerar pivotar verba para Google + LinkedIn</td></tr>
+</table>
+
+<div class="note">
+  <b>Contexto de fee:</b> Fee caiu de R$7.500 (2025) para R$5.500 (2026) — esse ajuste pode refletir renegociação por resultado. Com zero vendas no Q2 e HS 18.6 (Danger), o risco de churn está alto. As 2 propostas em pipeline do Q3 são críticas para segurar o contrato.
+</div>
+
+</body>
+</html>
