@@ -487,8 +487,8 @@
     <div class="alert warning" style="margin-top:16px;margin-bottom:0;">
       <div class="a-icon">🔍</div>
       <div class="a-body">
-        <div class="a-title">Gargalo identificado: conversão MQL→SQL despencou de 68% para 17%</div>
-        <div class="a-text">A taxa Lead→MQL se manteve razoável (10,2% → 7,4%), mas a conversão MQL→SQL caiu 4x em 3 meses. Isso indica que o problema <strong>não é de geração de leads</strong>, e sim de <strong>qualificação comercial ou atendimento</strong>: ou os corretores da Malbork não estão conseguindo agendar reuniões com os MQLs entregues, ou o SDR está com baixa produtividade. A implementação do CRM Marketing (iniciada em abril) precisa acelerar para dar rastreabilidade a esse gap.</div>
+        <div class="a-title">Hipótese de gargalo: conversão MQL→SQL despencou de 68% para 17%</div>
+        <div class="a-text">A taxa Lead→MQL se manteve razoável (10,2% → 7,4%), mas a conversão MQL→SQL caiu 4x em 3 meses. O CRM mostra que os maiores motivos de perda históricos são <strong>"Perda de Contato" (1.721) e "Sem Contato" (797)</strong> — juntos, mais da metade de todas as perdas. Clientes ocultos realizados indicam que o time é persistente no FUP, o que sugere que o problema pode <strong>não ser de esforço comercial</strong>, mas sim de qualidade do lead recebido. Hipótese mais provável: leads de Meta Ads com baixa intenção de compra (form auto-preenchido, pessoa não lembra que se cadastrou) chegando num momento em que o Google — principal fonte de lead com intenção ativa — estava com baixa performance. A implementação do CRM Marketing (iniciada em abril) precisa avançar para termos dados suficientes para confirmar esse diagnóstico.</div>
       </div>
     </div>
   </div>
@@ -653,31 +653,37 @@
       <div class="insight-card negative">
         <div class="i-icon">🔴</div>
         <div class="i-title">Colapso de SQL em junho: de 32 para 4 em 3 meses</div>
-        <div class="i-text">A taxa MQL→SQL despencou de 68% (abril) para 17% (junho). Com 23 MQLs entregues em junho, esperávamos ~15 SQLs — chegamos a 4. Isso é um sinal claro de falha no atendimento comercial da Malbork, não de qualidade de mídia.</div>
+        <div class="i-text">A taxa MQL→SQL despencou de 68% (abril) para 17% (junho). Com 23 MQLs entregues em junho, esperávamos ~15 SQLs — chegamos a 4. O CRM mostra que "Perda de Contato" e "Sem Contato" são os maiores motivos de perda históricos, mas clientes ocultos indicam que o time é persistente no FUP — o que sugere que a <strong>qualidade do lead pode ser a raiz do problema</strong>, não o esforço de atendimento.</div>
       </div>
 
       <div class="insight-card negative">
         <div class="i-icon">📉</div>
-        <div class="i-title">CPL em tendência de alta: +62% em 3 meses</div>
-        <div class="i-text">O CPL médio subiu de R$9,82 em abril para R$15,93 em junho (+62,2%), e a base de leads caiu de 459 para 309 (-33%). Possíveis causas: fadiga de criativos, saturação de público em Meta Ads, ou sazonalidade de interesse por imóveis no período.</div>
+        <div class="i-title">CPL +62% em Meta: possível sinal de saturação de público</div>
+        <div class="i-text">O CPL subiu de R$9,82 para R$15,93 em 3 meses (+62,2%) e o volume de leads caiu 33%. Uma hipótese é que o algoritmo do Meta expandiu para públicos menos qualificados para manter o volume — gerando mais leads que preenchem o form sem intenção real de compra. Isso explicaria a persistência no FUP sem conversão em SQL.</div>
+      </div>
+
+      <div class="insight-card negative">
+        <div class="i-icon">🔎</div>
+        <div class="i-title">Hipótese: Google em baixa performance impactou a qualidade do mix</div>
+        <div class="i-text">Mesmo representando só ~14% dos leads, o Google Search traz leads com <strong>intenção ativa de compra</strong> (a pessoa buscou ativamente). Campanhas Google com baixa performance em maio/junho podem ter reduzido a "nata" do funil, deixando o mix dominado por leads Meta de intenção passiva. <em>Hipótese a confirmar com análise de canal por etapa de funil.</em></div>
       </div>
 
       <div class="insight-card neutral">
         <div class="i-icon">🏗️</div>
-        <div class="i-title">CRM Marketing em implementação desde abril</div>
-        <div class="i-text">Projeto [Malbork] Implementação CRM Marketing criado em 21/04 no Ekyte. A implementação de rastreabilidade comercial é urgente para diagnosticar onde os SQLs estão sendo perdidos e quantificar o impacto de follow-up.</div>
+        <div class="i-title">Time comercial em expansão — possível impacto pontual</div>
+        <div class="i-text">A Malbork está em processo de contratação de novos vendedores. Não está confirmado se houve saída de alguém ou se é expansão de equipe, mas uma transição de time em maio/junho pode ter reduzido a capacidade de atendimento no período de maior queda de SQL. <em>A confirmar com o cliente.</em></div>
       </div>
 
       <div class="insight-card action">
         <div class="i-icon">💡</div>
-        <div class="i-title">Google Ads tem CTR superior ao Meta (2,2% vs 1,4%)</div>
-        <div class="i-text">Apesar de menor volume, o Google Ads manteve CTR consistente de 2,2% ao longo do Q2 enquanto o Meta sofreu com leads de qualidade questionável. Pode ser estratégico reequilibrar o orçamento para aumentar presença em Search.</div>
+        <div class="i-title">CRM mostra 83,6% das conversões em Automotor — produto esquecido na mídia?</div>
+        <div class="i-text">O produto que mais converte historicamente é Automotor (83,6%), mas a estratégia de mídia parece focada em Imóvel (pelo ticket e VGV do Breakeven). Vale entender se há oportunidade de ativar campanhas específicas para o produto de maior conversão.</div>
       </div>
 
       <div class="insight-card action">
         <div class="i-icon">🎯</div>
-        <div class="i-title">Diagnóstico: problema é comercial, não de mídia</div>
-        <div class="i-text">A mídia gerou 1.196 leads e 104 MQLs no Q2. O gargalo está na etapa MQL→SQL (comercial Malbork). Recomendação: alinhar com o cliente um protocolo de SDR com SLA de contato ≤2h e registrar objeções no CRM para ajuste de qualificação.</div>
+        <div class="i-title">Próximo passo antes de qualquer conclusão: rastreabilidade de funil por canal</div>
+        <div class="i-text">Ainda não temos dados para afirmar com certeza se o problema é mídia, comercial ou mix. O CRM Marketing em implementação (Ekyte #291859) precisa mapear qual canal (Meta vs Google) gera cada etapa do funil para separar hipótese de realidade.</div>
       </div>
     </div>
   </div>
