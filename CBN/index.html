@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROPRE Q2 2026 — CBN&D Centro Brasiliense de Nefrologia</title>
+<style>
+  :root {
+    --red: #ef4444; --red-light: #fef2f2; --red-mid: #fca5a5;
+    --orange: #f97316; --orange-light: #fff7ed; --orange-mid: #fdba74;
+    --yellow: #eab308; --yellow-light: #fefce8; --yellow-mid: #fde68a;
+    --green: #22c55e; --green-light: #f0fdf4; --green-mid: #86efac;
+    --blue: #3b82f6; --blue-light: #eff6ff; --blue-mid: #93c5fd;
+    --purple: #8b5cf6; --purple-light: #f5f3ff; --purple-mid: #c4b5fd;
+    --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
+    --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b; --gray-900: #0f172a;
+    --brand: #111827;
+    --flag-color: #f97316;
+    --flag-bg: #fff7ed;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--gray-50); color: var(--gray-800); line-height: 1.5; }
+
+  .page { max-width: 1140px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  /* ── HEADER ── */
+  .header { background: var(--brand); border-radius: 16px; padding: 36px 40px; color: #fff; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; background: rgba(255,255,255,0.04); border-radius: 50%; }
+  .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .header-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 6px; }
+  .header-name { font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 4px; }
+  .header-sub { font-size: 13px; color: rgba(255,255,255,.55); }
+  .flag-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; background: var(--flag-color); color: #fff; white-space: nowrap; }
+  .hs-ring { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .hs-number { font-size: 42px; font-weight: 800; color: var(--flag-color); line-height: 1; }
+  .hs-label { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+  .header-meta { display: flex; gap: 24px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); flex-wrap: wrap; }
+  .header-meta-item .lbl { font-size: 10px; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .07em; }
+  .header-meta-item .val { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.9); }
+  .team-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .team-chip { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: rgba(255,255,255,.75); }
+  .team-chip strong { color: #fff; }
+
+  /* ── SECTION ── */
+  .section { background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; padding: 28px 32px; margin-bottom: 20px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+
+  /* ── CARDS ── */
+  .cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin-bottom: 24px; }
+  .card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 16px 18px; }
+  .card .c-label { font-size: 11px; color: var(--gray-400); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+  .card .c-value { font-size: 22px; font-weight: 800; color: var(--gray-800); line-height: 1.1; }
+  .card .c-sub { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
+  .card.good { background: var(--green-light); border-color: var(--green-mid); }
+  .card.good .c-value { color: #15803d; }
+  .card.warn { background: var(--orange-light); border-color: var(--orange-mid); }
+  .card.warn .c-value { color: #c2410c; }
+  .card.bad { background: var(--red-light); border-color: var(--red-mid); }
+  .card.bad .c-value { color: #b91c1c; }
+  .card.blue { background: var(--blue-light); border-color: var(--blue-mid); }
+  .card.blue .c-value { color: #1d4ed8; }
+  .card.purple { background: var(--purple-light); border-color: var(--purple-mid); }
+  .card.purple .c-value { color: #6d28d9; }
+  .card.muted { background: var(--gray-100); border-color: var(--gray-300); }
+  .card.muted .c-value { color: var(--gray-400); }
+
+  /* ── TABLE ── */
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--gray-50); color: var(--gray-500); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--gray-200); white-space: nowrap; }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--gray-100); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--gray-50); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .total-row td { font-weight: 700; background: var(--gray-50); border-top: 2px solid var(--gray-200); }
+
+  /* ── BADGES ── */
+  .up { color: var(--green); font-size: 12px; font-weight: 600; }
+  .dn { color: var(--red); font-size: 12px; font-weight: 600; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .badge-green { background: var(--green-light); color: #15803d; }
+  .badge-red { background: var(--red-light); color: #b91c1c; }
+  .badge-orange { background: var(--orange-light); color: #c2410c; }
+  .badge-blue { background: var(--blue-light); color: #1d4ed8; }
+  .badge-gray { background: var(--gray-100); color: var(--gray-500); }
+  .badge-purple { background: var(--purple-light); color: #6d28d9; }
+
+  /* ── CANAL SPLIT ── */
+  .canal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:640px){ .canal-grid { grid-template-columns: 1fr; } }
+  .canal-card { border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden; }
+  .canal-header { padding: 12px 16px; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .canal-google { background: #4285f4; color: #fff; }
+  .canal-meta { background: #1877f2; color: #fff; }
+
+  /* ── ALERT ── */
+  .alert { display: flex; gap: 12px; align-items: flex-start; padding: 14px 18px; border-radius: 10px; margin-bottom: 20px; }
+  .alert.info { background: var(--blue-light); border: 1px solid var(--blue-mid); }
+  .alert.warning { background: var(--orange-light); border: 1px solid var(--orange-mid); }
+  .alert.danger { background: var(--red-light); border: 1px solid var(--red-mid); }
+  .alert.yellow { background: var(--yellow-light); border: 1px solid var(--yellow-mid); }
+  .alert .a-icon { font-size: 20px; flex-shrink: 0; }
+  .alert .a-body .a-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .alert.info .a-body .a-title { color: #1d4ed8; }
+  .alert.warning .a-body .a-title { color: #c2410c; }
+  .alert.danger .a-body .a-title { color: #b91c1c; }
+  .alert.yellow .a-body .a-title { color: #92400e; }
+  .alert .a-body .a-text { font-size: 12px; color: var(--gray-600); line-height: 1.5; }
+
+  /* ── INSIGHTS ── */
+  .insights { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:640px){ .insights { grid-template-columns: 1fr; } }
+  .insight-card { border-radius: 10px; padding: 16px 18px; }
+  .insight-card.positive { background: var(--green-light); border: 1px solid var(--green-mid); }
+  .insight-card.negative { background: var(--red-light); border: 1px solid var(--red-mid); }
+  .insight-card.neutral { background: var(--blue-light); border: 1px solid var(--blue-mid); }
+  .insight-card.action { background: var(--yellow-light); border: 1px solid var(--yellow-mid); }
+  .insight-card.strategic { background: var(--purple-light); border: 1px solid var(--purple-mid); }
+  .insight-card .i-icon { font-size: 18px; margin-bottom: 6px; }
+  .insight-card .i-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .insight-card.positive .i-title { color: #15803d; }
+  .insight-card.negative .i-title { color: #b91c1c; }
+  .insight-card.neutral .i-title { color: #1d4ed8; }
+  .insight-card.action .i-title { color: #92400e; }
+  .insight-card.strategic .i-title { color: #6d28d9; }
+  .insight-card .i-text { font-size: 12px; color: var(--gray-600); line-height: 1.5; }
+
+  /* ── TRACKING GAP BOX ── */
+  .gap-box { background: var(--gray-100); border: 2px dashed var(--gray-300); border-radius: 10px; padding: 20px 24px; text-align: center; }
+  .gap-box .g-icon { font-size: 28px; margin-bottom: 8px; }
+  .gap-box .g-title { font-size: 14px; font-weight: 700; color: var(--gray-500); margin-bottom: 6px; }
+  .gap-box .g-text { font-size: 12px; color: var(--gray-400); line-height: 1.6; }
+
+  /* ── NEXT STEPS ── */
+  .next-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .next-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; }
+  .next-item .n-num { background: var(--brand); color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .next-item .n-title { font-size: 13px; font-weight: 700; color: var(--gray-800); margin-bottom: 2px; }
+  .next-item .n-desc { font-size: 12px; color: var(--gray-500); }
+  .next-item .n-owner { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
+
+  /* ── BE PROJEÇÃO ── */
+  .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:640px){ .proj-grid { grid-template-columns: 1fr; } }
+  .proj-card { border: 1px solid var(--gray-200); border-radius: 10px; padding: 18px 20px; }
+  .proj-card .p-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--gray-400); margin-bottom: 12px; }
+  .proj-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
+  .proj-row .lbl { font-size: 12px; color: var(--gray-500); }
+  .proj-row .val { font-size: 13px; font-weight: 700; }
+  .proj-row .val.green { color: #15803d; }
+  .proj-row .val.red { color: #b91c1c; }
+  .proj-row .val.gray { color: var(--gray-400); }
+
+  /* ── HISTORICAL ── */
+  .hist-note { font-size: 11px; color: var(--gray-400); margin-top: 8px; font-style: italic; }
+
+  /* ── FOOTER ── */
+  .footer { text-align: center; font-size: 11px; color: var(--gray-400); margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ CAPA ══ -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="header-label">ROPRE · Retrospectiva Q2 2026 · Abril – Junho</div>
+        <div class="header-name">CBN&amp;D — Centro Brasiliense de Nefrologia</div>
+        <div class="header-sub">Saúde · Nefrologia e Diálise · Brasília-DF · LT 35 meses</div>
+        <div class="team-row">
+          <div class="team-chip"><strong>PM</strong> Rafael Clarindo</div>
+          <div class="team-chip"><strong>Coord</strong> Ueliton Pereira</div>
+          <div class="team-chip"><strong>AM</strong> Thaily Serodio</div>
+          <div class="team-chip"><strong>Mídia</strong> Matheus Alencar</div>
+          <div class="team-chip"><strong>Copy</strong> Felipe Pinheiro</div>
+          <div class="team-chip"><strong>Design</strong> Yuri</div>
+          <div class="team-chip"><strong>Social Media</strong> Christian</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+        <div class="hs-ring">
+          <div class="hs-number">21,7</div>
+          <div class="hs-label">Health Score</div>
+        </div>
+        <div class="flag-badge">🟠 Care</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="header-meta-item"><div class="lbl">Fee mensal</div><div class="val">R$ 14.899</div></div>
+      <div class="header-meta-item"><div class="lbl">Investido Q2</div><div class="val">R$ 16.705</div></div>
+      <div class="header-meta-item"><div class="lbl">Ligações geradas</div><div class="val">572</div></div>
+      <div class="header-meta-item"><div class="lbl">CPL médio Q2</div><div class="val">R$ 29,20</div></div>
+      <div class="header-meta-item"><div class="lbl">Canal principal</div><div class="val">Google Search (ligações)</div></div>
+      <div class="header-meta-item"><div class="lbl">Fontes</div><div class="val">Growth Pack 4.0 · Breakeven · Ekyte · Cockpit</div></div>
+    </div>
+  </div>
+
+  <!-- ══ AVISO DE LIMITAÇÃO DE TRACKING ══ -->
+  <div class="alert info">
+    <div class="a-icon">📞</div>
+    <div class="a-body">
+      <div class="a-title">Contexto de medição: campanhas focadas em ligação — sem rastreamento de funil completo</div>
+      <div class="a-text">As campanhas do CBN&amp;D são estruturadas para gerar <strong>ligações telefônicas</strong> (Google Call Ads), não formulários. Por isso, <strong>MQL, SQL, vendas e receita não são rastreados</strong> no Growth Pack — o dado disponível é o número de ligações geradas e o CPL por ligação. O impacto real (consultas agendadas → novos pacientes) depende de dados internos da clínica que não chegam para o time V4. Isso é uma limitação estrutural do modelo de tracking atual, não ausência de resultado.</div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 2 — PERFORMANCE GERAL ══ -->
+  <div class="section">
+    <div class="section-title">Performance de Mídia — Q2 2026</div>
+
+    <div class="cards">
+      <div class="card blue">
+        <div class="c-label">Investido Q2</div>
+        <div class="c-value">R$ 16.705</div>
+        <div class="c-sub">Google R$10.726 · Meta R$5.979</div>
+      </div>
+      <div class="card good">
+        <div class="c-label">Ligações Q2</div>
+        <div class="c-value">572</div>
+        <div class="c-sub">100% via Google Search</div>
+      </div>
+      <div class="card good">
+        <div class="c-label">CPL médio Q2</div>
+        <div class="c-value">R$ 29,20</div>
+        <div class="c-sub">vs Q1 R$ 33,70 (▼13%)</div>
+      </div>
+      <div class="card good">
+        <div class="c-label">vs Q1 — Ligações</div>
+        <div class="c-value">+13%</div>
+        <div class="c-sub">Q1: 506 · Q2: 572</div>
+      </div>
+      <div class="card muted">
+        <div class="c-label">MQL / SQL / Vendas</div>
+        <div class="c-value">N/D</div>
+        <div class="c-sub">Não rastreado (ligações)</div>
+      </div>
+      <div class="card muted">
+        <div class="c-label">ROAS</div>
+        <div class="c-value">N/D</div>
+        <div class="c-sub">Sem receita atribuída</div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Mês</th>
+            <th class="num">Invest. Total</th>
+            <th class="num">Google</th>
+            <th class="num">Meta</th>
+            <th class="num">Ligações</th>
+            <th class="num">CPL</th>
+            <th class="num">CTR Google</th>
+            <th>Tendência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Q1 Jan</strong></td>
+            <td class="num">R$ 6.461</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 2.626</td>
+            <td class="num">137</td>
+            <td class="num">R$ 47,16</td>
+            <td class="num">5,58%</td>
+            <td><span class="badge badge-orange">CPL alto</span></td>
+          </tr>
+          <tr>
+            <td><strong>Q1 Fev</strong></td>
+            <td class="num">R$ 4.187</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 352</td>
+            <td class="num">170</td>
+            <td class="num">R$ 24,63</td>
+            <td class="num">6,11%</td>
+            <td><span class="badge badge-green">Eficiente</span></td>
+          </tr>
+          <tr>
+            <td><strong>Q1 Mar</strong></td>
+            <td class="num">R$ 6.400</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 2.565</td>
+            <td class="num">199</td>
+            <td class="num">R$ 32,16</td>
+            <td class="num">6,47%</td>
+            <td><span class="badge badge-blue">Crescendo</span></td>
+          </tr>
+          <tr style="background:#f0fdf4;">
+            <td><strong>Abr/2026</strong></td>
+            <td class="num">R$ 5.050</td>
+            <td class="num">R$ 3.055</td>
+            <td class="num">R$ 1.995</td>
+            <td class="num"><strong>209</strong></td>
+            <td class="num">R$ 14,65</td>
+            <td class="num">5,79%</td>
+            <td><span class="badge badge-green">Melhor CPL do ano</span></td>
+          </tr>
+          <tr style="background:#fff7ed;">
+            <td><strong>Mai/2026</strong></td>
+            <td class="num">R$ 6.061</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 2.225</td>
+            <td class="num">167 <span class="dn">▼20%</span></td>
+            <td class="num">R$ 22,95 <span class="dn">▲57%</span></td>
+            <td class="num">4,25%</td>
+            <td><span class="badge badge-orange">Queda volume</span></td>
+          </tr>
+          <tr style="background:#f0fdf4;">
+            <td><strong>Jun/2026</strong></td>
+            <td class="num">R$ 5.595</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 1.759</td>
+            <td class="num">196 <span class="up">▲17%</span></td>
+            <td class="num">R$ 19,53 <span class="up">▼15%</span></td>
+            <td class="num">4,37%</td>
+            <td><span class="badge badge-green">Recuperação</span></td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>Q2 Total</strong></td>
+            <td class="num">R$ 16.705</td>
+            <td class="num">R$ 10.726</td>
+            <td class="num">R$ 5.979</td>
+            <td class="num">572</td>
+            <td class="num">R$ 29,20</td>
+            <td class="num">4,80%</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 3 — CANAIS ══ -->
+  <div class="section">
+    <div class="section-title">Canais de Mídia — Google Search vs Meta</div>
+
+    <div class="canal-grid">
+      <!-- GOOGLE -->
+      <div class="canal-card">
+        <div class="canal-header canal-google">Google Search — canal de performance (ligações)</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Mês</th>
+              <th class="num">Invest.</th>
+              <th class="num">Cliques</th>
+              <th class="num">CTR</th>
+              <th class="num">Ligações</th>
+              <th class="num">CPL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Abril</strong></td>
+              <td class="num">R$ 3.055</td>
+              <td class="num">1.396</td>
+              <td class="num">5,79%</td>
+              <td class="num"><strong>209</strong></td>
+              <td class="num">R$ 14,65</td>
+            </tr>
+            <tr>
+              <td><strong>Maio</strong></td>
+              <td class="num">R$ 3.835</td>
+              <td class="num">1.231</td>
+              <td class="num">4,25%</td>
+              <td class="num"><strong>167</strong></td>
+              <td class="num">R$ 22,95</td>
+            </tr>
+            <tr>
+              <td><strong>Junho</strong></td>
+              <td class="num">R$ 3.835</td>
+              <td class="num">1.573</td>
+              <td class="num">4,37%</td>
+              <td class="num"><strong>196</strong></td>
+              <td class="num">R$ 19,53</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding:10px 14px;font-size:11px;color:var(--gray-400);">Responsável por <strong>100% das ligações</strong> geradas no Q2</div>
+      </div>
+
+      <!-- META -->
+      <div class="canal-card">
+        <div class="canal-header canal-meta">Meta Ads — canal de brand &amp; Instagram</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Mês</th>
+              <th class="num">Invest.</th>
+              <th>Objetivo</th>
+              <th>Leads diretos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Abril</strong></td>
+              <td class="num">R$ 1.995</td>
+              <td>Brand/Awareness</td>
+              <td><span class="badge badge-gray">0 (não atribuído)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Maio</strong></td>
+              <td class="num">R$ 2.225</td>
+              <td>Brand/Awareness</td>
+              <td><span class="badge badge-gray">0 (não atribuído)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Junho</strong></td>
+              <td class="num">R$ 1.759</td>
+              <td>Brand/Awareness</td>
+              <td><span class="badge badge-gray">0 (não atribuído)</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding:10px 14px;font-size:11px;color:var(--gray-400);">Meta não gera ligações mensuráveis — funciona como apoio à presença de marca e alimenta o Instagram orgânico. Retorno indireto (assistido) não é rastreado.</div>
+      </div>
+    </div>
+
+    <div class="alert yellow" style="margin-top:16px;margin-bottom:0;">
+      <div class="a-icon">💡</div>
+      <div class="a-body">
+        <div class="a-title">R$ 5.979 investidos em Meta sem atribuição de resultado — oportunidade ou desperdício?</div>
+        <div class="a-text">No Q2, 35,8% do orçamento de mídia foi para Meta sem nenhum retorno mensurável atribuído. O investimento pode ter efeito de assistência (marca presente quando o paciente busca no Google), mas não conseguimos comprovar esse impacto. Se o cliente continuar focando em Instagram como principal KPI, vale o alinhamento: Instagram é <strong>presença de marca</strong>, não gerador de pacientes diretos. Uma estrutura de UTM ou pixel de evento poderia ajudar a capturar ao menos as visitas assistidas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 4 — FUNIL ══ -->
+  <div class="section">
+    <div class="section-title">Funil de Conversão — Limitações de Rastreamento</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="gap-box">
+        <div class="g-icon">📞</div>
+        <div class="g-title">Ligações → Consultas: não rastreado</div>
+        <div class="g-text">As 572 ligações geradas em Q2 chegam no Google como "Call Click", mas o que acontece depois (atendida? agendou consulta? compareceu?) depende do time interno da clínica e não retorna para o painel V4.</div>
+      </div>
+      <div class="gap-box">
+        <div class="g-icon">🏥</div>
+        <div class="g-title">Consultas → Paciente novo: não rastreado</div>
+        <div class="g-text">A conversão final — paciente que compareceu e se tornou cliente da clínica — é rastreada apenas internamente pelo CBN&amp;D. Sem acesso ao sistema de agendamento ou prontuário, não conseguimos fechar o ROI da campanha.</div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Etapa</th>
+            <th class="num">Q2 Realizado</th>
+            <th class="num">Projeção BE</th>
+            <th>Status</th>
+            <th>Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ligações (Leads Google)</td>
+            <td class="num"><strong>572</strong></td>
+            <td class="num">864 (3×288)</td>
+            <td><span class="badge badge-orange">66% da meta</span></td>
+            <td style="font-size:12px;color:var(--gray-500);">Breakeven projetava 288/mês; média Q2 foi 191/mês</td>
+          </tr>
+          <tr>
+            <td>MQL (conexões com paciente)</td>
+            <td class="num" style="color:var(--gray-400);">N/D</td>
+            <td class="num">345 (38,79% de conv.)</td>
+            <td><span class="badge badge-gray">Não medido</span></td>
+            <td style="font-size:12px;color:var(--gray-500);">Sem retorno da clínica</td>
+          </tr>
+          <tr>
+            <td>SQL (consultas realizadas)</td>
+            <td class="num" style="color:var(--gray-400);">N/D</td>
+            <td class="num">~12 (3,33% de MQL)</td>
+            <td><span class="badge badge-gray">Não medido</span></td>
+            <td style="font-size:12px;color:var(--gray-500);">Sem retorno da clínica</td>
+          </tr>
+          <tr>
+            <td>Novos pacientes (vendas)</td>
+            <td class="num" style="color:var(--gray-400);">N/D</td>
+            <td class="num">6 (meta: 2/mês)</td>
+            <td><span class="badge badge-gray">Não medido</span></td>
+            <td style="font-size:12px;color:var(--gray-500);">Ticket médio R$21.600/ano/paciente</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:16px;padding:14px 16px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;font-size:12px;color:var(--gray-600);">
+      <strong>Cálculo de ROI potencial (estimativa):</strong> Se ao menos <strong>3 dos 572 ligações</strong> viraram novos pacientes no Q2 (taxa de 0,5%), o resultado seria ~R$64.800 em receita anual para a clínica — acima do custo total do Q2 (fee + mídia = ~R$59.600). Mas esse número não é confirmado sem dados internos da clínica.
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 5 — CONTEXTO DE NEGÓCIO & BREAKEVEN ══ -->
+  <div class="section">
+    <div class="section-title">Contexto de Negócio &amp; Projeção Breakeven</div>
+
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="p-title">Modelo de negócio projetado (Breakeven)</div>
+        <div class="proj-row"><span class="lbl">Ticket médio/paciente/ano</span><span class="val green">R$ 21.600</span></div>
+        <div class="proj-row"><span class="lbl">Meta de novos pacientes/mês</span><span class="val">2 pacientes</span></div>
+        <div class="proj-row"><span class="lbl">Margem de contribuição</span><span class="val">60%</span></div>
+        <div class="proj-row"><span class="lbl">Resultado MC/mês (2 pacientes)</span><span class="val green">R$ 25.920</span></div>
+        <div class="proj-row"><span class="lbl">Custo V4 + mídia/mês (Q2)</span><span class="val red">R$ 22.189</span></div>
+        <div style="padding-top:8px;margin-top:8px;border-top:1px solid var(--gray-200);">
+          <div class="proj-row"><span class="lbl" style="font-weight:700;">Resultado líquido/mês (projetado)</span><span class="val green" style="font-size:15px;">R$ 3.731</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="p-title">Situação atual vs. projeção</div>
+        <div class="proj-row"><span class="lbl">Fee atual (Cockpit)</span><span class="val">R$ 14.899</span></div>
+        <div class="proj-row"><span class="lbl">Fee no Breakeven</span><span class="val red">R$ 7.500 (desatualizado)</span></div>
+        <div class="proj-row"><span class="lbl">Ligações Q2 vs. meta</span><span class="val">572 vs 864 (66%)</span></div>
+        <div class="proj-row"><span class="lbl">CPL Q2 real</span><span class="val">R$ 29,20</span></div>
+        <div class="proj-row"><span class="lbl">CPL meta (Breakeven)</span><span class="val gray">R$ 25,00</span></div>
+        <div style="padding-top:8px;margin-top:8px;border-top:1px solid var(--gray-200);">
+          <div class="proj-row"><span class="lbl" style="font-weight:700;">Breakeven precisa ser atualizado</span><span class="val red">⚠️ Fee dobrou</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert warning" style="margin-top:16px;margin-bottom:0;">
+      <div class="a-icon">⚠️</div>
+      <div class="a-body">
+        <div class="a-title">Breakeven desatualizado — fee no documento é R$7.500, mas Cockpit mostra R$14.899</div>
+        <div class="a-text">O breakeven projetava ROI positivo com fee de R$7.500/mês. Com o fee atual de R$14.899, o modelo de equilíbrio muda: precisamos de mais novos pacientes por mês para que o resultado líquido seja positivo. Recomendamos atualizar o documento antes da próxima revisão com o cliente.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 6 — HISTÓRICO ══ -->
+  <div class="section">
+    <div class="section-title">Histórico de Ligações — 12 Meses</div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Mês</th>
+            <th class="num">Invest. Total</th>
+            <th class="num">Invest. Google</th>
+            <th class="num">Invest. Meta</th>
+            <th class="num">Ligações</th>
+            <th class="num">CPL</th>
+            <th>Período</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Jul/2025</strong></td>
+            <td class="num">R$ 6.068</td>
+            <td class="num">R$ 4.089</td>
+            <td class="num">R$ 1.979</td>
+            <td class="num">134</td>
+            <td class="num">R$ 45,28</td>
+            <td><span class="badge badge-gray">Q3/25</span></td>
+          </tr>
+          <tr>
+            <td><strong>Ago/2025</strong></td>
+            <td class="num">R$ 5.446</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 1.611</td>
+            <td class="num">135</td>
+            <td class="num">R$ 40,34</td>
+            <td><span class="badge badge-gray">Q3/25</span></td>
+          </tr>
+          <tr>
+            <td><strong>Set/2025</strong></td>
+            <td class="num">R$ 3.943</td>
+            <td class="num">R$ 2.658</td>
+            <td class="num">R$ 1.285</td>
+            <td class="num">111</td>
+            <td class="num">R$ 35,52</td>
+            <td><span class="badge badge-gray">Q3/25</span></td>
+          </tr>
+          <tr>
+            <td><strong>Out/2025</strong></td>
+            <td class="num">R$ 5.965</td>
+            <td class="num">R$ 3.380</td>
+            <td class="num">R$ 2.585</td>
+            <td class="num">134</td>
+            <td class="num">R$ 44,51</td>
+            <td><span class="badge badge-gray">Q4/25</span></td>
+          </tr>
+          <tr>
+            <td><strong>Nov/2025</strong></td>
+            <td class="num">R$ 6.606</td>
+            <td class="num">R$ 3.834</td>
+            <td class="num">R$ 2.772</td>
+            <td class="num">135</td>
+            <td class="num">R$ 48,93</td>
+            <td><span class="badge badge-gray">Q4/25</span></td>
+          </tr>
+          <tr>
+            <td><strong>Dez/2025</strong></td>
+            <td class="num">R$ 4.002</td>
+            <td class="num">R$ 3.055</td>
+            <td class="num">R$ 947</td>
+            <td class="num">111</td>
+            <td class="num">R$ 36,06</td>
+            <td><span class="badge badge-gray">Q4/25</span></td>
+          </tr>
+          <tr>
+            <td><strong>Jan/2026</strong></td>
+            <td class="num">R$ 6.461</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 2.626</td>
+            <td class="num">137</td>
+            <td class="num">R$ 47,16</td>
+            <td><span class="badge badge-blue">Q1/26</span></td>
+          </tr>
+          <tr>
+            <td><strong>Fev/2026</strong></td>
+            <td class="num">R$ 4.187</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 352</td>
+            <td class="num">170</td>
+            <td class="num">R$ 24,63</td>
+            <td><span class="badge badge-blue">Q1/26</span></td>
+          </tr>
+          <tr>
+            <td><strong>Mar/2026</strong></td>
+            <td class="num">R$ 6.400</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 2.565</td>
+            <td class="num">199</td>
+            <td class="num">R$ 32,16</td>
+            <td><span class="badge badge-blue">Q1/26</span></td>
+          </tr>
+          <tr style="background:#f0fdf4;">
+            <td><strong>Abr/2026</strong></td>
+            <td class="num">R$ 5.050</td>
+            <td class="num">R$ 3.055</td>
+            <td class="num">R$ 1.995</td>
+            <td class="num"><strong>209</strong></td>
+            <td class="num">R$ 14,65</td>
+            <td><span class="badge badge-green">Q2/26</span></td>
+          </tr>
+          <tr style="background:#fff7ed;">
+            <td><strong>Mai/2026</strong></td>
+            <td class="num">R$ 6.061</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 2.225</td>
+            <td class="num">167</td>
+            <td class="num">R$ 22,95</td>
+            <td><span class="badge badge-green">Q2/26</span></td>
+          </tr>
+          <tr style="background:#f0fdf4;">
+            <td><strong>Jun/2026</strong></td>
+            <td class="num">R$ 5.595</td>
+            <td class="num">R$ 3.835</td>
+            <td class="num">R$ 1.759</td>
+            <td class="num">196</td>
+            <td class="num">R$ 19,53</td>
+            <td><span class="badge badge-green">Q2/26</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="hist-note">Dados de 2025 e anteriores do Growth Pack 4.0. CPL calculado sobre investimento total (Google + Meta).</div>
+
+    <div style="margin-top:16px;padding:14px 16px;background:var(--green-light);border:1px solid var(--green-mid);border-radius:8px;font-size:12px;color:#14532d;">
+      <strong>Tendência positiva no Q2:</strong> Abril/2026 registrou o menor CPL dos últimos 12 meses (R$14,65) e o maior volume de ligações no período recente (209). Junho recuperou após queda em maio. O Q2 como um todo gerou mais ligações (+13%) com menor custo por ligação (-13%) que o Q1 — evolução real, mesmo que difícil de conectar com receita.
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 7 — DESTAQUES & APRENDIZADOS ══ -->
+  <div class="section">
+    <div class="section-title">Destaques &amp; Aprendizados Q2</div>
+
+    <div class="insights">
+      <div class="insight-card positive">
+        <div class="i-icon">✅</div>
+        <div class="i-title">Abril: melhor CPL dos últimos 12 meses — R$ 14,65</div>
+        <div class="i-text">Em 12 meses de histórico, abril/2026 foi o mês com o menor custo por ligação (R$14,65) e maior volume recente (209 ligações). Isso sugere que otimizações de campanha feitas no Q1 surtiram efeito, mas a queda em maio mostra que o resultado é volátil sem estratégia consolidada.</div>
+      </div>
+
+      <div class="insight-card positive">
+        <div class="i-icon">📈</div>
+        <div class="i-title">Q2 melhor que Q1 em volume e eficiência</div>
+        <div class="i-text">Q2 gerou 572 ligações vs. 506 no Q1 (+13%) com CPL médio de R$29,20 vs. R$33,70 no Q1 (-13%). É evolução concreta dentro das limitações do modelo de tracking — mais contatos chegando à clínica por menos dinheiro por contato.</div>
+      </div>
+
+      <div class="insight-card strategic">
+        <div class="i-icon">🛡️</div>
+        <div class="i-title">Defesa de Marca Taguatinga ativada em maio</div>
+        <div class="i-text">Projeto estratégico criado em 26/05 para responder a uma ameaça competitiva na unidade de Taguatinga. Ação proativa importante: ao defender a marca localmente, a clínica mantém visibilidade em busca local (Google) quando um paciente procura nefrologia na região.</div>
+      </div>
+
+      <div class="insight-card negative">
+        <div class="i-icon">🔄</div>
+        <div class="i-title">Quase 3 anos de parceria sem evolução de tracking</div>
+        <div class="i-text">A ausência de rastreamento de funil completo (ligação → consulta → paciente) é o maior impeditivo para demonstrar ROI e sustentar a parceria com argumentos concretos. Enquanto o cliente não compartilhar dados internos de agendamento, qualquer número de ligações é um indicador parcial, não uma prova de resultado.</div>
+      </div>
+
+      <div class="insight-card negative">
+        <div class="i-icon">📸</div>
+        <div class="i-title">Cliente com foco em Instagram — desalinhamento estratégico</div>
+        <div class="i-text">O CBN&amp;D valoriza principalmente os resultados de Instagram (seguidores, alcance, curtidas) enquanto o canal de geração de pacientes é o Google Search. Esse desalinhamento cria tensão: o cliente percebe valor onde o impacto é indireto e questiona o que realmente traz resultado.</div>
+      </div>
+
+      <div class="insight-card action">
+        <div class="i-icon">💡</div>
+        <div class="i-title">Maio: queda de 20% nas ligações — causa a investigar</div>
+        <div class="i-text">Maio registrou 167 ligações vs. 209 em abril (-20%) com CPL subindo de R$14,65 para R$22,95. Pode estar relacionado à ativação da campanha de Defesa de Marca Taguatinga (que dispersou verba) ou sazonalidade. Vale revisar a distribuição de budget entre campanhas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 8 — PRÓXIMOS PASSOS ══ -->
+  <div class="section">
+    <div class="section-title">Próximos Passos — Q3 2026</div>
+
+    <ul class="next-list">
+      <li class="next-item">
+        <div class="n-num">1</div>
+        <div>
+          <div class="n-title">Negociar acesso a dados internos da clínica (PRIORIDADE MÁXIMA)</div>
+          <div class="n-desc">Pedir ao CBN&amp;D um relatório mensal simples: quantas ligações viraram consultas agendadas e quantas compareceram. Mesmo um número informal, consolidado uma vez por mês, permitiria fechar o ROI e dar ao cliente um argumento para continuar investindo — e ao time V4, um argumento para defender a parceria.</div>
+          <div class="n-owner">Resp: Rafael Clarindo (PM) + Thaily (AM) · Alinhar na próxima reunião de resultado</div>
+        </div>
+      </li>
+      <li class="next-item">
+        <div class="n-num">2</div>
+        <div>
+          <div class="n-title">Atualizar Breakeven com fee atual (R$14.899)</div>
+          <div class="n-desc">O breakeven foi construído com fee de R$7.500 e está desatualizado. Com o fee atual, o ponto de equilíbrio muda: precisamos revisar quantos pacientes novos por mês são necessários para o ROI ser positivo e apresentar esse número ao cliente.</div>
+          <div class="n-owner">Resp: Ueliton (Coord) + Thaily (AM) · Prazo: julho</div>
+        </div>
+      </li>
+      <li class="next-item">
+        <div class="n-num">3</div>
+        <div>
+          <div class="n-title">Realinhar expectativas sobre Instagram com o cliente</div>
+          <div class="n-desc">Preparar uma apresentação simples que mostre a diferença entre Instagram (presença de marca, indireto) e Google Search (geração de ligações, direto). O objetivo é ajustar o que o cliente considera sucesso — saindo de métricas de vaidade para métricas de negócio.</div>
+          <div class="n-owner">Resp: Thaily (AM) + Rafael (PM) · Sugestão: próxima retrospectiva mensal</div>
+        </div>
+      </li>
+      <li class="next-item">
+        <div class="n-num">4</div>
+        <div>
+          <div class="n-title">Investigar queda de maio e otimizar distribuição de budget</div>
+          <div class="n-desc">Entender se a queda de 20% em ligações em maio foi causada pela ativação da campanha de Defesa de Marca Taguatinga (que pode ter disputado verba/público com as campanhas principais) ou por sazonalidade. Ajustar alocação de budget para Q3.</div>
+          <div class="n-owner">Resp: Matheus (Mídia) · Análise interna de campanhas</div>
+        </div>
+      </li>
+      <li class="next-item">
+        <div class="n-num">5</div>
+        <div>
+          <div class="n-title">Meta: definir objetivo claro para o investimento de brand</div>
+          <div class="n-desc">R$5.979 foram investidos em Meta no Q2 sem atribuição mensurável. Ou o time define um KPI de brand para justificar o gasto (alcance mínimo, crescimento de seguidores qualificados, engajamento de posts de conteúdo médico), ou avalia reduzir verba Meta e realocar para Google onde o resultado é rastreável.</div>
+          <div class="n-owner">Resp: Matheus (Mídia) + Christian (SM) + Rafael (PM)</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    ROPRE Q2 2026 — CBN&amp;D Centro Brasiliense de Nefrologia · Gerado em 01/07/2026 · V4 Colli &amp; Co — Squad Invictus<br>
+    Fontes: Growth Pack 4.0 · Breakeven CBN&amp;D · Ekyte (Workspace 48881) · Cockpit (HS 21,7 · Flag Care)
+  </div>
+
+</div>
+</body>
+</html>
