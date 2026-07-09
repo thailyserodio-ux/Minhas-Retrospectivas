@@ -150,23 +150,23 @@
     <div class="header-meta">
       <div class="meta-item">
         <label>Health Score</label>
-        <span>—</span>
-        <div class="sub">verificar Cockpit</div>
+        <span>15,4</span>
+        <div class="sub">média Q2</div>
       </div>
       <div class="meta-item">
         <label>Flag</label>
-        <span>—</span>
-        <div class="sub">verificar Cockpit</div>
+        <span style="background:#991B1B;color:#fff;padding:3px 10px;border-radius:12px;font-size:13px">🔴 Critical</span>
+        <div class="sub">algoritmo Cockpit</div>
       </div>
       <div class="meta-item">
         <label>LT Parceria</label>
-        <span>~13 meses</span>
+        <span>13 meses</span>
         <div class="sub">início jun/2025</div>
       </div>
       <div class="meta-item">
         <label>Fee Mensal</label>
-        <span>$1.500 USD</span>
-        <div class="sub">conforme Breakeven</div>
+        <span>R$8.866</span>
+        <div class="sub">conforme Cockpit</div>
       </div>
     </div>
   </div>
@@ -249,6 +249,13 @@
       <div class="alert-body">
         <strong>Junho: 0 vendas, $0 receita</strong>
         Com 13 MQLs e 1 SQL em junho, nenhum contrato foi fechado no mês. As hipóteses principais são: (1) lag de fechamento — SQL de junho pode fechar em julho; (2) sazonalidade americana — demanda reduz no verão; (3) gargalo no processo comercial. Requer acompanhamento no início do Q3.
+      </div>
+    </div>
+    <div class="alert red">
+      <div class="alert-icon">⚡</div>
+      <div class="alert-body">
+        <strong>Anomalia operacional: Erro GT registrado no Cockpit</strong>
+        4 tasks com problemas de aprovação pelo cliente · 11 demandas em fase atrasada · Tracking validado = sim, mas maturity de tracking classificada como N1 (intuitivo/incompleto). Requer plano de ação específico para o GT no Q3.
       </div>
     </div>
     <div class="alert amber">
@@ -447,6 +454,281 @@
       <div class="alert-body">
         <strong>Google Ads: ~23% do budget, 3,4% dos leads — eficiência crítica</strong>
         O Google está muito abaixo do esperado. A V4 identificou e corrigiu problema de trackeamento (<a href="https://app.ekyte.com/#/tasks/list/9167205/edit" style="color:var(--amber)">task TRK #9167205</a>) durante o Q2. Vale monitorar se a correção melhora os dados no Q3 antes de decidir sobre redistribuição de verba.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 4b — CAMPANHAS / CONJUNTOS / ANÚNCIOS ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num" style="background:#6D28D9">4b</div>
+      <div>
+        <div class="section-title">Campanhas, Conjuntos e Anúncios</div>
+        <div class="section-subtitle">Fonte: Planilha de Leads GREE · Q2 2026 · 85 leads registrados com UTM</div>
+      </div>
+    </div>
+
+    <div class="alert blue" style="margin-bottom:16px">
+      <div class="alert-icon">ℹ️</div>
+      <div class="alert-body">
+        <strong>Nota metodológica</strong>
+        Dados extraídos da Planilha de Leads com UTM (Campaign Name / Adset Name / Ad Name). Os 25 leads "sem atribuição" incluem 11 Google Ads (UTM não preenchido no formulário Meta) e 14 sem canal — todos com MQL em branco no sheet. Leads Meta atribuídos: 60, com 100% de conversão para MQL.
+      </div>
+    </div>
+
+    <!-- CAMPANHAS -->
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray-mid);margin-bottom:8px">Campanhas Q2</div>
+    <table style="margin-bottom:20px">
+      <thead>
+        <tr>
+          <th>Campanha</th>
+          <th class="num">Leads</th>
+          <th class="num">MQL</th>
+          <th class="num">Conv. MQL</th>
+          <th class="num">Abr</th>
+          <th class="num">Mai</th>
+          <th class="num">Jun</th>
+          <th>Observação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>C:07</strong> — New Hampshire, Média concorrência<br><span style="font-size:11px;color:var(--gray-mid)">D:11/03/2026 · ABO · Cadastro Nativo · ADV+</span></td>
+          <td class="num highlight">34</td>
+          <td class="num highlight">34</td>
+          <td class="num highlight">100%</td>
+          <td class="num">20</td>
+          <td class="num">13</td>
+          <td class="num">1</td>
+          <td style="font-size:12px">🏆 Melhor campanha Q2 — ativa até junho, mais consistente</td>
+        </tr>
+        <tr>
+          <td><strong>C:06</strong> — Réplica da campanha campeã<br><span style="font-size:11px;color:var(--gray-mid)">D:19/10/2025 · ABO · Cadastro Nativo · ADV+</span></td>
+          <td class="num">24</td>
+          <td class="num">24</td>
+          <td class="num highlight">100%</td>
+          <td class="num">22</td>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td style="font-size:12px">Forte em Abril, parece ter cedido espaço para C:07 em Maio</td>
+        </tr>
+        <tr>
+          <td><strong>C:08</strong> — Ads Economize Energia No Verão<br><span style="font-size:11px;color:var(--gray-mid)">D:06/05/2026 · Teste de criativos</span></td>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td class="num highlight">100%</td>
+          <td class="num">0</td>
+          <td class="num">2</td>
+          <td class="num">0</td>
+          <td style="font-size:12px">Pequeno teste sazonal em Maio — válido continuar em Q3</td>
+        </tr>
+        <tr style="background:#FEF9F0">
+          <td><strong>(Sem atribuição)</strong><br><span style="font-size:11px;color:var(--gray-mid)">11 Google Ads + 14 sem canal</span></td>
+          <td class="num warning">25</td>
+          <td class="num danger-text">0*</td>
+          <td class="num danger-text">0%*</td>
+          <td class="num">16</td>
+          <td class="num">8</td>
+          <td class="num">1</td>
+          <td style="font-size:12px;color:var(--amber)">*MQL em branco no sheet — Google sem UTM no formulário</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Total Q2</strong></td>
+          <td class="num">85</td>
+          <td class="num">60</td>
+          <td class="num">70,6%*</td>
+          <td class="num">58</td>
+          <td class="num">25</td>
+          <td class="num">2</td>
+          <td style="font-size:11px">*Excluindo não atribuídos: 100% MQL</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- CONJUNTOS -->
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray-mid);margin-bottom:8px">Top Conjuntos (Adsets) Q2</div>
+    <table style="margin-bottom:20px">
+      <thead>
+        <tr>
+          <th>Conjunto</th>
+          <th>Campanha</th>
+          <th class="num">Leads</th>
+          <th class="num">MQL</th>
+          <th class="num">Abr</th>
+          <th class="num">Mai</th>
+          <th class="num">Jun</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>[P:INTERESSES] Reformas</strong></td>
+          <td style="font-size:11px">C:07</td>
+          <td class="num highlight">19</td>
+          <td class="num highlight">19</td>
+          <td class="num">10</td>
+          <td class="num">8</td>
+          <td class="num">1</td>
+        </tr>
+        <tr>
+          <td><strong>CONJ ADV+ JUST CITIES</strong></td>
+          <td style="font-size:11px">C:06</td>
+          <td class="num">12</td>
+          <td class="num">12</td>
+          <td class="num">12</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+        </tr>
+        <tr>
+          <td><strong>[P:ADVANTAGE] Sem Conect + AD Champ</strong></td>
+          <td style="font-size:11px">C:06</td>
+          <td class="num">8</td>
+          <td class="num">8</td>
+          <td class="num">7</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+        </tr>
+        <tr>
+          <td><strong>[P:INTERESSES] Compradores envolvidos</strong></td>
+          <td style="font-size:11px">C:07</td>
+          <td class="num">7</td>
+          <td class="num">7</td>
+          <td class="num">4</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+        </tr>
+        <tr>
+          <td><strong>[P:ADVANTAGE] Sem Conect</strong></td>
+          <td style="font-size:11px">C:06</td>
+          <td class="num">6</td>
+          <td class="num">6</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+        </tr>
+        <tr>
+          <td><strong>[P:ADVANTAGE] Teste criativos</strong></td>
+          <td style="font-size:11px">C:07</td>
+          <td class="num">6</td>
+          <td class="num">6</td>
+          <td class="num">6</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert green" style="margin-bottom:16px">
+      <div class="alert-icon">🏆</div>
+      <div class="alert-body">
+        <strong>Conjunto MVP: [P:INTERESSES] Reformas (C:07)</strong>
+        19 leads com 100% MQL em 3 meses seguidos (incluindo junho!) — o único conjunto que se manteve ativo até o final do Q2. Segmentação por interesse em reformas, dentro da C:07 New Hampshire. Escalar esse conjunto é a principal alavanca para recuperar volume em Q3.
+      </div>
+    </div>
+
+    <!-- ANÚNCIOS -->
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray-mid);margin-bottom:8px">Top Anúncios Q2</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Anúncio</th>
+          <th>Formato</th>
+          <th class="num">Leads</th>
+          <th class="num">MQL</th>
+          <th class="num">Abr</th>
+          <th class="num">Mai</th>
+          <th class="num">Jun</th>
+          <th>Melhor conjunto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>IMG003</strong></td>
+          <td style="font-size:11px">IMG</td>
+          <td class="num highlight">19</td>
+          <td class="num highlight">19</td>
+          <td class="num">18</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td style="font-size:11px">CONJ ADV+ JUST CITIES (11L) · Sem Conect + AD Champ (8L)</td>
+        </tr>
+        <tr>
+          <td><strong>AD05 — "We'll be here"</strong></td>
+          <td style="font-size:11px">IMG</td>
+          <td class="num highlight">15</td>
+          <td class="num highlight">15</td>
+          <td class="num">8</td>
+          <td class="num">7</td>
+          <td class="num">0</td>
+          <td style="font-size:11px">[P:INTERESSES] Reformas (9L) · Compradores envolvidos (4L)</td>
+        </tr>
+        <tr>
+          <td><strong>AD07 — "We'll be here" (v2)</strong></td>
+          <td style="font-size:11px">IMG</td>
+          <td class="num">5</td>
+          <td class="num">5</td>
+          <td class="num">5</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td style="font-size:11px">[P:INTERESSES] Reformas (5L)</td>
+        </tr>
+        <tr>
+          <td><strong>AD07 — "Planning to paint"</strong></td>
+          <td style="font-size:11px">IMG</td>
+          <td class="num">5</td>
+          <td class="num">5</td>
+          <td class="num">1</td>
+          <td class="num">4</td>
+          <td class="num" style="color:var(--green);font-weight:700">0*</td>
+          <td style="font-size:11px">Compradores envolvidos (3L) · Reformas (2L)</td>
+        </tr>
+        <tr>
+          <td><strong>AD04 — "Over 1000 homes"</strong></td>
+          <td style="font-size:11px">VIDEO</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td style="font-size:11px">[P:ADVANTAGE] Sem Conect</td>
+        </tr>
+        <tr>
+          <td><strong>AD06 — "Compare the apples to"</strong></td>
+          <td style="font-size:11px">IMG</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td style="font-size:11px">Reformas · Teste criativos</td>
+        </tr>
+        <tr>
+          <td><strong>AD01 — "Ice Dams don't"</strong></td>
+          <td style="font-size:11px">IMG</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">3</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td style="font-size:11px">Teste criativos</td>
+        </tr>
+        <tr>
+          <td><strong>AD01 — "Planning to paint" (v2)</strong></td>
+          <td style="font-size:11px">IMG</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td class="num">0</td>
+          <td class="num">0</td>
+          <td class="num" style="color:var(--green);font-weight:700">1</td>
+          <td style="font-size:11px">Reformas — único lead atribuído de Jun/26</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert green" style="margin-top:14px;margin-bottom:0">
+      <div class="alert-icon">💡</div>
+      <div class="alert-body">
+        <strong>Anúncios Painting seguros em Q3</strong>
+        "AD07 — Planning to paint" (5 leads, 100% MQL) e "AD01 — Planning to paint v2" (1 lead em junho) são os únicos anúncios de Painting com resultado rastreado. Dado que a vertical Painting foi desenvolvida no Q2, esses dados sugerem demanda real — escalar criativos de Painting em Q3, especialmente no conjunto [P:INTERESSES] Reformas.
       </div>
     </div>
   </div>
@@ -695,11 +977,13 @@
         <div class="block-7-label">7a · Síntese</div>
         <div class="block-7-title">O que aconteceu no Q2</div>
         <ul>
-          <li>Q2 seguiu o pico de março/26 em desaceleração progressiva: Abr sólido, Mai com alta receita (ticket grande), Jun com 0 fechamentos</li>
-          <li>Lead→MQL acima de 80% em todos os meses — o tráfego qualifica bem. O gargalo é MQL→SQL, que caiu de 23,8% (Abr) para 7,7% (Jun)</li>
+          <li>Q2 seguiu o pico de março/26 em desaceleração progressiva: Abr sólido, Mai com receita alta (ticket grande), Jun com 0 fechamentos</li>
+          <li><strong>Meta alinhada com cliente: 10 SQL/mês → realizado no Q2: 13 SQL total (média 4,3/mês) — meta mensal não atingida</strong></li>
+          <li>Lead→MQL acima de 80% em todos os meses — tráfego qualifica bem. O gargalo é MQL→SQL, que caiu de 23,8% (Abr) para 7,7% (Jun)</li>
           <li>Volume de leads caiu 71% ao longo do Q2 (52→22→15), possivelmente por sazonalidade de verão americana + redução de verba em junho</li>
           <li>Maio surpreendeu positivamente: apenas 2 contratos geraram $30.000 — ticket médio de $15.000/contrato, o maior do Q2</li>
-          <li>Google Ads gerou 3 leads com $1.650 investidos — eficiência abaixo de qualquer referência razoável; problema de trackeamento identificado e corrigido</li>
+          <li>Google Ads gerou 3 leads com $1.650 investidos — eficiência crítica; trackeamento corrigido no Q2</li>
+          <li><strong>Anomalia registrada no Cockpit: Erro GT</strong> — 4 tasks com problemas de aprovação do cliente, 11 tasks em fase atrasada</li>
           <li>Projeto ainda em pré-breakeven acumulado (-$7.932). Trajetória para out/nov 2026 depende de retomada no Q3</li>
         </ul>
       </div>
@@ -707,11 +991,28 @@
       <!-- 7b Voz do Cliente -->
       <div class="block-7 block-7b">
         <div class="block-7-label">7b · Voz do Cliente</div>
-        <div class="block-7-title">Percepção registrada no período</div>
-        <div style="background:#FFF9E6;border-radius:6px;padding:12px;font-size:12px;color:#5C4A00;border:1px solid #F0E080">
-          <strong style="display:block;margin-bottom:4px">Sem NPS ou feedback estruturado registrado no Q2</strong>
-          Não há registro formal de pesquisa de satisfação no período. Recomenda-se coletar feedback do responsável sobre: (1) qualidade dos leads gerados, (2) percepção da evolução de Painting como nova vertical e (3) adesão ao playbook de vendas criado em maio.
+        <div class="block-7-title">Percepção registrada — NPS/CSAT mar/26</div>
+        <div style="background:#FFFBEB;border-radius:6px;padding:12px;font-size:13px;color:#5C4A00;border-left:3px solid #D97706;margin-bottom:10px;font-style:italic">
+          "Talvez melhorar o nosso lado por aqui. Mais esforço da nossa parte para podermos colher melhor resultado."
         </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;margin-bottom:10px">
+          <div style="background:#F5F5F5;border-radius:6px;padding:8px;text-align:center">
+            <div style="font-size:10px;font-weight:700;color:#767676;text-transform:uppercase;margin-bottom:2px">NPS</div>
+            <div style="font-size:20px;font-weight:800;color:#1E7D34">9</div>
+          </div>
+          <div style="background:#FEF3C7;border-radius:6px;padding:8px;text-align:center">
+            <div style="font-size:10px;font-weight:700;color:#767676;text-transform:uppercase;margin-bottom:2px">MHS</div>
+            <div style="font-size:13px;font-weight:700;color:#B45309">Muito desapontado</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:#4A4A4A">
+          <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #EEE"><span>V4 geral</span><span style="font-weight:700">4/5</span></div>
+          <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #EEE"><span>Campanhas</span><span style="font-weight:700;color:#B45309">3/5</span></div>
+          <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #EEE"><span>Resultados</span><span style="font-weight:700;color:#B45309">3/5</span></div>
+          <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #EEE"><span>Copy</span><span style="font-weight:700;color:#1E7D34">5/5</span></div>
+          <div style="display:flex;justify-content:space-between;padding:3px 0"><span>Prazo / Atendimento</span><span style="font-weight:700;color:#1E7D34">5/5</span></div>
+        </div>
+        <div style="font-size:10px;color:#999;margin-top:6px">Pesquisa referente a mar/2026 — próximo NPS pendente</div>
       </div>
 
       <!-- 7c Conquistas V4 -->
@@ -769,10 +1070,10 @@
             <div class="kpi-value">17,1%</div>
             <div class="kpi-sub">↓ de 23,8%</div>
           </div>
-          <div class="kpi-card">
-            <div class="kpi-label">Ticket Médio</div>
-            <div class="kpi-value">$9.695</div>
-            <div class="kpi-sub">Q2 avg</div>
+          <div class="kpi-card red">
+            <div class="kpi-label">Meta SQL (mês)</div>
+            <div class="kpi-value">20%</div>
+            <div class="kpi-sub">meta: 10 · avg: 4,3/mês</div>
           </div>
         </div>
       </div>
