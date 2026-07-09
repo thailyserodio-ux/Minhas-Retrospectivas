@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROPRE Q2 2026 — Green Way Insulation</title>
+<style>
+  :root {
+    --red: #C8102E;
+    --red-light: #F5E6E9;
+    --dark: #1A1A1A;
+    --gray: #4A4A4A;
+    --gray-mid: #767676;
+    --gray-light: #F4F4F4;
+    --border: #E0E0E0;
+    --white: #FFFFFF;
+    --green: #1E7D34;
+    --green-light: #E8F5EC;
+    --amber: #B45309;
+    --amber-light: #FEF3C7;
+    --blue: #1D4ED8;
+    --blue-light: #EFF6FF;
+    --danger: #991B1B;
+    --danger-bg: #FEE2E2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F9F9F9; color: var(--dark); font-size: 14px; line-height: 1.6; }
+  .page { max-width: 900px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* Header */
+  .header { background: var(--dark); color: var(--white); border-radius: 12px; padding: 32px 36px; margin-bottom: 28px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .brand { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  .client-name { font-size: 28px; font-weight: 700; line-height: 1.2; }
+  .quarter-tag { background: var(--red); color: var(--white); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; white-space: nowrap; margin-top: 8px; display: inline-block; }
+  .header-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); }
+  .meta-item label { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); display: block; margin-bottom: 4px; }
+  .meta-item span { font-size: 16px; font-weight: 700; color: var(--white); }
+  .meta-item .sub { font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 400; }
+
+  /* Sections */
+  .section { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 24px 28px; margin-bottom: 20px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .section-num { background: var(--red); color: var(--white); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .section-title { font-size: 15px; font-weight: 700; color: var(--dark); }
+  .section-subtitle { font-size: 12px; color: var(--gray-mid); }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: var(--gray-light); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-mid); padding: 8px 10px; text-align: left; border-bottom: 2px solid var(--border); }
+  td { padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .total-row td { font-weight: 700; background: var(--gray-light); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .highlight { color: var(--green); font-weight: 700; }
+  .warning { color: var(--amber); font-weight: 700; }
+  .danger-text { color: var(--danger); font-weight: 700; }
+
+  /* KPI grid */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .kpi-card { background: var(--gray-light); border-radius: 8px; padding: 16px; text-align: center; }
+  .kpi-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--gray-mid); margin-bottom: 6px; }
+  .kpi-value { font-size: 22px; font-weight: 800; color: var(--dark); line-height: 1.1; }
+  .kpi-sub { font-size: 11px; color: var(--gray-mid); margin-top: 3px; }
+  .kpi-card.green  { background: var(--green-light); }
+  .kpi-card.green .kpi-value { color: var(--green); }
+  .kpi-card.amber  { background: var(--amber-light); }
+  .kpi-card.amber .kpi-value { color: var(--amber); }
+  .kpi-card.red    { background: var(--danger-bg); }
+  .kpi-card.red .kpi-value { color: var(--danger); }
+
+  /* Alerts */
+  .alert { border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; font-size: 13px; display: flex; gap: 10px; }
+  .alert.green  { background: var(--green-light); border-left: 4px solid var(--green); color: #1A4A26; }
+  .alert.amber  { background: var(--amber-light); border-left: 4px solid var(--amber); color: #5C2D0A; }
+  .alert.red    { background: var(--danger-bg); border-left: 4px solid var(--danger); color: var(--danger); }
+  .alert.blue   { background: var(--blue-light); border-left: 4px solid var(--blue); color: #1E3A8A; }
+  .alert-icon { flex-shrink: 0; font-size: 15px; }
+  .alert-body strong { display: block; font-weight: 700; margin-bottom: 2px; }
+
+  /* Block 7 */
+  .blocks-7 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .block-7 { border-radius: 8px; padding: 18px; border: 1px solid var(--border); }
+  .block-7-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 8px; }
+  .block-7-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .block-7 ul { list-style: none; padding: 0; }
+  .block-7 ul li { font-size: 13px; color: var(--gray); padding: 4px 0 4px 16px; position: relative; }
+  .block-7 ul li::before { content: '→'; position: absolute; left: 0; color: var(--red); font-size: 11px; top: 5px; }
+  .block-7a { background: #FAFAFA; }
+  .block-7b { background: #FDFDF5; }
+  .block-7c { background: var(--green-light); }
+  .block-7d { background: var(--blue-light); }
+  .block-7d .kpi-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+  .block-7d .kpi-card { padding: 10px; }
+  .block-7d .kpi-value { font-size: 18px; }
+
+  /* Funnel viz */
+  .funnel-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .funnel-label { width: 80px; font-size: 12px; font-weight: 600; color: var(--gray); }
+  .funnel-track { flex: 1; background: var(--border); border-radius: 4px; height: 20px; overflow: hidden; }
+  .funnel-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 700; color: white; }
+  .funnel-pct { width: 60px; font-size: 12px; font-weight: 700; text-align: right; }
+
+  /* PvR table */
+  .pvr-table th.proj { background: #EFF6FF; color: var(--blue); }
+  .pvr-table th.real { background: var(--green-light); color: var(--green); }
+  .pvr-table td.proj { color: var(--blue); }
+  .pvr-table td.real { color: var(--green); font-weight: 600; }
+  .pvr-table td.zero { color: var(--danger); font-weight: 700; }
+
+  /* Channel compare */
+  .channel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .channel-card { border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .channel-name { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .channel-row { display: flex; justify-content: space-between; font-size: 12px; padding: 4px 0; border-bottom: 1px solid #F5F5F5; }
+  .channel-row:last-child { border-bottom: none; }
+  .channel-row .val { font-weight: 700; }
+
+  /* Deliveries */
+  .delivery-group { margin-bottom: 16px; }
+  .delivery-group-label { font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 8px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+  .delivery-item { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid #F0F0F0; align-items: flex-start; }
+  .delivery-item:last-child { border-bottom: none; }
+  .delivery-tag { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 10px; background: var(--gray-light); color: var(--gray-mid); white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
+  .delivery-title a { color: var(--dark); text-decoration: none; font-size: 13px; }
+  .delivery-title a:hover { color: var(--red); text-decoration: underline; }
+  .delivery-phase { font-size: 11px; color: var(--gray-mid); margin-top: 2px; }
+
+  /* Footer */
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--gray-mid); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="brand">V4 Colli &amp; Co · Squad Invictus</div>
+        <div class="client-name">Green Way Insulation</div>
+        <div><span class="quarter-tag">Q2 2026 · Abril – Junho</span></div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px">GP Responsável</div>
+        <div style="font-size:14px;font-weight:700">Thaily Serodio</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px">Tráfego: Ueliton</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="meta-item">
+        <label>Health Score</label>
+        <span>—</span>
+        <div class="sub">verificar Cockpit</div>
+      </div>
+      <div class="meta-item">
+        <label>Flag</label>
+        <span>—</span>
+        <div class="sub">verificar Cockpit</div>
+      </div>
+      <div class="meta-item">
+        <label>LT Parceria</label>
+        <span>~13 meses</span>
+        <div class="sub">início jun/2025</div>
+      </div>
+      <div class="meta-item">
+        <label>Fee Mensal</label>
+        <span>$1.500 USD</span>
+        <div class="sub">conforme Breakeven</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 1 — CONTEXTO ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Contexto do Cliente</div>
+        <div class="section-subtitle">Quem é, o que faz, onde estamos na parceria</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:14px">
+      A <strong>Green Way Insulation</strong> é uma empresa americana de isolamento térmico e acústico (spray foam insulation) com atuação em Connecticut e New Hampshire. No Q2/2026, a operação consolida dois serviços: <strong>Insulation</strong> (serviço principal, ticket maior) e <strong>Painting</strong> (vertical complementar em expansão). A parceria V4 tem ~13 meses — os primeiros foram de ramp-up estrutural, com o pico histórico ocorrendo em <strong>março/2026</strong> (5 contratos, $70.000, ROAS 29,3x).
+    </p>
+    <div class="alert blue">
+      <div class="alert-icon">🌿</div>
+      <div class="alert-body">
+        <strong>Sazonalidade americana — contexto importante para leitura do Q2</strong>
+        O mercado de isolamento térmico nos EUA tem maior demanda no outono/inverno (clientes sentem impacto nas contas de energia no frio). O verão americano (Jun–Ago) costuma representar desaceleração natural. A V4 mapeou isso em mai/26 e criou a estratégia <em>Insulation para o Verão</em> — posicionando a instalação como vantagem preventiva para o calor.
+      </div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body">
+        <strong>Maior risco mapeado (MAPA.md)</strong>
+        Taxa de conversão de leads — processo comercial em padronização. O funil gera leads com excelente qualificação (Lead→MQL acima de 80%), mas perde volume na etapa MQL→SQL, indicando gargalo no processo comercial do cliente.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 2 — DESTAQUES ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">Destaques do Q2/2026</div>
+        <div class="section-subtitle">Pontos de atenção e conquistas do trimestre</div>
+      </div>
+    </div>
+    <div class="kpi-grid" style="margin-bottom:20px">
+      <div class="kpi-card">
+        <div class="kpi-label">Invest. Total Q2</div>
+        <div class="kpi-value">$7.219</div>
+        <div class="kpi-sub">Abr + Mai + Jun</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Receita Gerada Q2</div>
+        <div class="kpi-value">$48.475</div>
+        <div class="kpi-sub">5 contratos fechados</div>
+      </div>
+      <div class="kpi-card amber">
+        <div class="kpi-label">ROAS Médio Q2</div>
+        <div class="kpi-value">6,71x</div>
+        <div class="kpi-sub">vs 29,3x em mar/26</div>
+      </div>
+      <div class="kpi-card red">
+        <div class="kpi-label">Resultado Acumulado</div>
+        <div class="kpi-value">-$7.932</div>
+        <div class="kpi-sub">ROI projeto: 0,85</div>
+      </div>
+    </div>
+    <div class="alert green">
+      <div class="alert-icon">✅</div>
+      <div class="alert-body">
+        <strong>Lead→MQL: qualidade excepcional e consistente</strong>
+        Em todos os meses do Q2, a taxa Lead→MQL ficou acima de 80% (Abr 80,8% · Mai 95,5% · Jun 86,7%). O tráfego está atraindo o público certo — o problema não está na qualidade dos leads, mas na etapa de conversão comercial posterior.
+      </div>
+    </div>
+    <div class="alert green">
+      <div class="alert-icon">💰</div>
+      <div class="alert-body">
+        <strong>Maio: maior receita mensal do Q2 com apenas 2 contratos</strong>
+        Ticket médio de $15.000/contrato gerou $30.000 em receita — melhor mês do Q2 em valor. Indica que contratos de maior porte (Painting comercial ou projetos grandes de Insulation) estão sendo fechados. ROAS 10,62x, o maior do Q2.
+      </div>
+    </div>
+    <div class="alert red">
+      <div class="alert-icon">🚨</div>
+      <div class="alert-body">
+        <strong>Junho: 0 vendas, $0 receita</strong>
+        Com 13 MQLs e 1 SQL em junho, nenhum contrato foi fechado no mês. As hipóteses principais são: (1) lag de fechamento — SQL de junho pode fechar em julho; (2) sazonalidade americana — demanda reduz no verão; (3) gargalo no processo comercial. Requer acompanhamento no início do Q3.
+      </div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📉</div>
+      <div class="alert-body">
+        <strong>Volume de leads caiu 71% ao longo do Q2</strong>
+        De 52 leads em abril para 15 em junho. Meta domina a geração (95%+ dos leads). A queda pode refletir sazonalidade, redução de verba em junho (-31% vs maio) e/ou esgotamento de audiências. Google contribuiu com apenas 3 leads no Q2 inteiro com ~$1.650 investidos.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 3 — FUNIL PROJETADO VS REALIZADO ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Funil do Quarter — Projetado vs. Realizado</div>
+        <div class="section-subtitle">Fonte: Growth Pack 4.0 Inside Sales (primário) + Breakeven V.2</div>
+      </div>
+    </div>
+
+    <table class="pvr-table" style="margin-bottom:24px">
+      <thead>
+        <tr>
+          <th>Mês</th>
+          <th class="proj num">Leads Proj.</th>
+          <th class="real num">Leads Real.</th>
+          <th class="proj num">MQL Proj.</th>
+          <th class="real num">MQL Real.</th>
+          <th class="proj num">Vendas Proj.</th>
+          <th class="real num">Vendas Real.</th>
+          <th class="proj num">Receita Proj.</th>
+          <th class="real num">Receita Real.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Abril</strong></td>
+          <td class="proj num">55</td>
+          <td class="real num">52</td>
+          <td class="proj num">38</td>
+          <td class="real num">42</td>
+          <td class="proj num">2</td>
+          <td class="real num" style="color:var(--green);font-weight:700">3 ✓</td>
+          <td class="proj num">$38.000</td>
+          <td class="real num">$18.475</td>
+        </tr>
+        <tr>
+          <td><strong>Maio</strong></td>
+          <td class="proj num">75</td>
+          <td class="real num" style="color:var(--amber);font-weight:600">22</td>
+          <td class="proj num">52</td>
+          <td class="real num" style="color:var(--amber);font-weight:600">21</td>
+          <td class="proj num">4</td>
+          <td class="real num">2</td>
+          <td class="proj num">$30.000</td>
+          <td class="real num" style="color:var(--green);font-weight:700">$30.000 ✓</td>
+        </tr>
+        <tr>
+          <td><strong>Junho</strong></td>
+          <td class="proj num">37</td>
+          <td class="real num" style="color:var(--amber)">15</td>
+          <td class="proj num">25</td>
+          <td class="real num">13</td>
+          <td class="proj num">2</td>
+          <td class="real num zero">0 ✗</td>
+          <td class="proj num">$10.000</td>
+          <td class="real num zero">$0</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Total Q2</strong></td>
+          <td class="proj num">167</td>
+          <td class="real num">89</td>
+          <td class="proj num">115</td>
+          <td class="real num">76</td>
+          <td class="proj num">8</td>
+          <td class="real num">5</td>
+          <td class="proj num">$78.000</td>
+          <td class="real num">$48.475</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:12px;color:var(--gray-mid);margin-bottom:16px">
+      <em>Nota sobre Abril: mais contratos que o projetado (3 vs 2), mas ticket menor ($6.158 vs $19.000 proj.) — provavelmente serviços menores de Painting fechados no período.</em>
+    </p>
+
+    <div style="margin-bottom:6px;font-size:12px;font-weight:700;color:var(--gray-mid);text-transform:uppercase;letter-spacing:0.5px">Funil Q2 Agregado — Taxas de Conversão</div>
+    <div class="funnel-bar">
+      <div class="funnel-label">Leads</div>
+      <div class="funnel-track"><div class="funnel-fill" style="width:100%;background:#C8102E">89</div></div>
+      <div class="funnel-pct">100%</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="funnel-label">MQL</div>
+      <div class="funnel-track"><div class="funnel-fill" style="width:85%;background:#1E7D34">76</div></div>
+      <div class="funnel-pct highlight">85,4%</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="funnel-label">SQL</div>
+      <div class="funnel-track"><div class="funnel-fill" style="width:17%;background:#B45309">13</div></div>
+      <div class="funnel-pct warning">17,1%</div>
+    </div>
+    <div class="funnel-bar">
+      <div class="funnel-label">Vendas</div>
+      <div class="funnel-track"><div class="funnel-fill" style="width:6%;background:#991B1B">5</div></div>
+      <div class="funnel-pct warning">38,5% <span style="font-size:9px;font-weight:400">(de SQL)</span></div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 4 — CANAIS ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">Performance Mensal por Canal</div>
+        <div class="section-subtitle">Meta Ads vs. Google Ads — investimento, leads e CPL</div>
+      </div>
+    </div>
+
+    <table style="margin-bottom:20px">
+      <thead>
+        <tr>
+          <th>Mês</th>
+          <th class="num">Invest.</th>
+          <th class="num">CPL</th>
+          <th class="num">ROAS</th>
+          <th class="num">L→MQL</th>
+          <th class="num">MQL→SQL</th>
+          <th class="num">Custo/SQL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Abril</strong></td>
+          <td class="num">$2.433,46</td>
+          <td class="num">$46,80</td>
+          <td class="num highlight">7,59x</td>
+          <td class="num highlight">80,8%</td>
+          <td class="num">23,8%</td>
+          <td class="num">$243,35</td>
+        </tr>
+        <tr>
+          <td><strong>Maio</strong></td>
+          <td class="num">$2.825,40</td>
+          <td class="num warning">$128,43</td>
+          <td class="num highlight">10,62x</td>
+          <td class="num highlight">95,5%</td>
+          <td class="num warning">9,5%</td>
+          <td class="num warning">$1.412,70</td>
+        </tr>
+        <tr>
+          <td><strong>Junho</strong></td>
+          <td class="num">$1.960,31</td>
+          <td class="num warning">$130,69</td>
+          <td class="num danger-text">0,00x</td>
+          <td class="num highlight">86,7%</td>
+          <td class="num danger-text">7,7%</td>
+          <td class="num danger-text">$1.960,31</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Q2</strong></td>
+          <td class="num">$7.219,17</td>
+          <td class="num">$81,11</td>
+          <td class="num">6,71x</td>
+          <td class="num">85,4%</td>
+          <td class="num">17,1%</td>
+          <td class="num">$555,32</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="channel-grid">
+      <div class="channel-card">
+        <div class="channel-name">📘 Meta Ads</div>
+        <div class="channel-row"><span>Invest. Q2</span><span class="val">$5.569,58 (77%)</span></div>
+        <div class="channel-row"><span>Leads Q2</span><span class="val">86 leads (96,6%)</span></div>
+        <div class="channel-row"><span>CPL Abr</span><span class="val highlight">$38,93</span></div>
+        <div class="channel-row"><span>CPL Mai</span><span class="val warning">$104,19</span></div>
+        <div class="channel-row"><span>CPL Jun</span><span class="val warning">$95,66</span></div>
+        <div class="channel-row"><span>CPL Médio Q2</span><span class="val">~$64,76</span></div>
+      </div>
+      <div class="channel-card">
+        <div class="channel-name">🟢 Google Ads</div>
+        <div class="channel-row"><span>Invest. Q2</span><span class="val">$1.649,59 (23%)</span></div>
+        <div class="channel-row"><span>Leads Q2</span><span class="val danger-text">3 leads (3,4%)</span></div>
+        <div class="channel-row"><span>CPL Abr</span><span class="val danger-text">$243,38</span></div>
+        <div class="channel-row"><span>CPL Mai</span><span class="val danger-text">$637,50</span></div>
+        <div class="channel-row"><span>CPL Jun</span><span class="val danger-text">— (0 leads)</span></div>
+        <div class="channel-row"><span>CPL Médio Q2</span><span class="val danger-text">$549,86</span></div>
+      </div>
+    </div>
+
+    <div class="alert amber" style="margin-top:14px">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body">
+        <strong>Google Ads: ~23% do budget, 3,4% dos leads — eficiência crítica</strong>
+        O Google está muito abaixo do esperado. A V4 identificou e corrigiu problema de trackeamento (<a href="https://app.ekyte.com/#/tasks/list/9167205/edit" style="color:var(--amber)">task TRK #9167205</a>) durante o Q2. Vale monitorar se a correção melhora os dados no Q3 antes de decidir sobre redistribuição de verba.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 5 — BREAKEVEN ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">Breakeven — Resultado Financeiro do Projeto</div>
+        <div class="section-subtitle">Resultado líquido mensal vs. custo total (fee $1.500 + invest)</div>
+      </div>
+    </div>
+
+    <table style="margin-bottom:16px">
+      <thead>
+        <tr>
+          <th>Mês</th>
+          <th class="num">Receita Realizada</th>
+          <th class="num">Custo Total</th>
+          <th class="num">Resultado Líq. Mês</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Abril/26</strong></td>
+          <td class="num">$18.475,00</td>
+          <td class="num">~$3.933</td>
+          <td class="num highlight">+$685,29</td>
+          <td><span class="highlight">✓ Positivo</span></td>
+        </tr>
+        <tr>
+          <td><strong>Maio/26</strong></td>
+          <td class="num">$30.000,00*</td>
+          <td class="num">~$4.325</td>
+          <td class="num danger-text">-$2.987,88</td>
+          <td><span class="danger-text">✗ Negativo</span></td>
+        </tr>
+        <tr>
+          <td><strong>Junho/26</strong></td>
+          <td class="num danger-text">$0,00</td>
+          <td class="num">~$3.284</td>
+          <td class="num danger-text">-$3.284,00</td>
+          <td><span class="danger-text">✗ Negativo</span></td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Acumulado ao final do Q2</strong></td>
+          <td class="num">—</td>
+          <td class="num">—</td>
+          <td class="num danger-text">-$7.932,72</td>
+          <td><span class="warning">Pré-breakeven</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert blue">
+      <div class="alert-icon">📌</div>
+      <div class="alert-body">
+        <strong>*Divergência de receita em Maio entre Growth Pack e Breakeven</strong>
+        O Growth Pack registra $30.000 em Maio, mas o Breakeven mostra resultado negativo (-$2.987). Isso pode indicar critérios diferentes de reconhecimento de receita (data de proposta vs. data de recebimento). Recomenda-se alinhar com o cliente o critério de entrada de receita para unificar os relatórios.
+      </div>
+    </div>
+    <div class="alert amber">
+      <div class="alert-icon">📊</div>
+      <div class="alert-body">
+        <strong>ROI Projeto: 0,85 — breakeven projetado para out/nov 2026</strong>
+        O patamar mínimo para mês positivo é de <strong>2 contratos acima de $5.000 de ticket</strong> ou 1 contrato de alto valor ($10.000+). O Q3 será decisivo para a trajetória de breakeven.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 6 — ENTREGAS EKYTE ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div>
+        <div class="section-title">Entregas V4 no Quarter</div>
+        <div class="section-subtitle">Ekyte · Workspace GREE 103988 · Projetos Abr (#281081), Mai (#292511), Jun (#291303) e TAR (#295830)</div>
+      </div>
+    </div>
+
+    <!-- Tabela resumo por tipo -->
+    <table style="margin-bottom:20px">
+      <thead>
+        <tr><th>Tipo</th><th>Qtd</th><th>Escopo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>OTM</strong> — Otimização</td><td>7+</td><td>Regiões, Meta NH, Verba, Google, PMax, Insulation Verão</td></tr>
+        <tr><td><strong>CA</strong> — Criativos Ads</td><td>9+</td><td>Prova Social, Acústico, Energia, Carrossel, Display, Painting</td></tr>
+        <tr><td><strong>EV</strong> — Edição Vídeo</td><td>8+</td><td>Vídeos SM, Reels semanais jun (05, 12, 19, 22), Insulation IA</td></tr>
+        <tr><td><strong>PA</strong> — Pauta SM</td><td>6+</td><td>Pautas 1ª/2ª quinzena em Abr, Mai e Jun</td></tr>
+        <tr><td><strong>SV/RV</strong> — Scripts/Roteiro</td><td>2</td><td>Scripts Painting, Roteiro vídeo Painting</td></tr>
+        <tr><td><strong>AN/TRK/CRM</strong> — Análise</td><td>3</td><td>Revisão SM, Trackeamento Google, CRM análise</td></tr>
+      </tbody>
+    </table>
+
+    <div class="delivery-group">
+      <div class="delivery-group-label">🔑 Ações Estratégicas</div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">OTM</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9039902/edit">Reestruturação campanhas Painting</a></div>
+          <div class="delivery-phase">Nova vertical ativada no tráfego pago · Google Ads · Abr/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">PC</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9388072/edit">Publicação de Campanha PMax</a></div>
+          <div class="delivery-phase">Nova campanha Performance Max Google · Mai/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">SV</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9455419/edit">Adaptação dos scripts para Painting</a></div>
+          <div class="delivery-phase">Playbook comercial 14 dias · Scripts ligação + SMS · Mai/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">RV</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9482571/edit">Roteiro de vídeo Painting para o cliente gravar</a></div>
+          <div class="delivery-phase">Vídeo de vendas a ser gravado pelo cliente · Jun/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">OTM</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9361047/edit">Testar campanha de Insulation no Verão</a></div>
+          <div class="delivery-phase">Estratégia sazonal de aquecimento de demanda · Sprint 21</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">OTM</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9361071/edit">Ajuste de verba de mídia</a></div>
+          <div class="delivery-phase">Otimização de alocação Meta vs Google · Sprint 21</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">TRK</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9167205/edit">Resolver problema de trackeamento Google Ads</a></div>
+          <div class="delivery-phase">Correção crítica de rastreamento de conversões · Abr/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">CRM</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9267909/edit">Análise do melhor CRM abaixo de $200</a></div>
+          <div class="delivery-phase">Suporte à padronização do processo comercial · Mai/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">AN</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9167362/edit">Revisão Estratégia de Social Media</a></div>
+          <div class="delivery-phase">Análise e reposicionamento do orgânico · Abr/26</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="delivery-group">
+      <div class="delivery-group-label">🎨 Criativos e Conteúdo</div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">CA</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/8847776/edit">Criativo Ads Prova Social</a></div>
+          <div class="delivery-phase">Anúncios com depoimentos/prova social · Abr/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">CA</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9039926/edit">Ads Isolamento Acústico</a></div>
+          <div class="delivery-phase">Novo ângulo de copy — benefício acústico · Abr/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">CA</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9039921/edit">Ads Economize Energia No Verão</a></div>
+          <div class="delivery-phase">Copy sazonal ar-condicionado · Abr/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">CA</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9219344/edit">Anúncios em Carrossel</a></div>
+          <div class="delivery-phase">Novo formato de anúncio · Abr–Mai/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">CA</span>
+        <div>
+          <div class="delivery-title"><a href="https://app.ekyte.com/#/tasks/list/9482570/edit">Criativo Ads Desdobramento Display (partes 1 e 2)</a></div>
+          <div class="delivery-phase">Expansão para Rede de Display · Jun/26</div>
+        </div>
+      </div>
+
+      <div class="delivery-item">
+        <span class="delivery-tag">EV</span>
+        <div>
+          <div class="delivery-title">
+            <a href="https://app.ekyte.com/#/tasks/list/9498785/edit">Reel 05/06</a> ·
+            <a href="https://app.ekyte.com/#/tasks/list/9498796/edit">12/06</a> ·
+            <a href="https://app.ekyte.com/#/tasks/list/9498812/edit">19/06</a> ·
+            <a href="https://app.ekyte.com/#/tasks/list/9498818/edit">22/06</a>
+          </div>
+          <div class="delivery-phase">Cadência de 4 Reels semanais em junho · SM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 7 — 4 BLOCOS ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div>
+        <div class="section-title">Análise do Quarter em 4 Perspectivas</div>
+        <div class="section-subtitle">Síntese · Voz do cliente · Conquistas V4 · Quantitativo</div>
+      </div>
+    </div>
+
+    <div class="blocks-7">
+
+      <!-- 7a Síntese -->
+      <div class="block-7 block-7a">
+        <div class="block-7-label">7a · Síntese</div>
+        <div class="block-7-title">O que aconteceu no Q2</div>
+        <ul>
+          <li>Q2 seguiu o pico de março/26 em desaceleração progressiva: Abr sólido, Mai com alta receita (ticket grande), Jun com 0 fechamentos</li>
+          <li>Lead→MQL acima de 80% em todos os meses — o tráfego qualifica bem. O gargalo é MQL→SQL, que caiu de 23,8% (Abr) para 7,7% (Jun)</li>
+          <li>Volume de leads caiu 71% ao longo do Q2 (52→22→15), possivelmente por sazonalidade de verão americana + redução de verba em junho</li>
+          <li>Maio surpreendeu positivamente: apenas 2 contratos geraram $30.000 — ticket médio de $15.000/contrato, o maior do Q2</li>
+          <li>Google Ads gerou 3 leads com $1.650 investidos — eficiência abaixo de qualquer referência razoável; problema de trackeamento identificado e corrigido</li>
+          <li>Projeto ainda em pré-breakeven acumulado (-$7.932). Trajetória para out/nov 2026 depende de retomada no Q3</li>
+        </ul>
+      </div>
+
+      <!-- 7b Voz do Cliente -->
+      <div class="block-7 block-7b">
+        <div class="block-7-label">7b · Voz do Cliente</div>
+        <div class="block-7-title">Percepção registrada no período</div>
+        <div style="background:#FFF9E6;border-radius:6px;padding:12px;font-size:12px;color:#5C4A00;border:1px solid #F0E080">
+          <strong style="display:block;margin-bottom:4px">Sem NPS ou feedback estruturado registrado no Q2</strong>
+          Não há registro formal de pesquisa de satisfação no período. Recomenda-se coletar feedback do responsável sobre: (1) qualidade dos leads gerados, (2) percepção da evolução de Painting como nova vertical e (3) adesão ao playbook de vendas criado em maio.
+        </div>
+      </div>
+
+      <!-- 7c Conquistas V4 -->
+      <div class="block-7 block-7c">
+        <div class="block-7-label">7c · Conquistas V4</div>
+        <div class="block-7-title">O que a V4 entregou de diferencial</div>
+        <ul>
+          <li>Ativou a vertical Painting no tráfego pago com reestruturação completa de campanhas</li>
+          <li>Publicou campanha PMax Google — novo formato de busca automática</li>
+          <li>Criou Playbook de Vendas Painting: processo de 14 dias com scripts de ligação + SMS</li>
+          <li>Rodou estratégia sazonal Insulation para o Verão com roteiro e criativos temáticos</li>
+          <li>Corrigiu problema crítico de trackeamento do Google Ads</li>
+          <li>Estabeleceu cadência de 4 Reels/mês em junho — fortalecendo presença orgânica</li>
+          <li>Analisou e recomendou CRM abaixo de $200 para estruturar o processo comercial</li>
+          <li>Realizou revisão estratégica do Social Media</li>
+          <li>Expandiu portfólio de criativos: Display, Carrossel, Motion, Prova Social, Vídeos IA</li>
+        </ul>
+      </div>
+
+      <!-- 7d Quantitativo -->
+      <div class="block-7 block-7d">
+        <div class="block-7-label">7d · Quantitativo</div>
+        <div class="block-7-title">Números finais Q2/2026</div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Leads Q2</div>
+            <div class="kpi-value">89</div>
+            <div class="kpi-sub">52 · 22 · 15</div>
+          </div>
+          <div class="kpi-card green">
+            <div class="kpi-label">Lead→MQL</div>
+            <div class="kpi-value">85,4%</div>
+            <div class="kpi-sub">excelente</div>
+          </div>
+          <div class="kpi-card amber">
+            <div class="kpi-label">Vendas Q2</div>
+            <div class="kpi-value">5</div>
+            <div class="kpi-sub">$48.475</div>
+          </div>
+          <div class="kpi-card red">
+            <div class="kpi-label">ROI Projeto</div>
+            <div class="kpi-value">0,85</div>
+            <div class="kpi-sub">-$7.932 acum.</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">ROAS Q2</div>
+            <div class="kpi-value">6,71x</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">CPL Q2</div>
+            <div class="kpi-value">$81,11</div>
+          </div>
+          <div class="kpi-card amber">
+            <div class="kpi-label">MQL→SQL</div>
+            <div class="kpi-value">17,1%</div>
+            <div class="kpi-sub">↓ de 23,8%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Ticket Médio</div>
+            <div class="kpi-value">$9.695</div>
+            <div class="kpi-sub">Q2 avg</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ SEÇÃO 8 — DIAGNÓSTICO E Q3 ══ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div>
+        <div class="section-title">Hipóteses de Diagnóstico e Recomendações Q3</div>
+        <div class="section-subtitle">Avaliações preliminares — não são certezas; precisam ser validadas</div>
+      </div>
+    </div>
+
+    <div class="alert blue" style="margin-bottom:12px">
+      <div class="alert-icon">🔍</div>
+      <div class="alert-body">
+        <strong>Hipótese 1 — Sazonalidade de verão americano</strong>
+        A queda de leads em maio e junho pode ser, em parte, sazonalidade natural do setor (demanda por isolamento é maior no outono/inverno). Se confirmado, o Q3 deve sustentar volume com estratégias de demanda induzida (benefício de conforto no calor, eficiência energética de ar-condicionado) e preparar a máquina para o pico de Q4.
+      </div>
+    </div>
+
+    <div class="alert blue" style="margin-bottom:12px">
+      <div class="alert-icon">🔍</div>
+      <div class="alert-body">
+        <strong>Hipótese 2 — Gargalo comercial MQL→SQL</strong>
+        Leads chegam qualificados mas não viram propostas. Possível causa: processo de abordagem sem cadência definida. O Playbook Painting foi criado em maio — se não está sendo executado, o Q3 deve focar em adesão ao processo e monitoramento de follow-up.
+      </div>
+    </div>
+
+    <div class="alert blue" style="margin-bottom:12px">
+      <div class="alert-icon">🔍</div>
+      <div class="alert-body">
+        <strong>Hipótese 3 — Lag de fechamento de junho no Q3</strong>
+        Os 13 MQLs e 1 SQL de junho podem fechar em julho (ciclo de venda de 2–4 semanas). Monitorar a conversão do pipeline herdado de junho nas primeiras semanas de julho antes de tirar conclusões sobre o mês.
+      </div>
+    </div>
+
+    <div class="alert amber" style="margin-bottom:20px">
+      <div class="alert-icon">🔍</div>
+      <div class="alert-body">
+        <strong>Hipótese 4 — Google Ads estruturalmente ineficiente</strong>
+        Com $1.649 gastos e 3 leads no Q2, o Google pode ter problema de estratégia de palavras-chave além do trackeamento corrigido. Auditar antes de manter o nível atual de investimento no Q3.
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Recomendação Q3</th>
+          <th>Prioridade</th>
+          <th>Contexto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Monitorar pipeline de SQL de junho — validar se fecham nas primeiras 2 semanas de julho</td>
+          <td><span class="danger-text">Alta</span></td>
+          <td>Definir se junho é lag ou queda real</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Acompanhar adesão ao Playbook Painting com o cliente (cadência 14 dias)</td>
+          <td><span class="danger-text">Alta</span></td>
+          <td>Playbook criado em mai/26; precisa de execução ativa</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Auditar Google Ads e decidir sobre redistribuição de verba para Meta</td>
+          <td><span class="warning">Média</span></td>
+          <td>Pós-correção de trackeamento; verificar eficiência real</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Implementar CRM recomendado ($200 max) para rastrear funil completo</td>
+          <td><span class="warning">Média</span></td>
+          <td>Estruturar processo comercial e visibilidade de pipeline</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Alinhar critério de reconhecimento de receita entre GP e Breakeven</td>
+          <td><span class="highlight">Operacional</span></td>
+          <td>Discrepância identificada em Maio/26</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Preparar campanha de alta demanda para out/nov/26 (pico sazonal inverno US)</td>
+          <td><span class="highlight">Estratégica</span></td>
+          <td>Janela de maior demanda histórica — antecipação necessária</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>ROPRE Q2/2026 — Green Way Insulation · V4 Colli &amp; Co · Squad Invictus</span>
+    <span>Gerado em 09/07/2026 · GP: Thaily Serodio</span>
+  </div>
+
+</div>
+</body>
+</html>
