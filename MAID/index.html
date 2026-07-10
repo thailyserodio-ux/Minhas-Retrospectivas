@@ -19,176 +19,345 @@
   .prov{color:#888;font-size:10px;}
   .note{background:#eef3fb;border-left:4px solid #2f6fd1;padding:8px 10px;font-size:12px;margin:10px 0;}
   .alert{background:#fff0f0;border-left:4px solid #e30613;padding:8px 10px;font-size:12px;margin:10px 0;}
+  .safe{background:#f0fff4;border-left:4px solid #127a2e;padding:8px 10px;font-size:12px;margin:10px 0;}
   ul{margin:4px 0 8px 18px;padding:0;} li{margin:2px 0;}
   .type-header{background:#222;color:#fff;font-weight:bold;font-size:11px;padding:4px 7px;}
+  a{color:#2f6fd1;}
 </style>
 </head>
 <body>
 
-<h1>Retrospectiva ROPRE — MaidPad</h1>
+<h1>Retrospectiva ROPRE — MaidPad (MAID)</h1>
 <div class="meta">
-  Fontes: <b>Growth Pack (aba mensal, gid=617612824) + Backup de Leads + Ekyte + Cockpit + BigQuery Calls</b> · projectDocumentId=<b>gy16eb0cq4nhs5rz8xa199r8</b> (ticker MAID) · plataformas=Meta Ads + Google Ads (a partir de mai/26) · período=<b>Q2/2026 (abr–jun, fechado, mensal + total)</b> · provider=local-csv + cockpit
+  Fontes: <b>Planilha de Leads UTM (backup) + Campanhas CSV Meta Ads (Abr/Mai) + Growth Pack Semanal (até Mar/2026) + Ekyte MCP + Cockpit</b> · projectDocumentId=<b>gy16eb0cq4nhs5rz8xa199r8</b> · Plataformas=Meta Ads + Google Ads (limitado) · período=<b>Q2/2026 (abr–jun, fechado)</b> · Gerado em: 2026-07-10
 </div>
 
 <div class="alert">
-  ⚠ <b>Modelo de negócio diferente dos demais clientes do squad: B2B SaaS</b> (não Inside Sales tradicional). MaidPad é uma plataforma de gestão para empresas de limpeza nos EUA. Funil real: <b>Lead (form) → Cadastro/Trial 30 dias (= MQL no Cockpit) → Conversão para plano pago (Basic $30/mês ou Premium $50/mês)</b>. O Growth Pack está estruturado para o funil clássico Lead→MQL→SQL→Venda e por isso mostra MQL/SQL/Vendas zerados o tempo todo — não é falha de captação, é desalinhamento de modelo de dados.<br>
-  ⚠ <b>Sem aba de Breakeven tradicional</b> nesta planilha (só controle de budget diário) — não há comparação Projetado × Realizado nesta retrospectiva.
+  🚨 <b>ALERTA CRÍTICO — Customer Care: "Antecipação" (aviso prévio 30d desde 06/04/2026)</b><br>
+  O cliente está em estágio de antecipação de saída. Flag 🔴 Danger · HS 13,6 (45,3%). Reunião de ROPRE deve tratar risco de churn como ponto central da pauta. <span class="prov">[Cockpit algorithm_customer_care_status + algorithm_customer_care_aviso_previo]</span>
 </div>
 
 <!-- ===== SEÇÃO 1 ===== -->
 <h2>1. Visão Geral do Projeto</h2>
 <table>
   <tr><th>Cliente</th><td>MaidPad</td><th>Squad / Coord</th><td>Invictus · Thaily Serodio</td></tr>
-  <tr><th>Modelo de negócio</th><td>B2B SaaS · EUA <span class="prov">[Cockpit + Backup de Leads]</span></td><th>Segmento</th><td>Software de gestão para empresas de limpeza residencial (clientes, agenda, orçamento, fatura)</td></tr>
-  <tr><th>Fee mensal</th><td>R$6.990,00 <span class="prov">[Cockpit]</span></td><th>Planos</th><td>Basic $30/mês · Premium $50/mês <span class="prov">[material do cliente]</span></td></tr>
-  <tr><th>Flag / HS</th><td class="bad">🔴 Critical · HS 12.7 <span class="prov">[Cockpit 28/06]</span></td><th>LT</th><td>22 meses <span class="prov">[Cockpit]</span></td></tr>
-  <tr><th>Critério MQL</th><td colspan="3">Cadastro grátis de 30 dias (trial) <span class="prov">[Cockpit]</span></td></tr>
-  <tr><th>Stakeholder principal</th><td colspan="3">Cyro Muniz — founder (cyro@maidpad.com) <span class="prov">[BigQuery Calls]</span></td></tr>
-  <tr><th>Equipe</th><td colspan="3">PM: Rafael Clarindo Reis · Coord: Ueliton Pereira · AM: Thaily Serodio · Paid Media: Matheus Alencar · Designer: Yuri Araujo · Copy: Felipe Pinheiro · Social Media: Maiara Trevizan <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Produto V4</th><td>Assessoria Byline <span class="prov">[Cockpit]</span></td><th>Segmento</th><td>Software · App · B2C · Low ticket <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Mercado</th><td>EUA (housecleaners) — campanhas 100% em inglês <span class="prov">[Planilha Leads]</span></td><th>Modelo de negócio</th><td>SaaS — receita via assinatura do app (Basic/Premium) <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Fee mensal</th><td>R$6.990,00 <span class="prov">[Cockpit]</span></td><th>Verba Meta (milestone/atual)</th><td>R$1.350 / R$1.387 <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Verba Google (milestone/atual)</th><td class="warn">R$150 / R$36 <span class="prov">[Cockpit — Google praticamente inativo]</span></td><th>LT</th><td>22 meses <span class="prov">[Cockpit · início 2024-08-30]</span></td></tr>
+  <tr><th>Flag / HS</th><td class="bad">🔴 Danger · HS 13,6 (45,3%) <span class="prov">[Cockpit 2026-07-03]</span></td><th>Customer Care</th><td class="bad">Antecipação · Aviso prévio 30d (desde 06/04/2026) <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>CRM</th><td>Não aplicável — É SaaS <span class="prov">[Cockpit deliveries_no_commercial_tracking_reason]</span></td><th>Critério MQL</th><td>Cadastro grátis de 30d no app <span class="prov">[Cockpit paid_traffic_mql_sql_criteria]</span></td></tr>
+  <tr><th>Meta da meta</th><td>MQL · 33/mês (meta original) · goal_reached_qty=8 (jun/26) <span class="prov">[Cockpit]</span></td><th>Tracking validado</th><td class="bad">NÃO <span class="prov">[Cockpit paid_traffic_tracking_validated_bool=false — problema persistente no Q2]</span></td></tr>
+  <tr><th>Equipe</th><td colspan="3">PM: Rafael Clarindo · Coord: Ueliton Pereira · AM: Thaily Serodio · Paid Media: Matheus Alencar · Designer: Yuri Araújo · Copy: Felipe Pinheiro · Social Media: Maiara Trevizan <span class="prov">[Cockpit]</span></td></tr>
 </table>
 
 <!-- ===== SEÇÃO 2 ===== -->
 <h2>2. Resultado do Quarter — Funil Q2/2026</h2>
 
-<h3>Funil mensal — Realizado <span class="prov">[Growth Pack mensal]</span></h3>
-<table>
-  <tr><th>Métrica</th><th class="n">Abr/26</th><th class="n">Mai/26</th><th class="n">Jun/26</th><th class="n q">Total Q2</th></tr>
-  <tr><td>Investimento</td><td class="n">R$1.225,31</td><td class="n">R$1.265,83</td><td class="n">R$1.345,92</td><td class="n q">R$3.837,06</td></tr>
-  <tr><td>Impressões</td><td class="n">39.089</td><td class="n">46.972</td><td class="n">40.982</td><td class="n q">127.043</td></tr>
-  <tr><td>Cliques</td><td class="n">628</td><td class="n">832</td><td class="n">464</td><td class="n q">1.924</td></tr>
-  <tr><td>Leads (form de anúncio)</td><td class="n ok">33</td><td class="n">21</td><td class="n bad">16</td><td class="n q">70</td></tr>
-  <tr><td>CPL</td><td class="n ok">R$37,13</td><td class="n warn">R$60,28</td><td class="n bad">R$84,12</td><td class="n q bad">~R$54,81</td></tr>
-  <tr><td>CPC</td><td class="n ok">R$1,95</td><td class="n">R$1,52</td><td class="n bad">R$2,90</td><td class="n q">—</td></tr>
-</table>
+<div class="alert">
+  ⚠ <b>Problema estrutural de mensuração:</b> O tracking não foi validado ao longo de todo o Q2 (paid_traffic_tracking_validated_bool=false). O projeto TAR acumulou <b>10 tasks — 8 delas sobre "Resolver Trackeamento de Dados"</b> — ao longo do quarter sem resolução definitiva. Os números abaixo são da <b>Planilha de Leads (backup/CRM manual)</b>, fonte mais confiável disponível. Dados de plataforma (Meta pixel) divergem da planilha por conta do tracking quebrado. <span class="prov">[Ekyte projeto #295817 TAR + Cockpit paid_traffic_tracking_validated_bool]</span>
+</div>
 
-<h3>Funil real (cadastro → plano pago) <span class="prov">[Backup de Leads]</span></h3>
+<h3>Leads por mês — Q2/2026 <span class="prov">[Planilha de Leads — Backup CSV]</span></h3>
 <table>
-  <tr><th>Etapa</th><th class="n">Abr/26</th><th class="n">Mai/26</th><th class="n">Jun/26</th><th class="n q">Total Q2</th></tr>
-  <tr><td>Cadastros completos (MQL = trial 30d)</td><td class="n">20</td><td class="n">13</td><td class="n">11</td><td class="n q">44</td></tr>
-  <tr><td>Conversão para plano pago (Venda)</td><td class="n">0</td><td class="n">0</td><td class="n ok">6</td><td class="n q">6</td></tr>
-  <tr><td>· Basic ($30/mês)</td><td class="n">—</td><td class="n">—</td><td class="n">3</td><td class="n q">3</td></tr>
-  <tr><td>· Premium ($50/mês)</td><td class="n">—</td><td class="n">—</td><td class="n">3</td><td class="n q">3</td></tr>
-  <tr><td>MRR novo gerado</td><td class="n">$0</td><td class="n">$0</td><td class="n ok">$240</td><td class="n q ok">$240/mês</td></tr>
+  <tr><th>Mês</th><th class="n">Leads (planilha)</th><th class="n">Leads (pixel Meta)</th><th class="n">Plano Basic</th><th class="n">Plano Premium</th><th class="n">Sem plano</th></tr>
+  <tr><td>Abril</td><td class="n">20</td><td class="n warn">33*</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+  <tr><td>Maio</td><td class="n warn">13</td><td class="n">20*</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+  <tr><td>Junho</td><td class="n bad">11</td><td class="n">— (sem CSV)</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+  <tr><td class="q"><b>Total Q2</b></td><td class="n q bad"><b>44</b></td><td class="n q warn"><b>~53 (pixel, Abr+Mai)</b></td><td class="n q">3</td><td class="n q">3</td><td class="n q bad">38</td></tr>
 </table>
+<p style="font-size:11px;color:#888;">*Divergência leads planilha vs pixel Meta esperada por tracking quebrado (paid_traffic_tracking_validated_bool=false). Planilha=entrada real qualificada; pixel=cadastro na landing/app (pode duplicar).</p>
 
 <div class="alert">
-  ⚠ <b>Divergência de leads entre fontes:</b> Growth Pack registra 70 leads no Q2 (a partir do form do anúncio); o Backup de Leads (CRM/planilha de cadastro) mostra 44 cadastros completos no mesmo período — 37% a menos. Diferença esperada para SaaS (nem todo clique no anúncio completa o cadastro/onboarding na plataforma), mas vale validar se não há perda de tracking entre o formulário e o registro do trial.
+  ⚠ <b>Conversão Lead → Plano pago: apenas 14% (6 de 44 leads)</b> — 3 Basic + 3 Premium. 38 de 44 leads registrados não converteram para nenhum plano pago. Para SaaS o objetivo primário é o cadastro (MQL = trial grátis 30d), mas a taxa de conversão trial→pago precisa ser acompanhada. <span class="prov">[Planilha de Leads — campo Plano Escolhido]</span>
 </div>
+
+<h3>Tendência de leads no quarter <span class="prov">[Planilha de Leads]</span></h3>
+<table>
+  <tr><th>Métrica</th><th class="n">Abr/26</th><th class="n">Mai/26</th><th class="n">Jun/26</th><th>Tendência</th></tr>
+  <tr><td>Leads (planilha)</td><td class="n">20</td><td class="n warn">13</td><td class="n bad">11</td><td class="bad">↓ -45% de abr→jun</td></tr>
+  <tr><td>Meta (goal_qty Cockpit)</td><td class="n">33</td><td class="n">33</td><td class="n">33</td><td>—</td></tr>
+  <tr><td>Pacing</td><td class="n warn">61%</td><td class="n bad">39%</td><td class="n bad">33%</td><td class="bad">deteriorando</td></tr>
+  <tr><td>Conversão para plano pago</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="slot">⚠ não rastreado separado por mês</td></tr>
+</table>
 
 <div class="note">
-  <b>Leitura do quarter:</b> Volume de leads caiu seguido mês a mês (33→21→16, -52% de abril a junho) com CPL subindo de forma constante (R$37→R$60→R$84, +127%). Cadastros completos também caíram (20→13→11). As <b>6 primeiras conversões para plano pago do quarter aconteceram todas em junho</b> — apesar do pior mês em volume de topo de funil, foi o único mês com receita nova. Isso sugere que as conversões de junho vieram de cadastros acumulados de meses anteriores (ciclo de trial de 30 dias), não do volume gerado no próprio mês — herança de abril/maio amadurecendo. MRR novo gerado no quarter: <b>$240/mês</b> (3 Basic + 3 Premium).
+  <b>Breakeven/Growth Pack Q2:</b> O Growth Pack Semanal disponível vai até março/2026. Sem CSV de breakeven mensal para Q2 — os números de investimento vêm das campanhas CSVs (Meta Abr+Mai) e do Cockpit (budget atual). <b>Funil completo (Lead→MQL→SQL→Venda) indisponível</b> para o quarter por ausência de dados consolidados. <span class="prov">[Growth Pack Semanal CSV (até Mar/26) + Cockpit — slots abaixo onde ausente]</span>
 </div>
 
-<h3>Histórico anterior ao quarter (contexto) <span class="prov">[Cliente — 3 conversões confirmadas, fora do Q2]</span></h3>
+<h3>Investimento Meta por mês — Q2/2026 <span class="prov">[Campanhas CSV Meta — Abr+Mai; Jun=slot]</span></h3>
 <table>
-  <tr><th>Empresa</th><th>Data conversão</th><th>Canal</th><th>Plano</th></tr>
-  <tr><td>Home Glow Cleaning</td><td>01/03/2026 (Q1)</td><td>Meta Instagram Reels</td><td class="slot">não registrado</td></tr>
-  <tr><td>Armani Cleaning</td><td>19/03/2026 (Q1)</td><td>Meta Instagram Stories</td><td class="slot">não registrado</td></tr>
-  <tr><td>Mendes Home Services LLC</td><td>31/03/2026 (Q1)</td><td>Meta</td><td class="slot">não registrado</td></tr>
+  <tr><th>Mês</th><th class="n">Investimento (USD)</th><th class="n">Investimento (BRL est.)</th><th class="n">Leads pixel</th><th class="n">CPL (USD)</th><th class="n">Imp</th><th class="n">Cliques</th></tr>
+  <tr><td>Abril</td><td class="n">USD$1.173,03</td><td class="n warn">~R$7.038</td><td class="n">33</td><td class="n warn">USD$35,55</td><td class="n">36.591</td><td class="n">572</td></tr>
+  <tr><td>Maio</td><td class="n">USD$943,97</td><td class="n warn">~R$5.664</td><td class="n">20</td><td class="n bad">USD$47,20</td><td class="n">32.532</td><td class="n">521</td></tr>
+  <tr><td>Junho</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+  <tr><td class="q"><b>Q2 Abr+Mai</b></td><td class="n q bad"><b>USD$2.117,00</b></td><td class="n q bad"><b>~R$12.702</b></td><td class="n q bad"><b>53</b></td><td class="n q bad"><b>~USD$39,94</b></td><td class="n q">~69k</td><td class="n q">~1.093</td></tr>
 </table>
-<p style="font-size:11px;color:#888;">As 3 conversões acima foram confirmadas pelo cliente recentemente e batem com o Backup de Leads, mas a data de entrada (lead) é de março — fora do Q2. Mantidas aqui só como contexto histórico do produto, não contam no funil do trimestre.</p>
+<p style="font-size:11px;color:#888;">Conversão estimada: 1 USD = R$6,00 (média Q2/2026). Budget milestone Meta = R$1.350/mês. CPL em USD pois as campanhas rodam em dólar (mercado EUA). Junho: sem CSV disponível.</p>
+
+<div class="alert">
+  ⚠ <b>Investimento Meta muito acima do milestone:</b> R$7.038 em abril e R$5.664 em maio vs milestone R$1.350/mês — investimento ~4-5× maior que o milestone. Isso pode indicar que o budget milestone está desatualizado no Cockpit, ou que houve sobrecarga de verba não planejada. Confirmar com Matheus Alencar. <span class="prov">[Campanhas CSV vs Cockpit campaigns_budget_milestone_meta_qty]</span>
+</div>
 
 <!-- ===== SEÇÃO 3 ===== -->
 <h2>3. Investimentos e Resultados por Canal — Q2/2026</h2>
 
-<div class="note">Até maio, 100% do investimento era Meta Ads. Google Ads foi aprovado e lançado em maio (decisão da call de 07/05: alocar 30% do orçamento para teste de 3 meses), mas o Growth Pack mensal ainda não tem o breakdown por canal granular para Q2 — só o agregado da Seção 2. <span class="prov">[BigQuery Call 07/05 + Ekyte]</span></div>
+<h3>Meta Ads — Abril 2026 <span class="prov">[Campanhas CSV — Abr]</span></h3>
+<table>
+  <tr><th>Campanha</th><th>Status</th><th class="n">Leads (pixel)</th><th class="n">Alcance</th><th class="n">Impressões</th><th class="n">Cliques</th><th class="n">Gasto (USD)</th><th class="n">CPL (USD)</th></tr>
+  <tr><td>[V4] C:02 ONGOING · EN-USA [D:08/01/2026]</td><td>inactive</td><td class="n ok">22</td><td class="n">4.853</td><td class="n">14.924</td><td class="n">250</td><td class="n">$486,45</td><td class="n warn">$22,11</td></tr>
+  <tr><td>[V4] C:03 ONGOING · EN-USA [D:04/04/2026]</td><td>inactive</td><td class="n">11</td><td class="n">6.040</td><td class="n">21.667</td><td class="n">322</td><td class="n">$686,58</td><td class="n bad">$62,42</td></tr>
+  <tr><td>Post do Instagram "Stop playing catch-up"</td><td class="ok">active</td><td class="n">56 visitas perfil</td><td class="n">2.115</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+  <tr><td class="q"><b>Total Abril</b></td><td class="q"></td><td class="n q ok"><b>33</b></td><td class="n q"></td><td class="n q"><b>36.591</b></td><td class="n q"><b>572</b></td><td class="n q bad"><b>$1.173,03</b></td><td class="n q bad"><b>$35,55</b></td></tr>
+</table>
 
-<div class="slot">⚠ SLOT: breakdown Meta vs Google por mês — fonte NEKT não testada para este projeto nesta sessão; Growth Pack mensal consultado não tem as linhas de canal preenchidas para abr-jun (diferente do padrão de outros clientes). Recomenda-se puxar direto do Meta Ads Manager e Google Ads para a reunião.</div>
+<h3>Meta Ads — Maio 2026 <span class="prov">[Campanhas CSV — Mai]</span></h3>
+<table>
+  <tr><th>Campanha</th><th>Status</th><th class="n">Leads (pixel)</th><th class="n">Alcance</th><th class="n">Impressões</th><th class="n">Cliques</th><th class="n">Gasto (USD)</th><th class="n">CPL (USD)</th></tr>
+  <tr><td>[V4] C:02 ONGOING · EN-USA [D:08/01/2026]</td><td>inactive</td><td class="n warn">3</td><td class="n">2.920</td><td class="n">8.281</td><td class="n">134</td><td class="n">$222,09</td><td class="n bad">$74,03</td></tr>
+  <tr><td>[V4] C:03 ONGOING · EN-USA [D:04/04/2026]</td><td>inactive</td><td class="n warn">3</td><td class="n">1.054</td><td class="n">2.193</td><td class="n">30</td><td class="n">$54,34</td><td class="n bad">$18,11</td></tr>
+  <tr><td>[V4] C:03 TESTE CRIATIVOS [D:06/05/2026] EN-USA</td><td>inactive</td><td class="n ok">8</td><td class="n">4.549</td><td class="n">10.461</td><td class="n">129</td><td class="n">$337,33</td><td class="n warn">$42,17</td></tr>
+  <tr><td>[V4] C:04 TESTE CRIATIVOS [D:15/05/2026] EN-USA</td><td>inactive</td><td class="n bad">0</td><td class="n">1.472</td><td class="n">2.479</td><td class="n">40</td><td class="n warn">$70,57</td><td class="n">—</td></tr>
+  <tr><td>[V4] C:05 TESTE CRIATIVOS [D:19/05/2026] EN-USA (inactive)</td><td>inactive</td><td class="n bad">0</td><td class="n">79</td><td class="n">106</td><td class="n">12</td><td class="n">$1,64</td><td class="n">—</td></tr>
+  <tr><td>[V4] C:05 TESTE CRIATIVOS [D:19/05/2026] · Desd (active)</td><td class="ok">active</td><td class="n ok">6</td><td class="n">2.956</td><td class="n">9.012</td><td class="n">176</td><td class="n">$258,28</td><td class="n warn">$43,05</td></tr>
+  <tr><td class="q"><b>Total Maio</b></td><td class="q"></td><td class="n q warn"><b>20</b></td><td class="n q"></td><td class="n q"><b>32.532</b></td><td class="n q"><b>521</b></td><td class="n q bad"><b>$943,97</b></td><td class="n q bad"><b>$47,20</b></td></tr>
+</table>
+
+<h3>Meta Ads — Junho 2026 <span class="prov">[Planilha de Leads — UTM]</span></h3>
+<div class="slot">⚠ SLOT — Sem CSV de campanhas para junho. Dados parciais via UTM da Planilha de Leads: 11 leads em junho, oriundos principalmente de C:01 TESTE CRIATIVOS EN-FLORIDA (3L) e C:01 TESTE CRIATIVOS EN-MASS (2L). Investimento junho: indisponível.</div>
+
+<h3>Google Ads — Q2/2026</h3>
+<div class="alert">
+  ⚠ <b>Google Ads praticamente inativo no Q2:</b> Budget milestone R$150/mês, mas apenas R$36 realizado no período (Cockpit). Nota do CLAUDE.md: "Canal principal: Meta Ads (Google bloqueado, aguardando API Key)". Task de maio ("Campanhas Google" #9259289 + "Subir Campanhas Google" #9299124) e task de junho ("Nova estrutura de campanha Google" #9498042 + "Analisar viabilidade campanhas de App" #9496076) indicam tentativas de ativar o canal, mas sem sucesso no quarter. <span class="prov">[Cockpit campaigns_budget_current_google_qty + CLAUDE.md + Ekyte]</span>
+</div>
 
 <!-- ===== SEÇÃO 4 ===== -->
 <h2>4. O que deu certo / O que não deu certo — Q2/2026</h2>
 
 <h3>✅ O que deu certo no Q2</h3>
 <ul>
-  <li><b>Primeiras 6 conversões para plano pago do quarter</b>, gerando $240 de MRR novo — prova de que o funil cadastro→pagamento funciona <span class="prov">[Backup de Leads]</span></li>
-  <li><b>Problema de duplicação de leads no Meta Ads resolvido</b> via implementação de Web Hook — confirmado em duas calls (07/05 e 20/05) <span class="prov">[BigQuery Calls]</span></li>
-  <li><b>Google Ads aprovado e lançado</b> como novo canal, com teste estruturado de 3 meses e 30% do orçamento alocado <span class="prov">[BigQuery Call 07/05 + Ekyte]</span></li>
-  <li><b>Vídeos de checklist identificados como melhor formato</b> de criativo — direção clara para produção de conteúdo <span class="prov">[BigQuery Call 07/05]</span></li>
-  <li><b>Novo site em desenvolvimento</b>: Design System, Header/Footer, páginas Home/Pricing/Sign Up/Partners/Features entregues no quarter <span class="prov">[Ekyte]</span></li>
-  <li><b>Nova gestora de redes sociais apresentada ao cliente</b> em maio — reforço de equipe <span class="prov">[BigQuery Call 20/05]</span></li>
-  <li><b>Cliente engajado e colaborativo</b> nas calls — sugeriu palavras-chave para Google Ads, reportou leads ativamente <span class="prov">[BigQuery Call 07/05]</span></li>
+  <li><b>C:02 ONGOING gerou 22 leads em abril</b> com CPL USD$22,11 — melhor CPL do quarter <span class="prov">[Campanhas CSV Abr]</span></li>
+  <li><b>C:03 ONGOING (lançado 04/04)</b> testou nova estrutura, obteve 11 leads em abril (CPL $62) + 3 em maio pós-desaceleração <span class="prov">[Campanhas CSV Abr+Mai]</span></li>
+  <li><b>C:05 TESTE CRIATIVOS</b> se tornou a campanha ativa ao fim do quarter, gerando 6 leads em maio (CPL $43) <span class="prov">[Campanhas CSV Mai]</span></li>
+  <li><b>Expansão geográfica testada</b>: campanhas específicas para Florida e Massachusetts em junho <span class="prov">[Planilha de Leads — Campaign Name]</span></li>
+  <li><b>Motion Meme POV produzido em abril</b> — formato diferenciado testado para social/ads <span class="prov">[<a href="https://app.ekyte.com/#/tasks/list/9121023/edit">Ekyte #9121023</a>]</span></li>
+  <li><b>Atendimento WhatsApp contínuo</b> — cliente deu feedback positivo em julho, sem reclamações ativas <span class="prov">[Cockpit whatsapp_group_sentiment_synthesis 2026-07-09]</span></li>
+  <li><b>Call de maio com score 8/10</b> — clima colaborativo com próximos passos claros sobre tracking e SEO <span class="prov">[Cockpit call 2026-05-20]</span></li>
 </ul>
 
 <h3>❌ O que não deu certo no Q2</h3>
 <ul>
-  <li><b>Volume de leads caiu 52% de abril para junho</b> (33→16) com CPL subindo 127% (R$37→R$84) — maior problema do trimestre <span class="prov">[Growth Pack mensal]</span></li>
-  <li><b>Zero conversões pagas em abril e maio</b> — só converteu em junho, e olhando o ciclo de trial (30 dias), isso é resultado tardio de cadastros antigos, não geração nova <span class="prov">[Backup de Leads]</span></li>
-  <li><b>Taxa de conversão cadastro→pago extremamente baixa</b>: 6 de 44 cadastros do quarter (13,6%), mas mesmo essa taxa é otimista porque as 6 conversões provavelmente não vieram dos 44 cadastros do próprio quarter <span class="prov">[Backup de Leads]</span></li>
-  <li><b>Problema de tracking recorrente o quarter inteiro</b>: 7 tasks de TRK distintas (resolver trackeamento, criar novo pixel, verificar conversões Google, investigar automação, resolver com Robson) — sinal de instabilidade técnica persistente <span class="prov">[Ekyte]</span></li>
-  <li><b>Health Score Critical (12.7)</b> — o mais baixo entre os clientes do squad nesta leitura <span class="prov">[Cockpit]</span></li>
-  <li><b>Sem visibilidade de canal (Meta vs Google) no Growth Pack mensal</b> — dificulta avaliar se a aposta em Google Ads está performando <span class="prov">[Growth Pack]</span></li>
-  <li><b>Lead do dia 18/05 não marcou conversão corretamente</b> — task aberta para investigar, sinal de que o problema de mensuração não foi 100% resolvido mesmo após o webhook <span class="prov">[Ekyte]</span></li>
+  <li><b>Volume de leads caindo todo mês</b>: 20 → 13 → 11 (−45% de abr→jun) <span class="prov">[Planilha de Leads]</span></li>
+  <li><b>Meta de 33 leads/mês não atingida em nenhum mês do quarter</b> (máx. 20 em abril = 61% da meta) <span class="prov">[Planilha de Leads vs Cockpit goal_qty]</span></li>
+  <li><b>Tracking não resolvido no Q2 inteiro</b>: 5 instâncias da task "Resolver Trackeamento de Dados" no projeto TAR, todas em aberto/repetindo, mais tasks de rastreamento em maio e junho <span class="prov">[<a href="https://app.ekyte.com/#/projects/295817/edit">Ekyte Projeto TAR #295817</a>]</span></li>
+  <li><b>Google Ads inativo</b>: apenas R$36 investido vs R$150 de milestone — segunda fonte de leads bloqueada por questão de API Key <span class="prov">[Cockpit + CLAUDE.md]</span></li>
+  <li><b>C:04 e C:05-inactive sem resultado</b>: C:04 gastou USD$70,57 com 0 leads, C:05-inactive USD$1,64 com 0 leads — dois criativos de teste que não converteram <span class="prov">[Campanhas CSV Mai]</span></li>
+  <li><b>Conversão trial→plano pago baixa</b>: apenas 6 de 44 leads Q2 escolheram um plano (Basic/Premium) = 14% de conversão <span class="prov">[Planilha de Leads — campo Plano Escolhido]</span></li>
+  <li><b>HS em deterioração — Flag Danger</b>: algorithm_results_score=2, service_quality=false, deadline=true, delivery=true, ops_paid_media=true <span class="prov">[Cockpit 2026-07-03]</span></li>
+  <li><b>Cliente em "Antecipação" desde 06/04</b> — aviso prévio de 30 dias ativado no início do quarter <span class="prov">[Cockpit algorithm_customer_care_status]</span></li>
+  <li><b>Investimento Meta acima do milestone</b> (~4-5× em abr/mai) sem clareza no budget planejado <span class="prov">[Campanhas CSV vs Cockpit milestone]</span></li>
 </ul>
+
+<!-- ===== SEÇÃO 4b ===== -->
+<h2>4b. Campanhas e Criativos — Meta Ads Q2/2026</h2>
+<p style="font-size:12px;color:#555;">Fonte: CSVs de campanha Meta Ads (Abr+Mai) + Planilha de Leads UTM (Abr-Jun). Campanhas em inglês, público-alvo EUA (housecleaners). Objetivo de todas: CADASTRO (trial 30d).</p>
+
+<h3>Resumo de campanhas ativas no Q2 <span class="prov">[Campanhas CSV]</span></h3>
+<table>
+  <tr><th>Campanha</th><th>Período ativo</th><th class="n">Leads tot.</th><th class="n">Gasto (USD)</th><th class="n">CPL (USD)</th></tr>
+  <tr><td>[V4] C:02 ONGOING · EN-USA [D:08/01/2026]</td><td>Jan→Mai (inativa em Jun)</td><td class="n">25 (22 abr + 3 mai)</td><td class="n">$708,54</td><td class="n warn">$28,34</td></tr>
+  <tr><td>[V4] C:03 ONGOING · EN-USA [D:04/04/2026]</td><td>Abr→Mai</td><td class="n">14 (11+3)</td><td class="n">$740,92</td><td class="n bad">$52,92</td></tr>
+  <tr><td>[V4] C:03 TESTE CRIATIVOS [D:06/05/2026]</td><td>Maio</td><td class="n ok">8</td><td class="n">$337,33</td><td class="n warn">$42,17</td></tr>
+  <tr><td>[V4] C:05 TESTE CRIATIVOS [D:19/05/2026] — ativo</td><td>Mai→Jun (active)</td><td class="n">6+</td><td class="n">$258,28</td><td class="n warn">$43,05</td></tr>
+  <tr><td>[V4] C:01 TESTE CRIATIVOS · EN-FLORIDA [D:08/06/2026]</td><td>Jun</td><td class="n">3</td><td class="n">—</td><td class="n">—</td></tr>
+  <tr><td>[V4] C:01 TESTE CRIATIVOS · EN-MASS [D:08/06/2026]</td><td>Jun</td><td class="n">2</td><td class="n">—</td><td class="n">—</td></tr>
+  <tr><td>[V4] C:04 TESTE CRIATIVOS [D:15/05/2026]</td><td>Maio</td><td class="n bad">0</td><td class="n warn">$70,57</td><td class="n">—</td></tr>
+</table>
+
+<h3>Top campanhas por leads — Planilha UTM (Q2 completo)</h3>
+<table>
+  <tr><th>Campanha (UTM)</th><th class="n">Leads</th></tr>
+  <tr><td>[V4] C:03 ONGOING EN-USA [D:04/04/2026]</td><td class="n ok">9</td></tr>
+  <tr><td>[V4] C:02 ONGOING EN-USA [D:08/01/2026]</td><td class="n">5</td></tr>
+  <tr><td>captacao (orgânico/direto)</td><td class="n">5</td></tr>
+  <tr><td>[V4] C:05 TESTE CRIATIVOS [D:19/05/2026] — Desd</td><td class="n">5</td></tr>
+  <tr><td>[V4] C:03 TESTE CRIATIVOS [D:06/05/2026]</td><td class="n">4</td></tr>
+  <tr><td>[V4] C:02 ONGOING (URL encoded)</td><td class="n">3</td></tr>
+  <tr><td>[V4] C:01 TESTE CRIATIVOS EN-FLORIDA [D:08/06/2026]</td><td class="n">3</td></tr>
+  <tr><td>[V4] C:01 TESTE CRIATIVOS EN-MASS [D:08/06/2026]</td><td class="n">2</td></tr>
+  <tr><td>Sem UTM / direto</td><td class="n">3</td></tr>
+  <tr><td>Outros</td><td class="n">5</td></tr>
+  <tr><td class="q"><b>Total Q2</b></td><td class="n q bad"><b>44</b></td></tr>
+</table>
 
 <!-- ===== SEÇÃO 5 ===== -->
 <h2>5. Criativo / Comunicação — Q2/2026</h2>
-<div class="slot">⚠ SLOT: ranking de criativos por performance — requer NEKT por anúncio, não consultado nesta sessão.</div>
 
-<h3>Criativos e conteúdo produzidos no Q2 <span class="prov">[Ekyte]</span></h3>
+<h3>Criativos produzidos no Q2 <span class="prov">[Ekyte]</span></h3>
 <table>
-  <tr><th>Entrega</th><th>Formato</th><th>Mês</th></tr>
-  <tr><td>Novos Ads</td><td>Criativo Ads</td><td>Abr</td></tr>
-  <tr><td>Criativo Ads com base nos melhores</td><td>Criativo Ads</td><td>Abr</td></tr>
-  <tr><td>Motion Meme POV</td><td>Motion</td><td>Mai</td></tr>
-  <tr><td>Vídeo Social Media (x2)</td><td>Edição de Vídeo</td><td>Mai/Jun</td></tr>
-  <tr><td>Vídeo para anúncio</td><td>Edição de Vídeo</td><td>Mai</td></tr>
-  <tr><td>Criativo Ads</td><td>Criativo Ads</td><td>Mai</td></tr>
-  <tr><td>Vídeo 01/06, Vídeo 08/06</td><td>Edição de Vídeo</td><td>Jun</td></tr>
-  <tr><td>Isolar Criativos Campeões — "tomar conta do negócio" e depoimentos [IA]</td><td>Análise de Criativo</td><td>Jun</td></tr>
-  <tr><td>Vídeos/motions para anúncios</td><td>Edição de Vídeo / Criativo Ads</td><td>Jun</td></tr>
-  <tr><td>Solicitar Vídeos de Navegação Interna do App [IA]</td><td>Vídeo (produto)</td><td>Jun</td></tr>
+  <tr><th>Entrega</th><th>Tipo</th><th>Mês</th><th>Link</th></tr>
+  <tr><td>Criativo Ads com base nos melhores</td><td>CA</td><td>Abr</td><td><a href="https://app.ekyte.com/#/tasks/list/8848174/edit">Ekyte #8848174</a></td></tr>
+  <tr><td>Motion Meme POV</td><td>MT — Motion</td><td>Abr</td><td><a href="https://app.ekyte.com/#/tasks/list/9121023/edit">Ekyte #9121023</a></td></tr>
+  <tr><td>Criativo Ads (teste novo)</td><td>CA</td><td>Mai</td><td><a href="https://app.ekyte.com/#/tasks/list/9169869/edit">Ekyte #9169869</a></td></tr>
+  <tr><td>Video para anúncio (C:03 teste)</td><td>EV</td><td>Mai</td><td><a href="https://app.ekyte.com/#/tasks/list/9259211/edit">Ekyte #9259211</a></td></tr>
+  <tr><td>Edição de Vídeo / motions para anúncios</td><td>EV</td><td>Mai</td><td><a href="https://app.ekyte.com/#/tasks/list/9440964/edit">Ekyte #9440964</a></td></tr>
+  <tr><td>Vídeo Social Media (Maio)</td><td>EV</td><td>Mai</td><td><a href="https://app.ekyte.com/#/tasks/list/9161674/edit">Ekyte #9161674</a></td></tr>
+  <tr><td>Vídeo Social Media (Junho)</td><td>EV</td><td>Jun</td><td><a href="https://app.ekyte.com/#/tasks/list/9233516/edit">Ekyte #9233516</a></td></tr>
+  <tr><td>Vídeo 01/06</td><td>EV</td><td>Jun</td><td><a href="https://app.ekyte.com/#/tasks/list/9438381/edit">Ekyte #9438381</a></td></tr>
+  <tr><td>Vídeo 08/06</td><td>EV</td><td>Jun</td><td><a href="https://app.ekyte.com/#/tasks/list/9438390/edit">Ekyte #9438390</a></td></tr>
+  <tr><td>Criativo Ads Benefícios (Jun)</td><td>CA</td><td>Jun</td><td><a href="https://app.ekyte.com/#/tasks/list/9233517/edit">Ekyte #9233517</a></td></tr>
 </table>
-<p>Direção validada por dados: <b>vídeos de checklist</b> são o formato de melhor desempenho identificado na call de 07/05.</p>
-<div class="slot">⚠ SLOT: copy vencedora e preview de criativo — não disponível via MCP nesta sessão.</div>
+<div class="note">
+  <b>Mudança de estratégia de criativo em maio:</b> task explícita "Criar vídeos/motions para anúncios — criativos em imagem/carrossel estão sendo ineficientes" (<a href="https://app.ekyte.com/#/tasks/list/9440964/edit">#9440964</a>) indica diagnóstico de que imagem/carrossel não estão convertendo. Q2 marcou a transição para vídeo como formato principal de anúncio.
+</div>
 
 <!-- ===== SEÇÃO 6 ===== -->
 <h2>6. Gestão de Projetos / Entregas — Q2/2026</h2>
 
-<h3>Resumo por tipo <span class="prov">[Ekyte · workspace 78417 · concluídas Q2/2026]</span></h3>
+<h3>Status operacional <span class="prov">[Cockpit 2026-07-10]</span></h3>
 <table>
-  <tr><th>Tipo</th><th class="n">Qtd</th><th class="n">% do total</th><th>Exemplo representativo</th></tr>
-  <tr><td>Dev UX/UI (novo site)</td><td class="n">9</td><td class="n">13,0%</td><td>Design System, páginas Home/Pricing/Sign Up/Partners/Features</td></tr>
-  <tr><td>OTM — Otimização de Campanhas</td><td class="n">9</td><td class="n">13,0%</td><td>Otimização de seguidores, subir campanhas Google, criar novo pixel</td></tr>
-  <tr><td>TRK — Traqueamento</td><td class="n">7</td><td class="n">10,1%</td><td>Resolver trackeamento (x4), verificar conversões Google, automação leads</td></tr>
-  <tr><td>EV — Edição de Vídeo</td><td class="n">6</td><td class="n">8,7%</td><td>Vídeo Social Media, vídeos semanais de junho</td></tr>
-  <tr><td>Sprint Planning (sem tag de tipo)</td><td class="n">5</td><td class="n">7,2%</td><td>Campanhas de App, auditoria deduplicação, análise de regiões EUA</td></tr>
-  <tr><td>PA — Pauta Social Media</td><td class="n">4</td><td class="n">5,8%</td><td>Pauta Abril, Maio, Junho, Julho</td></tr>
-  <tr><td>CA — Criativo Ads</td><td class="n">4</td><td class="n">5,8%</td><td>Novos Ads, criativo ads com base nos melhores</td></tr>
-  <tr><td>PC — Planejamento de Campanhas</td><td class="n">3</td><td class="n">4,3%</td><td>Publicar campanha nova, campanha no Google</td></tr>
-  <tr><td>AN — Análise</td><td class="n">3</td><td class="n">4,3%</td><td>Nova estrutura Google, otimização diária, viabilidade campanhas App</td></tr>
-  <tr><td>Homologação/Outros (site)</td><td class="n">4</td><td class="n">5,8%</td><td>Teste de usabilidade, aprovação cliente, ajustes, tradução</td></tr>
-  <tr><td>PPT / REL / GP / SM / MT / WPP / EKT</td><td class="n">10</td><td class="n">14,5%</td><td>ROPRE Abril, Growthpack, Posts, Motion, Régua WPP</td></tr>
-  <tr><td><b>TOTAL</b></td><td class="n"><b>69</b></td><td class="n"><b>100%</b></td><td></td></tr>
+  <tr><th>Indicador</th><th>Valor</th></tr>
+  <tr><td>Tarefas no projeto</td><td>9 (ativas)</td></tr>
+  <tr><td>Demandas com atraso de fase</td><td class="warn">1</td></tr>
+  <tr><td>Tarefas postergadas</td><td class="ok">0</td></tr>
+  <tr><td>Horas entregues</td><td>41h</td></tr>
+  <tr><td>Problemas de aprovação do cliente</td><td class="ok">Nenhum</td></tr>
+  <tr><td>Anomalia operacional</td><td class="ok">Sem anomalia <span class="prov">[Cockpit 2026-06-28]</span></td></tr>
+  <tr><td>Status tasks</td><td class="ok">Em dia</td></tr>
+  <tr><td>Tracking validado</td><td class="bad">NÃO — problema persistente no Q2</td></tr>
 </table>
 
+<h3>Projetos Q2 <span class="prov">[Ekyte · workspace 78417]</span></h3>
+<table>
+  <tr><th>Projeto</th><th>ID Ekyte</th><th class="n">Tasks</th><th>Observação</th></tr>
+  <tr><td>[Maidpad] Abril</td><td><a href="https://app.ekyte.com/#/projects/275353/edit">#275353</a></td><td class="n">11</td><td>Pautas SM, CA, Motion, TRK</td></tr>
+  <tr><td>[Maidpad] Maio</td><td><a href="https://app.ekyte.com/#/projects/283711/edit">#283711</a></td><td class="n">13</td><td>Google Ads, ROPRE Q1, EV vídeos, novo pixel, TRK</td></tr>
+  <tr><td>[Maidpad] Junho</td><td><a href="https://app.ekyte.com/#/projects/294132/edit">#294132</a></td><td class="n">10</td><td>EV vídeos, Google estrutura, Resolução tracking Robson</td></tr>
+  <tr><td>[Maidpad] TAR — Tracking e Recorrentes</td><td><a href="https://app.ekyte.com/#/projects/295817/edit">#295817</a></td><td class="n bad">10</td><td class="bad">8 de 10 tasks sobre rastreamento — problema crítico não resolvido</td></tr>
+  <tr><td class="q"><b>Total Q2</b></td><td class="q"></td><td class="n q"><b>44</b></td><td class="q"></td></tr>
+</table>
+
+<h3>Detalhe de entregas — Abril <span class="prov">[Ekyte #275353]</span></h3>
+<table>
+  <tr><th colspan="3" class="type-header">ABRIL / 2026 — Projeto #275353</th></tr>
+  <tr><th>Tipo</th><th>Entrega</th><th>Link</th></tr>
+  <tr><td>PA</td><td>Pauta 1ª Quinzena de Abril</td><td><a href="https://app.ekyte.com/#/tasks/list/8555260/edit">#8555260</a></td></tr>
+  <tr><td>PA</td><td>Pauta 2ª Quinzena de Abril</td><td><a href="https://app.ekyte.com/#/tasks/list/8555261/edit">#8555261</a></td></tr>
+  <tr><td>PA</td><td>Pauta Abril Semana 1</td><td><a href="https://app.ekyte.com/#/tasks/list/8555312/edit">#8555312</a></td></tr>
+  <tr><td>PA</td><td>Pauta Abril Semana 2</td><td><a href="https://app.ekyte.com/#/tasks/list/8555264/edit">#8555264</a></td></tr>
+  <tr><td>PA</td><td>Pauta Abril Semana 3</td><td><a href="https://app.ekyte.com/#/tasks/list/8555265/edit">#8555265</a></td></tr>
+  <tr><td>PA</td><td>Pauta Abril Semana 4</td><td><a href="https://app.ekyte.com/#/tasks/list/8555266/edit">#8555266</a></td></tr>
+  <tr><td>SM</td><td>Linha Editorial de Stories Fixa</td><td><a href="https://app.ekyte.com/#/tasks/list/8555262/edit">#8555262</a></td></tr>
+  <tr><td>SM</td><td>Atualização Destaques</td><td><a href="https://app.ekyte.com/#/tasks/list/8555263/edit">#8555263</a></td></tr>
+  <tr><td>CA</td><td>Criativo Ads com base nos melhores</td><td><a href="https://app.ekyte.com/#/tasks/list/8848174/edit">#8848174</a></td></tr>
+  <tr><td>MT</td><td>Motion Meme POV</td><td><a href="https://app.ekyte.com/#/tasks/list/9121023/edit">#9121023</a></td></tr>
+  <tr><td>TRK</td><td>Validar Hipóteses</td><td><a href="https://app.ekyte.com/#/tasks/list/9092399/edit">#9092399</a></td></tr>
+</table>
+
+<h3>Detalhe de entregas — Maio <span class="prov">[Ekyte #283711]</span></h3>
+<table>
+  <tr><th colspan="3" class="type-header">MAIO / 2026 — Projeto #283711</th></tr>
+  <tr><th>Tipo</th><th>Entrega</th><th>Link</th></tr>
+  <tr><td>PA</td><td>Pauta 1ª Quinzena de Maio (2 entregas)</td><td><a href="https://app.ekyte.com/#/tasks/list/8848172/edit">#8848172</a> + <a href="https://app.ekyte.com/#/tasks/list/8848173/edit">#8848173</a></td></tr>
+  <tr><td>PA</td><td>Pauta 1ª Quinzena de Junho (antecipada)</td><td><a href="https://app.ekyte.com/#/tasks/list/9169847/edit">#9169847</a></td></tr>
+  <tr><td>REL</td><td>ROPRE Abril (apresentação)</td><td><a href="https://app.ekyte.com/#/tasks/list/9233831/edit">#9233831</a></td></tr>
+  <tr><td>PC</td><td>Campanhas Google — planejamento</td><td><a href="https://app.ekyte.com/#/tasks/list/9259289/edit">#9259289</a></td></tr>
+  <tr><td>OTM</td><td>Subir Campanhas Google</td><td><a href="https://app.ekyte.com/#/tasks/list/9299124/edit">#9299124</a></td></tr>
+  <tr><td>OTM</td><td>Criar Novo Pixel</td><td><a href="https://app.ekyte.com/#/tasks/list/9299131/edit">#9299131</a></td></tr>
+  <tr><td>GP</td><td>Agendar call Luis + Otávio + Cyro — estudo do código</td><td><a href="https://app.ekyte.com/#/tasks/list/9299150/edit">#9299150</a></td></tr>
+  <tr><td>EV</td><td>Vídeo Social Media</td><td><a href="https://app.ekyte.com/#/tasks/list/9161674/edit">#9161674</a></td></tr>
+  <tr><td>EV</td><td>Video para anúncio</td><td><a href="https://app.ekyte.com/#/tasks/list/9259211/edit">#9259211</a></td></tr>
+  <tr><td>EV</td><td>Edição de Vídeo / motions para anúncios</td><td><a href="https://app.ekyte.com/#/tasks/list/9440964/edit">#9440964</a></td></tr>
+  <tr><td>CA</td><td>Criativo Ads</td><td><a href="https://app.ekyte.com/#/tasks/list/9169869/edit">#9169869</a></td></tr>
+  <tr><td>TRK</td><td>Entender por que lead de 18/05 não marcou no Meta Ads</td><td><a href="https://app.ekyte.com/#/tasks/list/9360847/edit">#9360847</a></td></tr>
+</table>
+
+<h3>Detalhe de entregas — Junho <span class="prov">[Ekyte #294132]</span></h3>
+<table>
+  <tr><th colspan="3" class="type-header">JUNHO / 2026 — Projeto #294132</th></tr>
+  <tr><th>Tipo</th><th>Entrega</th><th>Link</th></tr>
+  <tr><td>PA</td><td>Pauta 1ª Quinzena de Junho</td><td><a href="https://app.ekyte.com/#/tasks/list/9233515/edit">#9233515</a></td></tr>
+  <tr><td>PA</td><td>Pauta 2ª Quinzena de Junho</td><td><a href="https://app.ekyte.com/#/tasks/list/9233514/edit">#9233514</a></td></tr>
+  <tr><td>EV</td><td>Vídeo Social Media</td><td><a href="https://app.ekyte.com/#/tasks/list/9233516/edit">#9233516</a></td></tr>
+  <tr><td>EV</td><td>Vídeo 01/06</td><td><a href="https://app.ekyte.com/#/tasks/list/9438381/edit">#9438381</a></td></tr>
+  <tr><td>EV</td><td>Vídeo 08/06</td><td><a href="https://app.ekyte.com/#/tasks/list/9438390/edit">#9438390</a></td></tr>
+  <tr><td>AN</td><td>Nova estrutura de campanha Google</td><td><a href="https://app.ekyte.com/#/tasks/list/9498042/edit">#9498042</a></td></tr>
+  <tr><td>AN</td><td>Otimização diária</td><td><a href="https://app.ekyte.com/#/tasks/list/9498048/edit">#9498048</a></td></tr>
+  <tr><td>AN</td><td>Analisar viabilidade campanhas de App</td><td><a href="https://app.ekyte.com/#/tasks/list/9496076/edit">#9496076</a></td></tr>
+  <tr><td>TRK</td><td>Resolver trackeamento com o Robson</td><td><a href="https://app.ekyte.com/#/tasks/list/9496113/edit">#9496113</a></td></tr>
+  <tr><td>CA</td><td>Criativo Ads Benefícios</td><td><a href="https://app.ekyte.com/#/tasks/list/9233517/edit">#9233517</a></td></tr>
+</table>
+
+<h3>Projeto TAR — Tracking Recorrente <span class="prov">[Ekyte #295817 — problema crítico do Q2]</span></h3>
 <div class="alert">
-  ⚠ <b>TRK (Traqueamento) é o terceiro maior bloco de entregas do quarter (10%)</b> — 7 tasks distintas tentando resolver o mesmo problema de fundo (duplicação/perda de conversões). Mesmo com o webhook implementado em maio, ainda apareceu um caso de lead não rastreado em 20/05 e uma nova task de "resolver traqueamento com o Robson" em junho. Vale entender na reunião se esse é um problema estrutural (integração da plataforma do cliente) ou de configuração V4.
+  ⚠ <b>PROBLEMA ESTRUTURAL:</b> O projeto TAR concentra tasks repetitivas e em loop sobre tracking. 5 instâncias de "Resolver Trackeamento de Dados" foram criadas ao longo do quarter — indicando que o problema nunca foi efetivamente resolvido. Isso compromete toda a mensuração de performance do Q2.
 </div>
+<table>
+  <tr><th colspan="3" class="type-header">TAR — Tasks Recorrentes · Projeto #295817</th></tr>
+  <tr><th>Tipo</th><th>Entrega</th><th>Link</th></tr>
+  <tr><td class="bad">OTM</td><td class="bad">Resolver Trackeamento de Dados (instância 1)</td><td><a href="https://app.ekyte.com/#/tasks/list/9039604/edit">#9039604</a></td></tr>
+  <tr><td class="bad">OTM</td><td class="bad">Resolver Trackeamento de Dados (instância 2)</td><td><a href="https://app.ekyte.com/#/tasks/list/9271151/edit">#9271151</a></td></tr>
+  <tr><td class="bad">OTM</td><td class="bad">Resolver Trackeamento de Dados (instância 3)</td><td><a href="https://app.ekyte.com/#/tasks/list/9272934/edit">#9272934</a></td></tr>
+  <tr><td class="bad">OTM</td><td class="bad">Resolver Trackeamento de Dados (instância 4)</td><td><a href="https://app.ekyte.com/#/tasks/list/9277083/edit">#9277083</a></td></tr>
+  <tr><td class="bad">OTM</td><td class="bad">Resolver Trackeamento de Dados (instância 5)</td><td><a href="https://app.ekyte.com/#/tasks/list/9338410/edit">#9338410</a></td></tr>
+  <tr><td>PC</td><td>Publicar campanha nova (tentativa de resolver mensuração)</td><td><a href="https://app.ekyte.com/#/tasks/list/9218662/edit">#9218662</a></td></tr>
+  <tr><td>PC</td><td>Campanha no Google</td><td><a href="https://app.ekyte.com/#/tasks/list/9218836/edit">#9218836</a></td></tr>
+  <tr><td>OTM</td><td>Otimização de campanha de Seguidores (1)</td><td><a href="https://app.ekyte.com/#/tasks/list/9163011/edit">#9163011</a></td></tr>
+  <tr><td>OTM</td><td>Otimização de campanha de Seguidores (2)</td><td><a href="https://app.ekyte.com/#/tasks/list/9262485/edit">#9262485</a></td></tr>
+  <tr><td>OTM</td><td>Otimização de campanha de Seguidores (3)</td><td><a href="https://app.ekyte.com/#/tasks/list/9338423/edit">#9338423</a></td></tr>
+</table>
 
 <!-- ===== SEÇÃO 7 ===== -->
 <h2>7. Cliente — Q2/2026</h2>
 
-<h3>7a. Síntese de sentimento no quarter <span class="prov">[IA · BigQuery Calls]</span></h3>
-<p>3 calls com transcrição no quarter, todas concentradas em maio (07/05, 15/05, 20/05) — sem registro de call em abril ou junho no BigQuery. Tom geral <b>colaborativo e técnico</b>: as pautas giram em torno de resolver tracking, aprovar Google Ads e desenvolver o novo site, sem sinais de tensão nos resumos. O founder (Cyro) participa ativamente, propõe ações (sugerir keywords) e recebe tarefas de acompanhamento — perfil de cliente engajado, não passivo.</p>
-<p class="note" style="font-size:11px">Neutro — baseado em resumo automático de IA das calls (Gemini Notes), não em transcrição literal com speaker isolado por linha.</p>
+<h3>7a. Síntese de sentimento no quarter <span class="prov">[Cockpit · WhatsApp 2026-07-09 + Call 2026-05-20]</span></h3>
+<div class="safe">
+  <b>WhatsApp (análise 2026-07-09):</b> "Atendimento diário realizado com atualização sobre conteúdos e ambiente de conversão. Cliente deu feedback positivo confirmando aprovação." Status: <b>Seguro</b>. <span class="prov">[Cockpit whatsapp_group_sentiment_synthesis]</span>
+</div>
+<div class="note">
+  <b>Call 2026-05-20 — Síntese IA:</b> "Clima leve e colaborativo; cliente concorda com os encaminhamentos. Operação organizada com próximos passos claros (verificação Google, print deduplicação, consulta SEO). Tráfego ok, focado em ajustes técnicos/validação. Migração de novo site e dúvidas de SEO abrem oportunidade web/site." Score geral: 8/10 · Tráfego: 7/10 · Tasks: 8/10. Sem incidente CS. <span class="prov">[Cockpit call_transcription_summary_reasoning 2026-05-20]</span>
+</div>
+<div class="note">
+  <b>Oportunidade identificada na call:</b> call_transcription_opportunity_web_site_ecom=true — cliente tem dúvidas de SEO e está migrando para novo site. Potencial abertura para proposta de serviço de site/SEO. <span class="prov">[Cockpit]</span>
+</div>
+<div class="alert">
+  ⚠ <b>Paradoxo do sentimento:</b> WhatsApp "seguro" e call score 8 contrastam com Flag Danger e "Antecipação" ativa. O risco de churn pode ser estrutural (falta de resultado) e não de relacionamento/atendimento. Separar diagnóstico de resultado de diagnóstico de relacionamento na reunião.
+</div>
 
-<h3>7b. O que o CLIENTE disse <span class="prov">[resumo de call — speaker não isolado]</span></h3>
-<div class="slot">⚠ SLOT: resumos automáticos não isolam speaker por linha — não é possível confirmar com segurança o que foi dito pelo cliente vs pelo time V4. Próximas etapas da call de 07/05 indicam que Cyro (cliente) se comprometeu a "reportar leads ou problemas de mensuração" e "sugerir termos e palavras-chave adicionais" — ação dele, mas não é citação direta.</div>
+<h3>7b. O que o CLIENTE disse <span class="prov">[só speaker cliente]</span></h3>
+<p>Contato principal: Cyro (cliente) · Luis e Otávio também envolvidos no estudo do código. <span class="prov">[Ekyte GP task maio]</span></p>
+<div class="slot">⚠ SLOT: verbatim literal do cliente — transcrições BigQuery não disponíveis. Preencher na reunião com citações diretas do cliente.</div>
+<p style="font-size:12px;color:#555;"><b>Sinal da call 2026-05-20:</b> cliente concordou com encaminhamentos e não fez objeções ao planejamento. Mencionou SEO e migração de site como dúvidas abertas. Sem incidente CS registrado.</p>
 
 <h3>7c. Conquistas do quarter (time V4) <span class="prov">[dados objetivos]</span></h3>
 <ul>
-  <li>Resolução do problema de duplicação de leads via implementação de Web Hook (Meta Ads) <span class="prov">[BigQuery Calls 07/05, 20/05]</span></li>
-  <li>Aprovação e lançamento de Google Ads como novo canal, com 30% do orçamento e teste estruturado de 3 meses <span class="prov">[BigQuery Call 07/05 + Ekyte]</span></li>
-  <li>6 primeiras conversões para plano pago do produto registradas no quarter, gerando $240 MRR novo <span class="prov">[Backup de Leads]</span></li>
-  <li>Identificação de vídeos de checklist como formato de criativo de melhor desempenho <span class="prov">[BigQuery Call 07/05]</span></li>
-  <li>Avanço relevante no desenvolvimento do novo site (Design System, 5 páginas principais) <span class="prov">[Ekyte]</span></li>
-  <li>69 entregas realizadas no quarter <span class="prov">[Ekyte]</span></li>
+  <li>44 leads gerados no Q2 via Meta Ads, todos mercado EUA <span class="prov">[Planilha de Leads]</span></li>
+  <li>Motion Meme POV produzido — novo formato de criativo testado em abril <span class="prov">[<a href="https://app.ekyte.com/#/tasks/list/9121023/edit">Ekyte #9121023</a>]</span></li>
+  <li>Transição estratégica para vídeo como formato principal (imagem/carrossel ineficientes identificado em maio) <span class="prov">[<a href="https://app.ekyte.com/#/tasks/list/9440964/edit">Ekyte #9440964</a>]</span></li>
+  <li>Expansão geográfica testada: Florida e Massachusetts em junho <span class="prov">[Planilha UTM]</span></li>
+  <li>Estrutura Google Ads planejada e tentativa de subir campanhas <span class="prov">[Ekyte #9259289 + #9299124]</span></li>
+  <li>41h entregues no período sem postergamentos <span class="prov">[Cockpit]</span></li>
+  <li>Website entregue em março (projeto #279815, 20/20 tasks concluídas) — base para Landing Page de conversão <span class="prov">[Ekyte]</span></li>
 </ul>
-<p><b>Na call (time V4)</b></p>
-<div class="slot">⚠ SLOT: resumo automático não isola falas por speaker.</div>
+<div class="slot">⚠ SLOT: verbatim do time V4 nas calls — BigQuery indisponível.</div>
 
-<h3>7d. Apoio quantitativo <span class="prov">[Cockpit]</span></h3>
-<div class="slot">⚠ SLOT: CSAT/NPS não preenchido no Cockpit para este projeto.</div>
+<h3>7d. Apoio quantitativo <span class="prov">[Cockpit · CSAT/NPS 2026-02-19]</span></h3>
+<table>
+  <tr><th>Indicador</th><th class="n">Valor</th><th>Referência</th></tr>
+  <tr><td>NPS</td><td class="n ok"><b>9</b></td><td>Promotor — pesquisa de fev/26</td></tr>
+  <tr><td>MHS (Most Heartfelt Score)</td><td class="n bad">Muito desapontado</td><td>O que sentiria se não pudesse usar a V4?</td></tr>
+  <tr><td>CSAT V4 (geral)</td><td class="n warn">4/5</td><td></td></tr>
+  <tr><td>CSAT Atendimento</td><td class="n ok">5/5</td><td>Ponto forte</td></tr>
+  <tr><td>CSAT Campanhas</td><td class="n warn">4/5</td><td></td></tr>
+  <tr><td>CSAT Copy</td><td class="n warn">4/5</td><td></td></tr>
+  <tr><td>CSAT Design</td><td class="n warn">4/5</td><td></td></tr>
+  <tr><td>CSAT Prazo</td><td class="n warn">4/5</td><td></td></tr>
+  <tr><td>CSAT Resultados</td><td class="n warn">4/5</td><td>Consistente com Flag Danger</td></tr>
+  <tr><td>Score call (sentimento)</td><td class="n ok">8/10</td><td>Call 2026-05-20</td></tr>
+</table>
+<div class="note">
+  <b>Leitura:</b> NPS 9 com CSAT de 4 em quase tudo e MHS "Muito desapontado" é um perfil de cliente que gosta do time mas não está satisfeito com os resultados entregues. O único 5 é em Atendimento, o que é coerente com o WhatsApp seguro. A pesquisa é de fevereiro (pré-Q2) — refazer CSAT no Q3 é prioritário dado o status de Antecipação.
+</div>
 
 <!-- ===== SEÇÃO 8 ===== -->
 <h2>8. Aprendizados &amp; Ações — por integrante</h2>
@@ -197,54 +366,66 @@
 <table>
   <tr><th style="width:50%;">Problemas (auto)</th><th>Soluções / Ações (time)</th></tr>
 
+  <!-- AM / ESTRATÉGIA -->
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Account Manager / Estratégia — Thaily Serodio</b></td></tr>
+  <tr>
+    <td>🚨 Cliente em "Antecipação" com aviso prévio de 30d desde 06/04/2026 e Flag Danger (HS 45,3%). O risco de churn é o principal problema do quarter. <span class="prov">[Cockpit]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Meta de MQL (33/mês) não foi atingida em nenhum mês do Q2. Pacing caiu de 61% em abril para 33% em junho — deterioração ao longo do quarter. <span class="prov">[Planilha de Leads vs Cockpit goal_qty]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Conversão trial→plano pago em 14% (6 de 44 leads Q2 escolheram Basic/Premium). O funil de monetização do SaaS não está sendo acompanhado formalmente — sem dados de MRR, churn de assinantes, ou upgrade de plano. <span class="prov">[Planilha de Leads]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>Oportunidade de site/SEO identificada na call de 20/05 — cliente migrou site e tem dúvidas de SEO. Proposta não encaminhada até o fim do quarter. <span class="prov">[Cockpit call_transcription_opportunity_web_site_ecom=true]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+  <tr>
+    <td>CSAT de resultados=4 e CSAT Campanhas=4 em pesquisa de fevereiro — pesquisa não renovada no Q2. Com status de Antecipação, refazer CSAT é urgente para diagnosticar o que o cliente está sentindo agora. <span class="prov">[Cockpit csat_date=2026-02-19]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+
   <!-- PAID MEDIA -->
-  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Paid Media Specialist</b></td></tr>
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Paid Media Specialist — Matheus Alencar</b></td></tr>
   <tr>
-    <td>Volume de leads caiu 52% no quarter (33→16) com CPL subindo 127% (R$37→R$84) — Meta Ads parece estar saturando. <span class="prov">[Growth Pack mensal]</span></td>
+    <td>Tracking não validado em todo o Q2 (paid_traffic_tracking_validated_bool=false). 5 tasks "Resolver Trackeamento de Dados" no projeto TAR, mais TRK em maio e junho — tracking é o problema técnico mais sério do quarter. Sem tracking confiável, otimização de campanhas é prejudicada. <span class="prov">[Cockpit + Ekyte TAR #295817]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>Sem visibilidade de performance por canal (Meta vs Google) no Growth Pack mensal — difícil avaliar se a aposta em Google Ads (30% do budget desde maio) está compensando. <span class="prov">[Growth Pack]</span></td>
+    <td>Google Ads praticamente inativo (R$36 vs R$150 milestone). Canal adicional de leads bloqueado por falta de API Key ao longo de todo o Q2. Tasks de Google em maio (#9259289 + #9299124) e junho (#9498042) existiram mas não resultaram em campanhas ativas. <span class="prov">[Cockpit + Ekyte]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>Lead do dia 18/05 não marcou conversão corretamente mesmo após implementação do webhook — possível falha residual de tracking. <span class="prov">[Ekyte]</span></td>
-    <td class="slot">Ação proposta: __________</td>
-  </tr>
-
-  <!-- CRM / PRODUTO -->
-  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>AM / Growth (funil produto)</b></td></tr>
-  <tr>
-    <td>Taxa de conversão cadastro→plano pago muito baixa no quarter (6 de 44 cadastros, e mesmo essas 6 provavelmente vieram de cadastros de meses anteriores via ciclo de trial de 30 dias). <span class="prov">[Backup de Leads]</span></td>
+    <td>CPL Meta subiu de USD$35,55 em abril para USD$47,20 em maio (+33%), com volume de leads caindo. C:04 gerou 0 leads com USD$70,57 gasto — teste ineficiente sem critério de corte definido. <span class="prov">[Campanhas CSV]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>Problema de tracking persistente o quarter inteiro — 7 tasks distintas de TRK, incluindo uma nova aberta em junho ("resolver traqueamento com o Robson"). Pode estar mascarando o volume real de conversões. <span class="prov">[Ekyte]</span></td>
+    <td>C:02 ONGOING, campanha mais eficiente do quarter (CPL $22 em abr), desativada em maio sem substituta de mesma eficiência. A transição de campanha ongoing para testes criativos piorou o CPL. <span class="prov">[Campanhas CSV Abr+Mai]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>Divergência de 37% entre leads do Growth Pack (70) e cadastros completos no Backup (44) — vale mapear onde esse volume se perde no funil de onboarding. <span class="prov">[divergência identificada]</span></td>
+    <td>Investimento Meta em abril (USD$1.173 ≈ R$7.038) muito acima do milestone R$1.350. Budget milestone desatualizado no Cockpit ou verba foi além do planejado? <span class="prov">[Campanhas CSV Abr vs Cockpit campaigns_budget_milestone_meta_qty]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
 
-  <!-- COORDENADOR -->
-  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Coordenadora — Thaily Serodio</b></td></tr>
+  <!-- DESIGNER / COPY / SOCIAL -->
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Designer (Yuri) / Copy (Felipe) / Social Media (Maiara)</b></td></tr>
   <tr>
-    <td>Health Score Critical (12.7) — o mais baixo do squad nesta leitura. Apesar disso, as calls não mostram sinais de insatisfação do cliente — vale entender se o HS reflete resultado de negócio (MRR baixo) e não relação com o cliente. <span class="prov">[Cockpit + BigQuery Calls]</span></td>
+    <td>Imagem/carrossel identificados como ineficientes em maio (task #9440964). Transição para vídeo como formato principal iniciada no Q2 — mas o volume de vídeos ainda é baixo (3 EV em junho) e o impacto em CPL ainda não é mensurável. <span class="prov">[Ekyte #9440964 + Campanhas CSV]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>Sem aba de Breakeven tradicional para este cliente — falta uma meta clara de Projetado × Realizado para o funil SaaS (cadastros, conversões, MRR). Vale propor um modelo de breakeven adaptado ao modelo de negócio. <span class="prov">[planilha consultada]</span></td>
-    <td class="slot">Ação proposta: __________</td>
-  </tr>
-  <tr>
-    <td>Sem call registrada em abril e junho no BigQuery — confirmar se houve reuniões nesses meses e por que não foram transcritas/integradas. <span class="prov">[BigQuery Calls — gap]</span></td>
+    <td>Conteúdo orgânico (pautas + vídeos de social media) produzido regularmente ao longo do Q2, mas desempenho orgânico (saves, shares, follows gerados) não está sendo mensurado formalmente. "captacao" como UTM source para 5 leads sugere algum tráfego orgânico, mas sem dados de Instagram Insights disponíveis nesta retro. <span class="prov">[Ekyte PA tasks + Planilha Leads]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
 </table>
 
 <hr style="margin-top:32px;">
-<p style="font-size:10px;color:#aaa;">Gerado em: 2026-06-30 · skill: cs-retrospectiva-ropre-quarter v1.1.3 · fontes: Growth Pack (planilha oficial, abas semanal + mensal), Backup de Leads CSV, Ekyte MCP (workspace 78417), Cockpit (documentId gy16eb0cq4nhs5rz8xa199r8), BigQuery Calls · NEKT: não consultado nesta sessão · Breakeven: não existe para este cliente (modelo SaaS)</p>
+<p style="font-size:10px;color:#aaa;">Gerado em: 2026-07-10 · skill: cs-retrospectiva-ropre-quarter v1.1.3 · fontes: Planilha de Leads Backup CSV, Campanhas CSV Meta Ads Abr+Mai, Growth Pack Semanal (até Mar/26), Ekyte MCP (workspace 78417), Cockpit (documentId: gy16eb0cq4nhs5rz8xa199r8) · BigQuery: não conectado · Junho CSVs: indisponíveis</p>
 
 </body>
 </html>
