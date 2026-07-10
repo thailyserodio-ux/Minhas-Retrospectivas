@@ -19,32 +19,33 @@
   .prov{color:#888;font-size:10px;}
   .note{background:#eef3fb;border-left:4px solid #2f6fd1;padding:8px 10px;font-size:12px;margin:10px 0;}
   .alert{background:#fff0f0;border-left:4px solid #e30613;padding:8px 10px;font-size:12px;margin:10px 0;}
+  .safe{background:#f0fff4;border-left:4px solid #127a2e;padding:8px 10px;font-size:12px;margin:10px 0;}
   ul{margin:4px 0 8px 18px;padding:0;} li{margin:2px 0;}
   .type-header{background:#222;color:#fff;font-weight:bold;font-size:11px;padding:4px 7px;}
+  a{color:#2f6fd1;}
 </style>
 </head>
 <body>
 
 <h1>Retrospectiva ROPRE — VLO Entretelas (VLTE)</h1>
 <div class="meta">
-  Fontes: <b>Growth Pack CSV + Breakeven CSV (projeção) + Planilha de Leads + Ekyte</b> · projectDocumentId=<b>⚠ Cockpit 401 — preencher</b> · plataformas=Meta Ads + Google Ads · período=<b>Q2/2026 (abr–jun, fechado, mensal + total)</b> · tools=Growth Pack CSV, Breakeven CSV, Planilha de Leads, Ekyte MCP · provider=local-csv
+  Fontes: <b>Growth Pack CSV + Breakeven CSV (projeção) + Planilha de Leads UTM + Ekyte MCP + Cockpit</b> · projectDocumentId=<b>bby7i7txkod6ir6ekui5dmwq</b> · plataformas=Meta Ads + Google Ads · período=<b>Q2/2026 (abr–jun, fechado, mensal + total)</b> · provider=cockpit+csv+ekyte · Gerado em: 2026-07-10
 </div>
 
-<div class="alert">
-  ⚠ <b>Cockpit indisponível (HTTP 401)</b> — equipe, flag, health score, fee oficial, critério MQL e dados NEKT por campanha constam como slot.<br>
-  ⚠ <b>Breakeven desatualizado</b> — a planilha só tem coluna "Realizado" preenchida até Fevereiro/2026; de Março em diante só há valores <b>projetados</b>. Realizado de Q2 (abr-jun) vem do Growth Pack (mídia/funil) e da Planilha de Leads (estágio comercial) — <b>não há fonte de Vendas/Receita realizada</b> para o Q2 (sinalizado como slot abaixo).
+<div class="note">
+  ⚠ <b>Breakeven desatualizado</b> — a planilha só tem coluna "Realizado" preenchida até Fevereiro/2026; de Março em diante só há valores <b>projetados</b>. Realizado de Q2 (abr-jun) vem do Growth Pack (mídia/funil) e da Planilha de Leads (estágio comercial) — <b>não há fonte de Vendas/Receita realizada automática</b> para o Q2.
 </div>
 
 <!-- ===== SEÇÃO 1 ===== -->
 <h2>1. Visão Geral do Projeto</h2>
 <table>
   <tr><th>Cliente</th><td>VLO Entretelas (VLO Textil)</td><th>Squad / Coord</th><td>Invictus · Thaily Serodio</td></tr>
-  <tr><th>Modelo de negócio</th><td>Inside Sales · B2B (com parcela B2C) <span class="prov">[context/business.md]</span></td><th>Segmento</th><td>Comércio de entretelas/aviamentos — posicionamento premium <span class="prov">[context/business.md]</span></td></tr>
-  <tr><th>Fee mensal</th><td>R$6.000,00 <span class="prov">[Breakeven CSV]</span></td><th>Plano de mídia Q2 (projetado)</th><td>R$5.760–7.000/mês <span class="prov">[Breakeven CSV]</span></td></tr>
-  <tr><th>Flag / HS</th><td class="warn">🟡 Care · HS 19.4 <span class="prov">[Cockpit 28/06]</span></td><th>LT</th><td class="slot">⚠ LT não retornado pelo Cockpit — preencher</td></tr>
-  <tr><th>CRM</th><td>Gestão por planilha própria (decisão do cliente) <span class="prov">[context/business.md]</span></td><th>Critério MQL</th><td class="slot">⚠ Critério MQL não preenchido no Cockpit — divergência: planilha de leads marca 100% MQL=Sim (ver Seção 2)</td></tr>
-  <tr><th>ICP</th><td colspan="3">Confeccionistas, costureiras, estilistas, indústria têxtil — meta de qualificação &gt;32% <span class="prov">[context/business.md]</span></td></tr>
-  <tr><th>Equipe</th><td colspan="3">PM: Rafael Clarindo Reis · Coord: Ueliton Pereira · AM: Thaily Serodio · Paid Media: Matheus Alencar · Designer: Ana Beatriz · Copy: Felipe Pinheiro · Social Media: Christian Lopes <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Modelo de negócio</th><td>Inside Sales · B2B <span class="prov">[Cockpit]</span></td><th>Segmento</th><td>Indústria e Fabricação — comércio de entretelas premium <span class="prov">[Cockpit]</span></td></tr>
+  <tr><th>Fee mensal</th><td>R$6.000,00 <span class="prov">[Cockpit]</span></td><th>Plano de mídia Q2 (projetado)</th><td>R$5.760–7.000/mês <span class="prov">[Breakeven CSV]</span></td></tr>
+  <tr><th>Flag / HS</th><td class="ok">🟢 Safe · HS 21,5 (71,8%) <span class="prov">[Cockpit 2026-07-03]</span></td><th>LT</th><td>12 meses <span class="prov">[Cockpit · início 2025-07-09]</span></td></tr>
+  <tr><th>CRM</th><td>Planilha própria (decisão do cliente) <span class="prov">[Cockpit]</span></td><th>Critério MQL</th><td>Lead com Volume ≥101m/mês de entretelas + função diferente de modelista/estilista <span class="prov">[Thaily Serodio · AM]</span> <br><span class="prov">⚠ Cockpit registra "Consome a partir de 500m/mês" — possível critério SQL (passagem para rep), não MQL</span></td></tr>
+  <tr><th>Meta da meta</th><td>SQL: 15/mês · <b>Q2 realizado: 18 SQLs acumulados</b> <span class="prov">[Cockpit results_goal_reached_qty]</span></td><th>Status anomalia</th><td class="ok">Sem anomalia <span class="prov">[Cockpit 2026-07-03]</span></td></tr>
+  <tr><th>Equipe</th><td colspan="3">PM: Rafael Clarindo · Coord: Ueliton Pereira · AM: Thaily Serodio · Paid Media: Matheus Alencar · Designer: Ana Beatriz · Copy: Felipe Pinheiro · Social Media: Christian Lopes <span class="prov">[Cockpit]</span></td></tr>
 </table>
 
 <!-- ===== SEÇÃO 2 ===== -->
@@ -62,13 +63,13 @@
   <tr><td>amanda</td><td>15/06/2026</td><td>Google Ads</td><td class="n">R$3.175,00</td><td>Campinas</td></tr>
   <tr><td>Henrique Motta Toledo</td><td>23/06/2026</td><td>Google Ads</td><td class="n">R$1.687,77</td><td>São Paulo — pedido à vista</td></tr>
   <tr><td class="q"><b>Subtotal confirmado Q2</b></td><td class="q"></td><td class="q"></td><td class="n q"><b>R$7.270,77</b></td><td class="q"></td></tr>
-  <tr><td>ivana oliveira silva</td><td class="warn">⚠ sem data</td><td>Google Ads</td><td class="n">R$908,00</td><td>Representante Duda — 200m. Data de fechamento não registrada na planilha; não dá pra confirmar se caiu no Q2.</td></tr>
+  <tr><td>ivana oliveira silva</td><td class="warn">⚠ sem data</td><td>Google Ads</td><td class="n">R$908,00</td><td>Representante Duda — 200m. Data de fechamento não registrada na planilha; não confirmado se é Q2.</td></tr>
 </table>
 <div class="alert">
-  ⚠ <b>Receita real do Q2 muito abaixo da meta:</b> R$7.270,77 confirmados (R$8.178,77 se a venda da Ivana também for do quarter) vs <b>R$90.000 projetados</b> no Breakeven — <b>8% do projetado</b>. Apenas 3-4 vendas no quarter inteiro, mesmo com 38 SQLs gerados (Growth Pack) — taxa SQL→Venda de ~8-10%, muito abaixo do esperado para Inside Sales B2B.
+  ⚠ <b>Receita real do Q2 muito abaixo da meta:</b> R$7.270,77 confirmados vs <b>R$90.000 projetados</b> no Breakeven — <b>8% do projetado</b>. Apenas 3-4 vendas no quarter inteiro, mesmo com 38 SQLs gerados — taxa SQL→Venda de ~8-10%, muito abaixo do esperado para Inside Sales B2B.
 </div>
 
-<h3>Funil do Quarter — Projetado (Breakeven) vs Realizado (Growth Pack) <span class="prov">[Breakeven CSV = projeção não atualizada / Growth Pack CSV = realizado]</span></h3>
+<h3>Funil do Quarter — Projetado (Breakeven) vs Realizado (Growth Pack) <span class="prov">[Breakeven CSV = projeção / Growth Pack CSV = realizado]</span></h3>
 <table>
   <tr>
     <th>Etapa</th>
@@ -129,7 +130,7 @@
 </table>
 
 <div class="note">
-  <b>Leitura do quarter:</b> O volume de leads ficou em apenas 39% da meta projetada (128 de 330) ao longo dos três meses, com CPL consistentemente acima do projetado (R$84-96 vs meta de ~R$52). A taxa Lead→MQL e MQL→SQL, no entanto, seguraram melhor o funil: SQL ficou em 84% do pacing — ou seja, os leads que chegaram converteram relativamente bem até o estágio de qualificação. O <b>gargalo real do quarter está no fim do funil</b>: 38 SQLs gerados resultaram em apenas 3 vendas confirmadas (taxa SQL→Venda de ~8%, muito abaixo do esperado), e a receita de R$7.270,77 ficou em apenas <b>8% dos R$90.000 projetados</b>. ROAS aproximado do quarter: R$7.270,77 / R$11.525,79 investidos ≈ <b>0,63</b> — abaixo de 1, ou seja, a mídia paga sozinha não está se pagando neste recorte (sem contar fee/operação).
+  <b>Leitura do quarter:</b> O volume de leads ficou em apenas 39% da meta projetada (128 de 330) ao longo dos três meses, com CPL consistentemente acima do projetado (R$84-96 vs meta ~R$52). A taxa MQL→SQL, no entanto, segurou melhor o funil: SQL ficou em 84% do pacing. O <b>gargalo real do quarter está no fim do funil</b>: 38 SQLs gerados resultaram em apenas 3 vendas confirmadas (~8%), e a receita de R$7.270,77 ficou em apenas <b>8% dos R$90.000 projetados</b>. ROAS aproximado: R$7.270,77 / R$11.525,79 ≈ <b>0,63</b> — abaixo de 1.
 </div>
 
 <h3>Taxas de conversão por etapa — Q2/2026 <span class="prov">[Growth Pack CSV]</span></h3>
@@ -151,7 +152,7 @@
   <tr><td class="q"><b>Total</b></td><td class="n q"><b>136</b></td><td class="n q"><b>100%</b></td></tr>
 </table>
 <div class="alert">
-  ⚠ <b>60% dos leads do quarter estão parados em "Aguardando"</b> — maior gargalo comercial identificado. Apenas 1,5% converteu. Isso é processo comercial, não geração de demanda (volume de leads chegou, mas não foi trabalhado/fechado).
+  ⚠ <b>60% dos leads do quarter estão parados em "Aguardando"</b> — maior gargalo comercial identificado. Apenas 1,5% converteu. Conforme alinhamento com AM: o cliente mantém todos os leads em "Aguardando" por estratégia de "sempre tentar de novo depois de um tempo", sem critério definido de quando dar como perdido. Isso dificulta leitura do pipeline real. <span class="prov">[Planilha de Leads + AM Thaily Serodio]</span>
 </div>
 
 <!-- ===== SEÇÃO 3 ===== -->
@@ -167,11 +168,12 @@
   <tr><td>Impressões</td><td class="n">123.545</td><td class="n">114.628</td><td class="n">98.114</td><td class="n q">336.287</td></tr>
   <tr><td>Cliques</td><td class="n">1.603</td><td class="n">2.169</td><td class="n">1.804</td><td class="n q">5.576</td></tr>
   <tr><td>CTR</td><td class="n">1,30%</td><td class="n">1,89%</td><td class="n">1,84%</td><td class="n q">—</td></tr>
-  <tr><td>Leads</td><td class="n">26</td><td class="n">31</td><td class="n bad">20</td><td class="n q">77</td></tr>
+  <tr><td>Leads <span class="prov">[planilha UTM]</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n q">68 (100% MQL)</td></tr>
+  <tr><td>Leads <span class="prov">[Growth Pack]</span></td><td class="n">26</td><td class="n">31</td><td class="n bad">20</td><td class="n q">77</td></tr>
   <tr><td>CPL</td><td class="n warn">R$110,04</td><td class="n warn">R$107,69</td><td class="n bad">R$144,60</td><td class="n q bad">~R$120,80</td></tr>
 </table>
 <div class="note">
-  <b>Síntese Meta Ads:</b> Consome 79% do orçamento de mídia do quarter (R$9.091 de R$11.526) mas entrega apenas 60% dos leads (77 de 128), com CPL 2,5× maior que o Google. Houve uma task explícita em maio sinalizando "estrutura não está gastando" — indicando problema de pacing/configuração de campanha, consistente com o investimento abaixo do projetado. CPL piorou todo mês (R$110 → R$108 → R$145).
+  <b>Síntese Meta Ads:</b> Consome 79% do orçamento de mídia do quarter (R$9.091 de R$11.526) mas tem CPL 2,5× maior que o Google. Houve uma task explícita em maio sinalizando "estrutura não está gastando" — problema de pacing/configuração, consistente com o investimento 41% abaixo do projetado. CPL piorou todo mês (R$110 → R$108 → R$145).
 </div>
 
 <h3>Google Ads <span class="prov">[Growth Pack CSV]</span></h3>
@@ -184,63 +186,138 @@
   <tr><td>Impressões</td><td class="n">2.299</td><td class="n">3.259</td><td class="n">3.079</td><td class="n q">8.637</td></tr>
   <tr><td>Cliques</td><td class="n">248</td><td class="n">336</td><td class="n">296</td><td class="n q">880</td></tr>
   <tr><td>CTR</td><td class="n ok">10,79%</td><td class="n ok">10,31%</td><td class="n ok">9,61%</td><td class="n q">—</td></tr>
-  <tr><td>Leads</td><td class="n">15</td><td class="n">16</td><td class="n ok">20</td><td class="n q">51</td></tr>
+  <tr><td>Leads <span class="prov">[planilha UTM]</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n q">45 (100% MQL)</td></tr>
+  <tr><td>Leads <span class="prov">[Growth Pack]</span></td><td class="n">15</td><td class="n">16</td><td class="n ok">20</td><td class="n q">51</td></tr>
   <tr><td>CPL</td><td class="n ok">R$41,03</td><td class="n ok">R$53,34</td><td class="n ok">R$48,27</td><td class="n q ok">~R$47,55</td></tr>
 </table>
 <div class="note">
-  <b>Síntese Google Ads:</b> Canal mais eficiente do quarter — apenas 21% do orçamento (R$2.434) gerou 40% dos leads (51 de 128), com CPL ~2,5× menor que o Meta e CTR consistentemente alto (9-11%). Tendência de crescimento no mês: leads subiram de 15 (abr) para 20 (jun) mesmo com aumento moderado de verba. Há tasks de expansão geográfica (Paraná, Ceará, Sul) e reestruturação de campanhas que parecem estar dando resultado.
+  <b>Síntese Google Ads:</b> Canal mais eficiente do quarter — apenas 21% do orçamento (R$2.434) gerou 40% dos leads (51/128 no Growth Pack), com CPL ~2,5× menor que Meta e CTR consistentemente acima de 9%. Leads cresceram de 15 (abr) para 20 (jun) com aumento moderado de verba. Top termos de busca: "fornecedor de entretela" (15 leads), "vlo entretelas" (9), "entretela cavalinha" (6). <span class="prov">[Planilha de Leads — UTM Google]</span>
 </div>
-
-<div class="slot">⚠ SLOT: dados de Hook Rate, Connect Rate, breakdown por campanha/anúncio — fonte NEKT não conectada (Cockpit 401). Preencher com dados das plataformas Meta Business Suite e Google Ads.</div>
 
 <!-- ===== SEÇÃO 4 ===== -->
 <h2>4. O que deu certo / O que não deu certo — Q2/2026</h2>
-
-<div class="slot">⚠ SLOT — Ranking de campanha/conjunto/anúncio não disponível (NEKT indisponível). Análise abaixo derivada dos dados agregados.</div>
 
 <h3>✅ O que deu certo no Q2</h3>
 <ul>
   <li><b>Google Ads é 2,5× mais eficiente que Meta</b> em CPL (R$47,55 vs R$120,80) com CTR consistentemente acima de 9% <span class="prov">[Growth Pack CSV]</span></li>
   <li><b>Taxa MQL → SQL acima da meta nos 3 meses</b> (30-41% vs meta de 25%) — os leads qualificados convertem bem para SQL <span class="prov">[Growth Pack CSV]</span></li>
   <li><b>Pacing de SQL em 84%</b> do projetado — melhor indicador de funil do quarter, mesmo com volume de topo abaixo da meta <span class="prov">[Growth Pack CSV]</span></li>
-  <li><b>Testes de expansão geográfica</b> iniciados: Goiânia, Paraná, Nordeste, Ceará, Sul — diversificação de mercado <span class="prov">[Ekyte]</span></li>
-  <li><b>Reestruturação de campanhas Meta e Google Ads</b> executada em abril, base para otimização no resto do quarter <span class="prov">[Ekyte]</span></li>
-  <li><b>Crescimento orgânico de +30,8%</b> mencionado no contexto de negócio — força de marca além da mídia paga <span class="prov">[context/business.md]</span></li>
+  <li><b>Expansão geográfica testada</b>: Goiânia, Paraná, Nordeste, Ceará, Sul — 7 leads de Nordeste e 7 do Vale do Itajaí via campanha C:08 <span class="prov">[Ekyte + Planilha UTM]</span></li>
+  <li><b>Campanha C:11 Sudeste | Uniformes | Condicional</b> — melhor campanha Meta do Q2 com 21 leads/21 MQL <span class="prov">[Planilha UTM]</span></li>
+  <li><b>Conjunto [P:INTERESSE] Vestuário | Sul</b> ativo nos 3 meses do quarter com 26 leads — o mais resiliente do período <span class="prov">[Planilha UTM]</span></li>
+  <li><b>Reestruturação de campanhas Meta e Google Ads</b> executada em abril, base para otimização no resto do quarter <span class="prov">[<a href="https://app.ekyte.com/#/tasks/list/9026354/edit">Ekyte #9026354</a> + <a href="https://app.ekyte.com/#/tasks/list/9026355/edit">#9026355</a>]</span></li>
   <li><b>Microsoft Clarity instalado</b> em junho — rastreamento comportamental implementado <span class="prov">[Ekyte]</span></li>
 </ul>
 
 <h3>❌ O que não deu certo no Q2</h3>
 <ul>
   <li><b>Volume de leads em apenas 39% da meta do quarter</b> (128 de 330 projetados) — maior problema do Q2 <span class="prov">[Growth Pack CSV vs Breakeven]</span></li>
-  <li><b>60% dos leads do quarter (82 de 136) estão parados em "Aguardando"</b> sem ação comercial registrada — gargalo de processo, não de geração de demanda <span class="prov">[Planilha de Leads]</span></li>
-  <li><b>Apenas 3 vendas confirmadas no quarter inteiro</b> (R$7.270,77), contra 38 SQLs gerados — taxa SQL→Venda de ~8%, muito abaixo do esperado para Inside Sales B2B <span class="prov">[Planilha de Leads — aba Convertidos]</span></li>
-  <li><b>Receita do quarter em apenas 8% do projetado</b> (R$7.270,77 de R$90.000) — ROAS aproximado de 0,63, abaixo de 1: a mídia paga não está se pagando neste recorte <span class="prov">[Planilha de Leads vs Breakeven]</span></li>
+  <li><b>60% dos leads parados em "Aguardando"</b> sem critério definido de encerramento — pipeline inflado sem visibilidade real <span class="prov">[Planilha de Leads + AM]</span></li>
+  <li><b>Apenas 3 vendas confirmadas no quarter inteiro</b> (R$7.270,77), contra 38 SQLs gerados — taxa SQL→Venda de ~8% <span class="prov">[Planilha de Leads — aba Convertidos]</span></li>
+  <li><b>Receita do quarter em apenas 8% do projetado</b> (R$7.270,77 de R$90.000) — ROAS ≈ 0,63 <span class="prov">[Planilha de Leads vs Breakeven]</span></li>
   <li><b>Meta Ads consumiu 79% do orçamento com CPL 2,5× pior que Google</b> — alocação de verba ineficiente <span class="prov">[Growth Pack CSV]</span></li>
-  <li><b>"Meta Ads não está gastando"</b> (task de maio) — indício de problema de configuração/pacing de campanha não resolvido completamente, já que investimento de Meta ficou 41% abaixo do projetado <span class="prov">[Ekyte + Breakeven]</span></li>
-  <li><b>Investimento total do quarter 33% abaixo do projetado</b> (R$11.526 vs R$17.280) — verba projetada não foi totalmente utilizada <span class="prov">[Breakeven vs Growth Pack]</span></li>
-  <li><b>Problemas de qualidade de dado na planilha de leads</b>: tasks de "corrigir coluna origem" e "ajustar duplicação" indicam rastreamento de origem de lead não confiável <span class="prov">[Ekyte]</span></li>
-  <li><b>Divergência no critério de MQL</b>: planilha de leads marca 100% dos leads como "MQL=Sim", enquanto Growth Pack calcula taxa Lead→MQL variável (62-105%) — os dois sistemas usam critérios diferentes <span class="prov">[Planilha de Leads vs Growth Pack — divergência]</span></li>
+  <li><b>"Meta Ads não está gastando"</b> (task de maio) — problema de pacing, investimento 41% abaixo do projetado <span class="prov">[<a href="https://app.ekyte.com/#/tasks/list/9361119/edit">Ekyte #9361119</a>]</span></li>
+  <li><b>Problema de QA em copies/criativos publicados</b> — cliente relatou erros em criativos já publicados gerando broncas internas <span class="prov">[Cockpit — call 2026-06-09: incidents_qa_bool=true]</span></li>
 </ul>
+
+<!-- ===== SEÇÃO 4b ===== -->
+<h2>4b. Campanhas, Conjuntos e Anúncios — Meta Ads Q2/2026</h2>
+<p style="font-size:12px;color:#555;">Fonte: Planilha de Leads com UTM (Campaign Name / Adset Name / Ad Name). Q2 = 123 leads na planilha (68 Meta + 45 Google + 10 sem atribuição). Todos os leads marcados MQL=Sim na planilha atendem o critério: volume ≥101m/mês + função diferente de modelista/estilista.</p>
+
+<h3>Campanhas Meta — Q2/2026 <span class="prov">[Planilha de Leads · UTM]</span></h3>
+<table>
+  <tr><th>Campanha</th><th class="n">Leads</th><th class="n">MQL</th><th class="n">MQL%</th><th>Observação</th></tr>
+  <tr><td>[V4] C:11 · Sudeste | Uniformes | Condicional | +500m</td><td class="n ok">21</td><td class="n ok">21</td><td class="n ok">100%</td><td>Melhor campanha do Q2</td></tr>
+  <tr><td>[V4] C:12 · Sul e Sudeste | +500m | Vídeos Março</td><td class="n">12</td><td class="n">12</td><td class="n ok">100%</td><td></td></tr>
+  <tr><td>[V4] C:14 · Sul e Sudeste | +500m | Perfuratta</td><td class="n">11</td><td class="n">11</td><td class="n ok">100%</td><td>Inclui teste GOIÂNIA (1L)</td></tr>
+  <tr><td>(sem campanha Meta)</td><td class="n warn">10</td><td class="n warn">10</td><td class="n">—</td><td>UTM não preenchido</td></tr>
+  <tr><td>[V4] C:13 · Nordeste | +500m | Nordeste</td><td class="n">7</td><td class="n">7</td><td class="n ok">100%</td><td></td></tr>
+  <tr><td>[V4] C:08 · Sul | Uniformes | +500m Vale Itajaí</td><td class="n">7</td><td class="n">7</td><td class="n ok">100%</td><td></td></tr>
+  <tr><td>[V4] C:13 · Sul e Sudeste + Ceará | +500m | Camisaria</td><td class="n">6</td><td class="n">6</td><td class="n ok">100%</td><td>5L Sudeste + 1L Ceará</td></tr>
+  <tr><td>[V4] C:08 · Sul | Uniformes | +500m</td><td class="n">2</td><td class="n">2</td><td class="n ok">100%</td><td></td></tr>
+  <tr><td>[V4] C:15 · Sudeste | Uniformes | Condicional | +500m</td><td class="n">1</td><td class="n">1</td><td class="n ok">100%</td><td></td></tr>
+  <tr><td class="q"><b>Total Meta</b></td><td class="n q"><b>68</b></td><td class="n q"><b>68</b></td><td class="n q ok"><b>100%</b></td><td class="q"></td></tr>
+</table>
+
+<h3>Conjuntos (Adsets) Meta — Q2/2026 <span class="prov">[Planilha de Leads · UTM]</span></h3>
+<table>
+  <tr><th>Conjunto</th><th class="n">Leads</th><th class="n">MQL</th><th>Meses ativos</th></tr>
+  <tr><td>[P:INTERESSE] Vestuário | Sul</td><td class="n ok">26</td><td class="n ok">26</td><td class="ok">Abr · Mai · Jun</td></tr>
+  <tr><td>[P:ADVANTAGE] Sudeste</td><td class="n">17</td><td class="n">17</td><td class="ok">Abr · Mai · Jun</td></tr>
+  <tr><td>[P:ADVANTAGE] Sul</td><td class="n">7</td><td class="n">7</td><td class="ok">Abr · Mai · Jun</td></tr>
+  <tr><td>[P:INTERESSE] Vestuário | Nordeste</td><td class="n">5</td><td class="n">5</td><td>Abr · Mai</td></tr>
+  <tr><td>[P:INTERESSE] Vestuário | Sudeste</td><td class="n">4</td><td class="n">4</td><td>Abr</td></tr>
+  <tr><td>[P:INTERESSE] Vestuário | Ceará</td><td class="n">4</td><td class="n">4</td><td>Jun</td></tr>
+  <tr><td>[P:ENVOLVIMENTO] Engajaram 365d | Nordeste</td><td class="n">2</td><td class="n">2</td><td>Abr</td></tr>
+  <tr><td>Outros (Goiânia, padronização, Sul engajamento)</td><td class="n">3</td><td class="n">3</td><td>Abr · Mai</td></tr>
+  <tr><td class="q"><b>Total</b></td><td class="n q"><b>68</b></td><td class="n q"><b>68</b></td><td class="q"></td></tr>
+</table>
+
+<h3>Anúncios Meta — Top 10 Q2/2026 <span class="prov">[Planilha de Leads · UTM]</span></h3>
+<table>
+  <tr><th>Anúncio</th><th class="n">Leads</th><th class="n">MQL</th></tr>
+  <tr><td>AD04 - [F:IMG] - Uniforme não espera insumo</td><td class="n ok">16</td><td class="n ok">16</td></tr>
+  <tr><td>AD01 - [F:VIDEO] - Entretela por preço</td><td class="n">11</td><td class="n">11</td></tr>
+  <tr><td>AD03 - [F:IMG] - Dobra guiada</td><td class="n">11</td><td class="n">11</td></tr>
+  <tr><td>AD03 - [F:IMG] Vale do Itajaí | Mais produtividade</td><td class="n">5</td><td class="n">5</td></tr>
+  <tr><td>AD03 - [F:IMG] - Variedade e cor</td><td class="n">4</td><td class="n">4</td></tr>
+  <tr><td>AD01 - [F:IMG] - Aumentou a demanda uniformes</td><td class="n">3</td><td class="n">3</td></tr>
+  <tr><td>AD02 - [F:IMG] Punhos | As camisarias mais</td><td class="n">2</td><td class="n">2</td></tr>
+  <tr><td>AD01 - [F:IMG] - Nordeste não precisa</td><td class="n">2</td><td class="n">2</td></tr>
+  <tr><td>AD01 - [F:IMG] - Camisaria de alto padrão</td><td class="n">2</td><td class="n">2</td></tr>
+  <tr><td>AD02 - [F:IMG] - Agora no ceará</td><td class="n">2</td><td class="n">2</td></tr>
+</table>
+<div class="note">
+  <b>Insight Q2:</b> Formato imagem domina (AD04 líder com 16L), mas vídeo também performa (AD01 vídeo com 11L). Mensagem "Uniforme não espera insumo" — senso de urgência por disponibilidade de produto — foi a mais efetiva do quarter. Conjuntos de interesse em Vestuário Sul e Advantage Sudeste são os mais consistentes nos 3 meses.
+</div>
+
+<h3>Google Ads — Termos de busca Q2/2026 <span class="prov">[Planilha de Leads · UTM]</span></h3>
+<table>
+  <tr><th>Termo de busca</th><th class="n">Leads</th></tr>
+  <tr><td>fornecedor de entretela</td><td class="n ok">15</td></tr>
+  <tr><td>vlo entretelas</td><td class="n">9</td></tr>
+  <tr><td>entretela cavalinha</td><td class="n">6</td></tr>
+  <tr><td>entretela fusionada</td><td class="n">5</td></tr>
+  <tr><td>entretela para punho</td><td class="n">4</td></tr>
+  <tr><td>entretela de colarinho</td><td class="n">2</td></tr>
+  <tr><td>entretela para confecção</td><td class="n">2</td></tr>
+  <tr><td>Outros / sem UTM</td><td class="n">2</td></tr>
+  <tr><td class="q"><b>Total Google</b></td><td class="n q"><b>45</b></td></tr>
+</table>
 
 <!-- ===== SEÇÃO 5 ===== -->
 <h2>5. Criativo / Comunicação — Q2/2026</h2>
-<div class="slot">⚠ SLOT — Ranking de criativos por performance (CPL, CTR por anúncio) não disponível: requer NEKT por anúncio. Cockpit indisponível (401).</div>
+<div class="slot">⚠ SLOT — Hook Rate, Connect Rate e CPL por anúncio requerem NEKT (não conectado para VLTE). Dados de volume por anúncio disponíveis via Planilha de Leads UTM (Seção 4b acima).</div>
 
-<h3>Criativos e conteúdo produzidos no Q2 <span class="prov">[Ekyte]</span></h3>
+<h3>Criativos e conteúdo produzidos no Q2 <span class="prov">[Ekyte · workspace 103770]</span></h3>
 <table>
   <tr><th>Entrega</th><th>Formato</th><th>Foco</th><th>Mês</th></tr>
-  <tr><td>Padronização e Qualificação de Anúncios</td><td>Criativo Ads</td><td>Estrutura geral</td><td>Abr</td></tr>
+  <tr><td><a href="https://app.ekyte.com/#/tasks/list/9026355/edit">Padronização e Qualificação de Anúncios</a></td><td>Criativo Ads</td><td>Estrutura geral</td><td>Abr</td></tr>
   <tr><td>Anúncios Goiânia</td><td>Criativo Ads</td><td>Regional</td><td>Mai</td></tr>
-  <tr><td>Anúncios Camisaria</td><td>Criativo Ads</td><td>Produto (colarinhos)</td><td>Mai</td></tr>
+  <tr><td><a href="https://app.ekyte.com/#/tasks/list/8856783/edit">Anúncios Camisaria</a></td><td>Criativo Ads</td><td>Produto (colarinhos)</td><td>Mai</td></tr>
   <tr><td>Anúncios Perfuratta</td><td>Criativo Ads</td><td>Produto (perfuratta/fita reta)</td><td>Mai</td></tr>
-  <tr><td>Anúncios Remarketing Nordeste</td><td>Criativo Ads</td><td>Remarketing regional</td><td>Jun</td></tr>
-  <tr><td>Anúncios Paraná</td><td>Criativo Ads</td><td>Regional</td><td>Jun</td></tr>
+  <tr><td><a href="https://app.ekyte.com/#/tasks/list/9026384/edit">Anúncios Remarketing Nordeste</a></td><td>Criativo Ads</td><td>Remarketing regional</td><td>Mai/Jun</td></tr>
+  <tr><td><a href="https://app.ekyte.com/#/tasks/list/9026371/edit">Anúncios Paraná</a></td><td>Criativo Ads</td><td>Regional</td><td>Jun</td></tr>
+  <tr><td><a href="https://app.ekyte.com/#/tasks/list/9026614/edit">Anúncios em Vídeo Narração Larissa Ceará</a></td><td>Vídeo Ads</td><td>Regional Ceará</td><td>Jun</td></tr>
   <tr><td>Edição de Vídeo Influencer (semanal)</td><td>Vídeo</td><td>Conteúdo de influenciador</td><td>Abr–Jun (~10 entregas)</td></tr>
 </table>
-<div class="slot">⚠ SLOT: copy vencedora e preview de criativo — não disponível via MCP.</div>
+<div class="slot">⚠ SLOT: preview de criativo vencedor — não disponível via MCP. Consultar Meta Business Suite para visualizar o AD04 "Uniforme não espera insumo".</div>
 
 <!-- ===== SEÇÃO 6 ===== -->
 <h2>6. Gestão de Projetos / Entregas — Q2/2026</h2>
+
+<h3>Status operacional <span class="prov">[Cockpit 2026-07-10]</span></h3>
+<table>
+  <tr><th>Indicador</th><th>Valor</th></tr>
+  <tr><td>Tarefas em andamento</td><td>8</td></tr>
+  <tr><td>Tarefas com demanda atrasada (fase)</td><td class="warn">5</td></tr>
+  <tr><td>Tarefas postergadas</td><td>1</td></tr>
+  <tr><td>Horas entregues no período</td><td>25h</td></tr>
+  <tr><td>Problemas de aprovação do cliente</td><td class="warn">1 (incidents_qa_bool = true — erros em copies/criativos publicados)</td></tr>
+  <tr><td>Anomalia operacional</td><td class="ok">Sem anomalia <span class="prov">[resolvida — anterior: "Subida de campanhas" em 2026-06-28]</span></td></tr>
+  <tr><td>Status tasks</td><td class="ok">Em dia</td></tr>
+  <tr><td>Acompanhamento comercial</td><td class="warn">Desativado — "Cliente não tem interesse em vendas e se incomoda com o acompanhamento" <span class="prov">[Cockpit]</span></td></tr>
+</table>
 
 <h3>Resumo por tipo <span class="prov">[Ekyte · workspace 103770 · concluídas Q2/2026]</span></h3>
 <table>
@@ -260,89 +337,109 @@
   <tr><td><b>TOTAL</b></td><td class="n"><b>79</b></td><td class="n"><b>100%</b></td><td></td></tr>
 </table>
 
-<h3>Detalhe de entregas — Abril</h3>
+<h3>Detalhe de entregas — Abril <span class="prov">[Ekyte · projeto <a href="https://app.ekyte.com/#/projects/275909/edit">#275909</a>]</span></h3>
 <table>
   <tr><th colspan="3" class="type-header">ABRIL / 2026</th></tr>
   <tr><th>Tipo</th><th>Data</th><th>Entrega</th></tr>
   <tr><td>SM</td><td>01/04</td><td>Post comunicado mudança de número</td></tr>
   <tr><td>PA</td><td>01/04</td><td>Pauta Abril 1ª e 2ª semana</td></tr>
-  <tr><td>SM</td><td>02-08/04</td><td>Sexta-feira Santa, Dia do Autismo, Páscoa, Dia Combate ao Câncer</td></tr>
+  <tr><td>SM</td><td>02-08/04</td><td><a href="https://app.ekyte.com/#/tasks/list/8916881/edit">Sexta-feira Santa</a> · <a href="https://app.ekyte.com/#/tasks/list/8934993/edit">Dia do Autismo</a> · Páscoa · <a href="https://app.ekyte.com/#/tasks/list/8979354/edit">Dia Combate ao Câncer</a></td></tr>
   <tr><td>PPT</td><td>06/04</td><td>Análise para check-in do Quarter</td></tr>
   <tr><td>EV</td><td>06/04</td><td>Edição vídeo Influ — Semana 1</td></tr>
   <tr><td>CA</td><td>10/04</td><td>Padronização e Qualificação de Anúncios</td></tr>
   <tr><td>PPT</td><td>10-15/04</td><td>ROPRE Quarter Q1 (2 entregas)</td></tr>
   <tr><td>EV</td><td>13-23/04</td><td>Edição vídeo Influ — Semanas 2 e 3</td></tr>
-  <tr><td>OTM</td><td>15/04</td><td>Otimizar campanhas Google + Meta + seguidores</td></tr>
-  <tr><td>SM</td><td>20/04</td><td>Dia de Tiradentes / Dia do Têxtil</td></tr>
+  <tr><td>OTM</td><td>15/04</td><td><a href="https://app.ekyte.com/#/tasks/list/9039815/edit">Otimizar campanhas Google + Meta</a> · <a href="https://app.ekyte.com/#/tasks/list/9039804/edit">Atualizar campanhas de seguidores</a></td></tr>
+  <tr><td>SM</td><td>20/04</td><td><a href="https://app.ekyte.com/#/tasks/list/9056036/edit">Dia de Tiradentes / Dia do Têxtil</a></td></tr>
   <tr><td>PA</td><td>21-28/04</td><td>Pauta Maio, Pauta Abril 3ª e 4ª semana</td></tr>
-  <tr><td>PC</td><td>24/04</td><td>Estruturar estratégia Nordeste, Reestruturar Campanhas Google + Meta (3 entregas)</td></tr>
-  <tr><td>OTM</td><td>24/04</td><td>Otimizar campanha de seguidores</td></tr>
-  <tr><td>ACRM</td><td>24/04</td><td>Corrigir coluna origem, Corrigir duplicação</td></tr>
+  <tr><td>PC</td><td>24/04</td><td>Estruturar estratégia Nordeste · <a href="https://app.ekyte.com/#/tasks/list/9026354/edit">Reestruturar Google Ads</a> · <a href="https://app.ekyte.com/#/tasks/list/9026355/edit">Reestruturar Meta Ads</a></td></tr>
+  <tr><td>OTM</td><td>24/04</td><td><a href="https://app.ekyte.com/#/tasks/list/9092734/edit">Otimizar campanha de seguidores</a></td></tr>
+  <tr><td>ACRM</td><td>24/04</td><td><a href="https://app.ekyte.com/#/tasks/list/9092698/edit">Corrigir coluna origem</a> · <a href="https://app.ekyte.com/#/tasks/list/9092667/edit">Corrigir duplicação</a></td></tr>
   <tr><td>EV</td><td>30/04</td><td>Edição vídeo Influ — Semana 4</td></tr>
-  <tr><td>SM</td><td>30/04</td><td>Dia do Trabalho</td></tr>
+  <tr><td>SM</td><td>30/04</td><td><a href="https://app.ekyte.com/#/tasks/list/9026377/edit">Dia do Trabalho</a></td></tr>
 </table>
 
-<h3>Detalhe de entregas — Maio</h3>
+<h3>Detalhe de entregas — Maio <span class="prov">[Ekyte · projeto <a href="https://app.ekyte.com/#/projects/287420/edit">#287420</a>]</span></h3>
 <table>
   <tr><th colspan="3" class="type-header">MAIO / 2026</th></tr>
   <tr><th>Tipo</th><th>Data</th><th>Entrega</th></tr>
-  <tr><td>PC</td><td>05-08/05</td><td>Refazer Plano de Mídia, Otimizar seguidores, Rodar campanhas Paraná, Ajustar duplicação leads, Passar Google Ads p/ Website</td></tr>
+  <tr><td>PC</td><td>05-08/05</td><td>Refazer Plano de Mídia · Otimizar seguidores · Rodar campanhas Paraná · <a href="https://app.ekyte.com/#/tasks/list/9218644/edit">Passar Google Ads p/ Website</a></td></tr>
   <tr><td>EV</td><td>07-28/05</td><td>Edição vídeo Influ — Semanas 1, 2, 4 (+ reentrega Abril S4)</td></tr>
   <tr><td>CA</td><td>06/05</td><td>Anúncios Goiânia</td></tr>
-  <tr><td>PA</td><td>08/05</td><td>Pauta Maio 1ª e 2ª semana</td></tr>
-  <tr><td>SM</td><td>08-21/05</td><td>Dia das Mães, Selo Receita Sintonia, Post RIOFW, Dia da Costureira</td></tr>
-  <tr><td>AN</td><td>11/05</td><td>Análise dos vídeos da Influ</td></tr>
-  <tr><td>CA</td><td>13-20/05</td><td>Anúncios Camisaria, Anúncios Perfuratta</td></tr>
+  <tr><td>PA</td><td>08/05</td><td><a href="https://app.ekyte.com/#/tasks/list/9026380/edit">Pauta Maio 1ª semana</a> · <a href="https://app.ekyte.com/#/tasks/list/9026381/edit">2ª semana</a></td></tr>
+  <tr><td>SM</td><td>08-21/05</td><td>Dia das Mães · <a href="https://app.ekyte.com/#/tasks/list/9250317/edit">Selo Receita Sintonia</a> · <a href="https://app.ekyte.com/#/tasks/list/9234286/edit">Post RIOFW</a> · <a href="https://app.ekyte.com/#/tasks/list/9026378/edit">Dia da Costureira</a></td></tr>
+  <tr><td>AN</td><td>11/05</td><td><a href="https://app.ekyte.com/#/tasks/list/9234232/edit">Análise dos vídeos da Influ</a></td></tr>
+  <tr><td>CA</td><td>13-20/05</td><td><a href="https://app.ekyte.com/#/tasks/list/8856783/edit">Anúncios Camisaria</a> · Anúncios Perfuratta</td></tr>
   <tr><td>GP</td><td>15/05</td><td>Implementação do Growthpack</td></tr>
-  <tr><td>OTM</td><td>20/05</td><td>Revisar estrutura Meta Ads (não está gastando)</td></tr>
-  <tr><td>PA</td><td>21-25/05</td><td>Pauta Junho Copy, Pauta Maio 4ª semana</td></tr>
+  <tr><td>OTM</td><td>20/05</td><td><a href="https://app.ekyte.com/#/tasks/list/9361119/edit">Revisar estrutura Meta Ads (não está gastando)</a></td></tr>
+  <tr><td>PA</td><td>21-25/05</td><td><a href="https://app.ekyte.com/#/tasks/list/9026379/edit">Pauta Junho Copy</a> · <a href="https://app.ekyte.com/#/tasks/list/9026383/edit">Pauta Maio 4ª semana</a></td></tr>
   <tr><td>EKT</td><td>27/05</td><td>Organização/Acompanhamento Ekyte</td></tr>
 </table>
 
-<h3>Detalhe de entregas — Junho</h3>
+<h3>Detalhe de entregas — Junho <span class="prov">[Ekyte · projeto <a href="https://app.ekyte.com/#/projects/287432/edit">#287432</a>]</span></h3>
 <table>
   <tr><th colspan="3" class="type-header">JUNHO / 2026</th></tr>
   <tr><th>Tipo</th><th>Data</th><th>Entrega</th></tr>
-  <tr><td>PA</td><td>01-12/06</td><td>Pauta Junho 1ª-4ª semana, Pauta Julho Completa</td></tr>
-  <tr><td>SM</td><td>03/06</td><td>Post Corpus Christi</td></tr>
+  <tr><td>PA</td><td>01-12/06</td><td><a href="https://app.ekyte.com/#/tasks/list/9026366/edit">Pauta Junho Copy</a> · <a href="https://app.ekyte.com/#/tasks/list/9026367/edit">1ª semana</a> · <a href="https://app.ekyte.com/#/tasks/list/9026368/edit">2ª</a> · <a href="https://app.ekyte.com/#/tasks/list/9026369/edit">3ª</a> · <a href="https://app.ekyte.com/#/tasks/list/9026370/edit">4ª</a> · Pauta Julho</td></tr>
+  <tr><td>SM</td><td>03/06</td><td><a href="https://app.ekyte.com/#/tasks/list/9510303/edit">Post Corpus Christi</a></td></tr>
   <tr><td>EV</td><td>04-25/06</td><td>Edição vídeo Influ — Semanas 1, 3 (+ reentrega Maio S4)</td></tr>
-  <tr><td>CA</td><td>08/06</td><td>Anúncios Remarketing Nordeste</td></tr>
+  <tr><td>CA</td><td>08/06</td><td><a href="https://app.ekyte.com/#/tasks/list/9482897/edit">Anúncios Remarketing Nordeste</a></td></tr>
   <tr><td>OTM</td><td>10/06</td><td>Pausar campanhas com CPL alto e testar novos criativos</td></tr>
   <tr><td>OTM</td><td>11/06</td><td>Otimizar campanhas Google Ads VLO</td></tr>
   <tr><td>OTM</td><td>13/06</td><td>Criar campanha Google Ads região Sul, Validar testes Ceará</td></tr>
   <tr><td>OTM</td><td>18/06</td><td>Filtro de Segmentação B2B — Donos de Marca [IA]</td></tr>
   <tr><td>GP</td><td>18/06</td><td>Configurar Microsoft Clarity [IA]</td></tr>
   <tr><td>OTM</td><td>19/06</td><td>Padronizar Nomenclaturas e Raio Geográfico — Grande Fortaleza [IA]</td></tr>
-  <tr><td>CA</td><td>23/06</td><td>Anúncios Paraná</td></tr>
-  <tr><td>Site</td><td>30/06</td><td>Atualização conteúdo site — Adicionar dobra</td></tr>
+  <tr><td>CA</td><td>23/06</td><td><a href="https://app.ekyte.com/#/tasks/list/9026371/edit">Anúncios Paraná</a></td></tr>
+  <tr><td>Site</td><td>30/06</td><td><a href="https://app.ekyte.com/#/tasks/list/9543823/edit">Atualização conteúdo site — Adicionar dobra</a></td></tr>
 </table>
-
-<div class="slot">⚠ SLOT: SLA por tipo, tarefas atrasadas, anomalias — requer cockpit deliveries_* (indisponível).</div>
 
 <!-- ===== SEÇÃO 7 ===== -->
 <h2>7. Cliente — Q2/2026</h2>
 
-<h3>7a. Síntese de sentimento no quarter <span class="prov">[IA · BigQuery Calls + WhatsApp]</span></h3>
-<div class="slot">⚠ SLOT: BigQuery Calls não conectado. Preencher com percepção das interações registradas no grupo de WhatsApp "VLO TEXTIL & V4 Company" e do ROPRE Q1 já entregue em abril.</div>
+<h3>7a. Síntese de sentimento no quarter <span class="prov">[Cockpit · WhatsApp 2026-07-09 + Call 2026-06-09]</span></h3>
+<div class="safe">
+  <b>WhatsApp (análise 2026-07-09):</b> "Atendimento diário realizado com report de conteúdos para aprovação, atualizações sobre anúncios e vídeo, e análise da planilha. Sem riscos ou reclamações evidentes." Status: <b>Seguro</b>. <span class="prov">[Cockpit whatsapp_group_sentiment_synthesis]</span>
+</div>
+<div class="note">
+  <b>Call 2026-06-09 — Síntese IA:</b> "Clima colaborativo com elogios ao atendimento, mas cliente relatou vários erros em copies/criativos já publicados, gerando broncas internas. Tráfego e resultados bons; processos ok com pequenos atritos." Score geral: 7/10. Scores por vertical: Tráfego 8 · Tasks 6 · Copy 5 · Design 5 · Social 6. <span class="prov">[Cockpit call_transcription_summary_reasoning]</span>
+</div>
+<div class="slot">⚠ SLOT: verbatim literal da transcrição da call — BigQuery não conectado. O resumo acima é síntese IA do Cockpit.</div>
 
-<h3>7b. O que o CLIENTE disse <span class="prov">[só speaker cliente · BigQuery]</span></h3>
-<div class="slot">⚠ SLOT: transcrições não disponíveis via BigQuery. Contato principal: Flavio (flavio@vloentretelas.com.br). Preencher na reunião.</div>
+<h3>7b. O que o CLIENTE disse <span class="prov">[só speaker cliente]</span></h3>
+<p>Contato principal: Flávio (flavio@vloentretelas.com.br)</p>
+<div class="slot">⚠ SLOT: verbatim literal do cliente — transcrições BigQuery não disponíveis. Preencher na reunião com citações diretas do cliente.</div>
+<p style="font-size:12px;color:#555;"><b>Sinal da call 2026-06-09:</b> Cliente apontou erros em copies/criativos publicados (incidents_qa_bool=true). Elogios ao atendimento. Não há transcrição literal disponível para extração de verbatim.</p>
 
 <h3>7c. Conquistas do quarter (time V4) <span class="prov">[dados objetivos]</span></h3>
-<p><b>Conquistas objetivas do quarter</b></p>
 <ul>
-  <li>Reestruturação completa de campanhas Meta e Google Ads em abril, base para o quarter <span class="prov">[Ekyte]</span></li>
+  <li>Reestruturação completa de campanhas Meta e Google Ads em abril — base para o quarter <span class="prov">[<a href="https://app.ekyte.com/#/tasks/list/9026354/edit">Ekyte #9026354</a> + <a href="https://app.ekyte.com/#/tasks/list/9026355/edit">#9026355</a>]</span></li>
   <li>Google Ads otimizado para CPL 2,5× melhor que Meta, com expansão geográfica testada (Paraná, Ceará, Sul, Goiânia) <span class="prov">[Growth Pack CSV + Ekyte]</span></li>
-  <li>Taxa de qualificação (MQL→SQL) acima da meta nos 3 meses do quarter <span class="prov">[Growth Pack CSV]</span></li>
+  <li>Taxa MQL→SQL acima da meta nos 3 meses do quarter (30-41% vs meta 25%) <span class="prov">[Growth Pack CSV]</span></li>
   <li>Implementação do Growthpack e Microsoft Clarity — infraestrutura de dados reforçada <span class="prov">[Ekyte]</span></li>
   <li>79 entregas realizadas no quarter (pautas, criativos, vídeos de influenciador, otimizações) <span class="prov">[Ekyte]</span></li>
-  <li>Filtro de segmentação B2B e padronização de nomenclaturas implementados em junho — maturidade de estrutura de campanha <span class="prov">[Ekyte]</span></li>
+  <li>Filtro de segmentação B2B e padronização de nomenclaturas implementados em junho <span class="prov">[Ekyte]</span></li>
+  <li>Conjunto [P:INTERESSE] Vestuário | Sul ativo com leads nos 3 meses — consistência ao longo do quarter <span class="prov">[Planilha UTM]</span></li>
 </ul>
-<p><b>Na call (time V4)</b></p>
-<div class="slot">⚠ SLOT: verbatim da equipe V4 nas calls — BigQuery indisponível.</div>
+<div class="slot">⚠ SLOT: verbatim do time V4 nas calls — BigQuery indisponível.</div>
 
-<h3>7d. Apoio quantitativo <span class="prov">[Cockpit]</span></h3>
-<div class="slot">⚠ SLOT: CSAT/NPS, sentiment score — Cockpit indisponível (401).</div>
+<h3>7d. Apoio quantitativo <span class="prov">[Cockpit · CSAT/NPS 2026-06-02]</span></h3>
+<table>
+  <tr><th>Indicador</th><th class="n">Valor</th><th>Referência</th></tr>
+  <tr><td>NPS</td><td class="n ok"><b>9</b></td><td>Promotor</td></tr>
+  <tr><td>MHS (Most Heartfelt Score)</td><td class="n bad">Muito desapontado</td><td>Pergunta: o que sentiria se não pudesse usar a V4?</td></tr>
+  <tr><td>CSAT V4 (geral)</td><td class="n warn">4/5</td><td></td></tr>
+  <tr><td>CSAT Atendimento</td><td class="n ok">5/5</td><td></td></tr>
+  <tr><td>CSAT Campanhas</td><td class="n ok">5/5</td><td></td></tr>
+  <tr><td>CSAT Copy</td><td class="n warn">4/5</td><td>Consistent com incidents_qa na call</td></tr>
+  <tr><td>CSAT Design</td><td class="n warn">4/5</td><td></td></tr>
+  <tr><td>CSAT Prazo</td><td class="n ok">5/5</td><td></td></tr>
+  <tr><td>CSAT Resultados</td><td class="n ok">5/5</td><td></td></tr>
+  <tr><td>Score call (sentimento geral)</td><td class="n warn">7/10</td><td>Call 2026-06-09</td></tr>
+</table>
+<div class="note">
+  <b>Leitura:</b> NPS 9 (Promotor) com MHS "Muito desapontado" é uma combinação que indica cliente que vê valor mas que ainda não sente a V4 como insubstituível. Copy e Design com 4/5 são consistentes com o relato de erros em criativos publicados. Atendimento, Campanhas, Prazo e Resultados com 5/5 são pontos fortes a preservar.
+</div>
 
 <!-- ===== SEÇÃO 8 ===== -->
 <h2>8. Aprendizados &amp; Ações — por integrante</h2>
@@ -352,61 +449,57 @@
   <tr><th style="width:50%;">Problemas (auto)</th><th>Soluções / Ações (time)</th></tr>
 
   <!-- PAID MEDIA -->
-  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Paid Media Specialist</b></td></tr>
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Paid Media Specialist — Matheus Alencar</b></td></tr>
   <tr>
     <td>Volume de leads em 39% da meta do quarter (128 de 330 projetados). Meta Ads, principal canal de verba (79%), tem CPL 2,5× pior que Google. <span class="prov">[Growth Pack CSV]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>Investimento total do quarter ficou 33% abaixo do projetado (R$11.526 vs R$17.280) — verba não totalmente utilizada, especialmente em Meta Ads ("não está gastando", task de maio). <span class="prov">[Breakeven + Ekyte]</span></td>
+    <td>Investimento total 33% abaixo do projetado (R$11.526 vs R$17.280) — verba não totalmente utilizada, especialmente Meta Ads ("não está gastando"). <span class="prov">[Breakeven + <a href="https://app.ekyte.com/#/tasks/list/9361119/edit">Ekyte #9361119</a>]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>CPL do Meta piorou todo mês (R$110 → R$108 → R$145), enquanto Google se manteve estável e mais barato (R$41-53). Considerar realocar mais verba para Google. <span class="prov">[Growth Pack CSV]</span></td>
+    <td>CPL do Meta piorou todo mês (R$110 → R$108 → R$145), enquanto Google se manteve estável (R$41-53). Considerar realocar mais verba para Google. <span class="prov">[Growth Pack CSV]</span></td>
+    <td class="slot">Ação proposta: __________</td>
+  </tr>
+
+  <!-- DESIGNER / COPY -->
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Designer (Ana Beatriz) / Copy (Felipe Pinheiro)</b></td></tr>
+  <tr>
+    <td>Cliente relatou erros em copies/criativos já publicados (incidents_qa_bool = true na call de 09/06), gerando broncas internas. CSAT Copy e Design em 4/5. <span class="prov">[Cockpit call 2026-06-09]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
 
   <!-- AM / CRM -->
-  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Account Manager / CRM</b></td></tr>
+  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Account Manager / CRM — Thaily Serodio</b></td></tr>
   <tr>
-    <td>60% dos leads do quarter (82 de 136) estão parados em "Aguardando" sem ação comercial visível. Apenas 1,5% converteu. Gargalo claramente no processo comercial, não na geração de demanda. <span class="prov">[Planilha de Leads]</span></td>
+    <td>60% dos leads do quarter (82 de 136) estão parados em "Aguardando" sem critério definido de quando encerrar tentativas. Cliente mantém todos por estratégia de "sempre tentar de novo depois de um tempo" — pipeline inflado sem visibilidade real de oportunidades ativas. <span class="prov">[Planilha de Leads + AM]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>38 SQLs gerados resultaram em apenas 3 vendas confirmadas (~8% SQL→Venda) — receita de R$7.270,77 vs R$90.000 projetados (8%). ROAS aproximado de 0,63 sobre o investimento de R$11.525,79. <span class="prov">[Planilha de Leads — aba Convertidos]</span></td>
+    <td>38 SQLs gerados resultaram em apenas 3 vendas confirmadas (~8% SQL→Venda). Receita R$7.270,77 vs R$90.000 projetados (8%). ROAS ≈ 0,63 — conversa necessária sobre retorno financeiro real do Q2. <span class="prov">[Planilha de Leads — aba Convertidos]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>Qualidade de dado da planilha de leads questionável: tasks de correção de "coluna origem" e "duplicação" em abril/maio indicam histórico de erro de rastreamento. <span class="prov">[Ekyte]</span></td>
+    <td>Acompanhamento comercial desativado no Cockpit — "cliente não tem interesse em vendas e se incomoda com o acompanhamento". Isso impede visibilidade de funil e rastreio de vendas em tempo real. <span class="prov">[Cockpit deliveries_commercial_tracking_bool=false]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>Critério de MQL divergente entre planilha de leads (100% marcado como Sim) e Growth Pack (taxa variável 62-105%) — falta de alinhamento de definição entre ferramentas. <span class="prov">[divergência identificada]</span></td>
-    <td class="slot">Ação proposta: __________</td>
-  </tr>
-
-  <!-- COORDENADOR -->
-  <tr><td colspan="2" style="background:#e30613;color:#fff;"><b>Coordenadora — Thaily Serodio</b></td></tr>
-  <tr>
-    <td>Cockpit inacessível (HTTP 401) — sem health score, equipe, flag, CSAT/NPS para a reunião. Reconectar MCP antes da próxima retrospectiva. <span class="prov">[erro de ferramenta]</span></td>
+    <td>Qualidade de dado da planilha de leads: tasks de correção de "coluna origem" e "duplicação" em abril indicam rastreamento de origem não confiável historicamente. <span class="prov">[<a href="https://app.ekyte.com/#/tasks/list/9092698/edit">Ekyte #9092698</a> + <a href="https://app.ekyte.com/#/tasks/list/9092667/edit">#9092667</a>]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>Planilha Breakeven desatualizada desde fevereiro — sem coluna "Realizado" para Q2. Atualizar processo de preenchimento mensal junto ao cliente/comercial. <span class="prov">[Breakeven CSV — confirmado pela coordenadora]</span></td>
+    <td>Venda da "ivana oliveira silva" (R$908,00, Google Ads) sem data de fechamento registrada — não confirmado se é Q2. Cobrar preenchimento de data em toda conversão futura. <span class="prov">[Planilha de Leads — dado incompleto]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
   <tr>
-    <td>ROAS do quarter abaixo de 1 (0,63) — investimento em mídia (R$11.525,79) maior que a receita gerada (R$7.270,77). Conversa difícil mas necessária com o cliente sobre retorno financeiro real do Q2. <span class="prov">[Planilha de Leads — aba Convertidos]</span></td>
-    <td class="slot">Ação proposta: __________</td>
-  </tr>
-  <tr>
-    <td>Venda da "ivana oliveira silva" (R$908,00, Google Ads) sem data de fechamento registrada na planilha — não foi possível confirmar se pertence ao Q2. Cobrar preenchimento de data em toda conversão futura. <span class="prov">[Planilha de Leads — dado incompleto]</span></td>
+    <td>Planilha Breakeven desatualizada desde fevereiro — sem coluna "Realizado" para Q2. Atualizar processo de preenchimento mensal. <span class="prov">[Breakeven CSV]</span></td>
     <td class="slot">Ação proposta: __________</td>
   </tr>
 </table>
 
 <hr style="margin-top:32px;">
-<p style="font-size:10px;color:#aaa;">Gerado em: 2026-06-28 · skill: cs-retrospectiva-ropre-quarter v1.1.3 · fontes: Growth Pack CSV, Breakeven CSV (projeção, desatualizado), Planilha de Leads, Ekyte MCP (workspace 103770) · Cockpit: indisponível (HTTP 401) · NEKT: indisponível (documentId ausente) · BigQuery: não conectado</p>
+<p style="font-size:10px;color:#aaa;">Gerado em: 2026-07-10 · skill: cs-retrospectiva-ropre-quarter v1.1.3 · fontes: Growth Pack CSV, Breakeven CSV (projeção), Planilha de Leads UTM, Ekyte MCP (workspace 103770), Cockpit (documentId: bby7i7txkod6ir6ekui5dmwq) · NEKT: não conectado · BigQuery: não conectado</p>
 
 </body>
 </html>
